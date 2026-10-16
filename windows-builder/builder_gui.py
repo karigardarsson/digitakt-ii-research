@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import sys
 import threading
+import time
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
@@ -112,15 +113,18 @@ class BuilderWindow:
         self.status.set(message)
         self.progress["value"] = PROGRESS_BY_MESSAGE.get(message, self.progress["value"])
 
+    def _begin_progress(self):
+        self.progress["value"] = 0
+        self._set_busy(True)
+        self.status.set("Starting…")
+
     def start_build(self):
         stock = self.stock.get().strip()
         output = self.output.get().strip()
         if not output and stock:
             output = str(default_output_path(Path(stock)))
             self.output.set(output)
-        self.progress["value"] = 0
-        self._set_busy(True)
-        self.status.set("Starting…")
+        self._begin_progress()
         threading.Thread(target=self._worker, args=(stock, output), daemon=True).start()
 
     def _worker(self, stock: str, output: str):
@@ -178,17 +182,37 @@ def main() -> int:
         root = tk.Tk()
         root.withdraw()
         window = BuilderWindow(root)
-        window.progress["value"] = 73
-        window.progress["value"] = 0
-        window._update_progress("Writing verified output…")
-        window._set_busy(False)
-        window.progress["value"] = 100
-        window.status.set("Success: test.syx")
-        root.update_idletasks()
-        passed = (
-            int(float(window.progress["value"])) == 100
-            and window.status.get() == "Success: test.syx"
+        observations = {}
+        original_info = messagebox.showinfo
+        original_error = messagebox.showerror
+        messagebox.showinfo = lambda *_args, **_kwargs: observations.update(
+            success_value=int(float(window.progress["value"])),
+            success_status=window.status.get(),
         )
+        messagebox.showerror = lambda *_args, **_kwargs: observations.update(
+            error_value=int(float(window.progress["value"])),
+            error_status=window.status.get(),
+        )
+        window.progress["value"] = 73
+        window._finished_error("test failure")
+        window.progress["value"] = 73
+        window._begin_progress()
+        reset_value = int(float(window.progress["value"]))
+        window._update_progress("Writing verified output…")
+        window._finished_ok({"path": "test.syx"})
+        deadline = time.monotonic() + 1.0
+        while "success_value" not in observations and time.monotonic() < deadline:
+            root.update()
+            time.sleep(0.01)
+        passed = all((
+            observations.get("error_value") == 0,
+            observations.get("error_status") == "test failure",
+            reset_value == 0,
+            observations.get("success_value") == 100,
+            observations.get("success_status") == "Success: test.syx",
+        ))
+        messagebox.showinfo = original_info
+        messagebox.showerror = original_error
         root.destroy()
         return 0 if passed else 3
     root = tk.Tk()
