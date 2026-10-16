@@ -1,0 +1,206 @@
+{
+  "kind": "quarantined DT2 DV V5.1 clean-label overlay",
+  "device": "Elektron Digitakt II",
+  "os": "1.16",
+  "stock_syx_sha256": "278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec",
+  "stock_main_sha256": "57bb4dfa8df07d846adc72fdb4fb0d3cd3c5680c524bf498338460207e008e7d",
+  "cave": {
+    "start": "0x403117c4",
+    "end": "0x40312000",
+    "capacity": 2108,
+    "payload_end": "0x40311fb2",
+    "payload_bytes": 2030,
+    "free_before_pointer": 50,
+    "pointer_word": "0x40311ff0",
+    "bundle_sha256": "b600e5ae92cced79c14311a5fa4f74e301f68b6d5454f837936fdb7a7ae46d4e",
+    "free_before_latches": 50,
+    "latch_bytes": 12
+  },
+  "parts": {
+    "native_dv_alloc": {
+      "start": "0x40311840",
+      "bytes": 874,
+      "end": "0x40311baa",
+      "sha256": "3e6e7cdbf73eb62ef7b2d9e28b758b182d6ac214272c945d4ae1e80b12313bc6"
+    },
+    "native_trampoline_cave": {
+      "start": "0x40311bb0",
+      "bytes": 72,
+      "end": "0x40311bf8",
+      "sha256": "a0dc917b0f50fa706c96b8e8ea3ad8bf4e305b7e98b9253407f591c23c78f90a"
+    },
+    "native_gate": {
+      "start": "0x40311c00",
+      "bytes": 40,
+      "end": "0x40311c28",
+      "sha256": "d7d3447cf3ebdc84c7b0c767814dc1834060db2739884aa91084111d008fd9ac"
+    },
+    "clamp": {
+      "start": "0x40311c30",
+      "bytes": 32,
+      "end": "0x40311c50",
+      "sha256": "bfcd053373d3511fedba20b8c6d4f9350f966ac64a817c9eb11d442f34c295d3"
+    },
+    "wave_status_formatter_v4_tail": {
+      "start": "0x40311f3e",
+      "end": "0x40311fb2",
+      "bytes": 116,
+      "sha256": "97d2bfd195e4fd7fa8af926d8d786fc6eca2020d16507be85a9d3a9fe8d9a255",
+      "allocation_end": "0x40311fe4"
+    },
+    "wave_status_formatter_v4_pending": {
+      "start": "0x403117c4",
+      "end": "0x40311822",
+      "bytes": 94,
+      "sha256": "6951e816fa88b684a82f7eeb3a784860859a68890cdc128a437f1e9ac5656583",
+      "allocation_end": "0x40311840"
+    },
+    "startup_common_v5": {
+      "start": "0x40311d20",
+      "end": "0x40311dc6",
+      "bytes": 166,
+      "sha256": "04b8faebef57ba43618f393ea617bb2c7377bcd98b0e16b4467d1cba786072f5",
+      "allocation_end": "0x40311f3e"
+    },
+    "wave_formatter_v51": {
+      "start": "0x40311c50",
+      "end": "0x40311c92",
+      "bytes": 66,
+      "sha256": "3f247f9f513c6652fc49aaaa85070789f8f04735ce12fa027e711a713aaf82c9"
+    },
+    "retained_inactive_v4_formatter_bytes": {
+      "start": "0x40311c92",
+      "end": "0x40311d12",
+      "bytes": 128,
+      "reachable": false,
+      "note": "retained byte-for-byte to minimize the V5.1 delta"
+    }
+  },
+  "patches": [
+    {
+      "name": "startup_common",
+      "address": "0x40033948",
+      "bytes": 6,
+      "stock": "4eb9400c14dc",
+      "overlay": "4eb940311d20"
+    },
+    {
+      "name": "clamp",
+      "address": "0x401393c6",
+      "bytes": 8,
+      "stock": "7e06be836c027606",
+      "overlay": "4ef940311c304e71"
+    },
+    {
+      "name": "gate",
+      "address": "0x40139520",
+      "bytes": 8,
+      "stock": "4a1267044a816768",
+      "overlay": "4ef940311c004e71"
+    },
+    {
+      "name": "dispatch",
+      "address": "0x40139528",
+      "bytes": 6,
+      "stock": "7e06be836728",
+      "overlay": "4ef940311bb0"
+    },
+    {
+      "name": "lfo1_wave_max",
+      "address": "0x4021041c",
+      "bytes": 4,
+      "stock": "00000600",
+      "overlay": "00000800"
+    },
+    {
+      "name": "lfo1_wave_formatter",
+      "address": "0x40210444",
+      "bytes": 4,
+      "stock": "400e1a04",
+      "overlay": "40311c50"
+    },
+    {
+      "name": "lfo2_wave_max",
+      "address": "0x40210674",
+      "bytes": 4,
+      "stock": "00000600",
+      "overlay": "00000800"
+    },
+    {
+      "name": "lfo2_wave_formatter",
+      "address": "0x4021069c",
+      "bytes": 4,
+      "stock": "400e1a04",
+      "overlay": "40311c50"
+    },
+    {
+      "name": "lfo3_wave_max",
+      "address": "0x402108cc",
+      "bytes": 4,
+      "stock": "00000600",
+      "overlay": "00000800"
+    },
+    {
+      "name": "lfo3_wave_formatter",
+      "address": "0x402108f4",
+      "bytes": 4,
+      "stock": "400e1a04",
+      "overlay": "40311c50"
+    }
+  ],
+  "total_static_patch_bytes": 2082,
+  "branch_model": "absolute startup/clamp/gate/dispatch jumps; linked native call; absolute formatter tail-jump",
+  "flashing_supported": false,
+  "base_v1_overlay_sha256": "775cb1e751aeb505971ff1270474b80bf59271eefd10e5c73c8b84cc6dc3cc25",
+  "base_v1_manifest_sha256": "d6cb903070627d891e1b63e74002768e2ff3493b67f6000b7ddfd38b7566e5dc",
+  "diagnostic": {
+    "wave7": "native DV-F through 0x40311bb0",
+    "wave8_hook_unseen": "stock SINE (1)",
+    "wave8_malloc_zero": "stock SQR (2)",
+    "wave8_pointer_lost": "stock SAW (3)",
+    "wave8_unexpected": "stock RAMP (5)",
+    "wave8_valid_pointer": "unchanged native DV at 0x40311840",
+    "wave8_visual": "disabled; WAVE 8 label restored to DV-T",
+    "formatter": "0x40311c50",
+    "startup": "0x40311d20",
+    "dispatch": "0x40311bb0",
+    "latches": {
+      "hook_seen": "0x40311fe4",
+      "malloc_result": "0x40311fe8",
+      "publish_ok": "0x40311fec",
+      "pointer": "0x40311ff0"
+    },
+    "wave8": "native DV-T through 0x40311bb0"
+  },
+  "base_v2_overlay_sha256": "57efc33d26b623399426a42d9fa23925a46571e1ba3ebc5510971b8790ffcafd",
+  "base_v2_manifest_sha256": "96a4296c73c7df6e8842a1de3f47fe8240c9f6345d4e96fccb02490b037ca39d",
+  "base_v3_overlay_sha256": "c79d33aae849d6b5b0f009098a47e76bd05a8fe3e02321c44fc3f7f03ec6c4d2",
+  "base_v3_manifest_sha256": "0ad5947ddca97b2a19798bd2e7487492d918ac1b94c9ce594014e2773c4de60a",
+  "base_v4_overlay_sha256": "492be1131bc8a3c762a1b9fe9e29579c50008224a170b48cef6dc6b85426389f",
+  "base_v4_manifest_sha256": "012ac8cdc9988f8697273e2de9fc5993d8987556bf4feee8c68ca160f7bcabf8",
+  "base_v4_candidate_sha256": "6d8e8387fdbf8f10b09def685f4140bf3fde7998c4b2fb95ef03f0419a1a1e19",
+  "initialization": {
+    "old_hook": "removed; stock bytes retained at 0x40133646",
+    "common_callsite": "0x40033948",
+    "stock_callee": "0x400c14dc",
+    "initializer": "0x40311d20",
+    "allocator": "0x4011e674",
+    "allocation_bytes": 8192,
+    "idempotent": true,
+    "failure_retry": "pointer remains -1; a repeated call retries"
+  },
+  "base_v5_overlay_sha256": "6e305614370d7c3975cbcd26db6eb5d976cd6461cc18e38d21e374352a5c6c94",
+  "base_v5_manifest_sha256": "a6b8ce7710ed6821ecf9a31f2b2cccb596b7108194002e14425dc208af4043fa",
+  "base_v5_candidate_sha256": "97dd5b57f279c26f573d52abf6428c2e2ef33af1bf61e453b74e3f2004835a85",
+  "formatter_delta": {
+    "start": "0x40311c50",
+    "end": "0x40311c92",
+    "bytes": 66,
+    "labels": {
+      "0x700": "DV-F",
+      "0x800": "DV-T"
+    },
+    "diagnostic_latches_retained": true,
+    "visual_diagnostic_removed": true
+  }
+}

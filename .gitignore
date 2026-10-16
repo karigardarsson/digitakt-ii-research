@@ -1,6 +1,7 @@
 # Proprietary and generated material must never be published.
 *.syx
 *.bin
+!windows-builder/resources/dv-v51-overlay.bin
 *.elf
 *.o
 *.snap
@@ -21,6 +22,11 @@ images/
 __pycache__/
 *.py[cod]
 .venv/
+windows-builder/.build-deps/
+windows-builder/build/
+windows-builder/dist/
+windows-builder/native/
+windows-builder/test-work/
 .env
 .env.*
 *.pem
