@@ -19,9 +19,21 @@ No Python, Git, WSL, terminal, internet connection, or administrator rights are 
 - Required base: **official OS 1.16 only**
 - Required stock SHA-256: 278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec
 - Generated V5.1 SHA-256: d9fe67b3778ce5d31aaaa807e6e43ac1929d0f36a10c393adc0a8c590c547835
-- Official firmware source: [Elektron Support & Downloads](https://elektron.se/support-downloads) — select Digitakt II and download OS 1.16.
 
 The Windows executable is unsigned. Windows SmartScreen may show an unrecognized-app warning.
+
+## Get the required stock OS
+
+The builder accepts one stock file only:
+
+- File after extracting the Elektron download: `Digitakt_II_OS1.16.syx`
+- SHA-256: `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec`
+
+1. Open [Elektron Support & Downloads — Digitakt II](https://www.elektron.se/support-downloads/digitakt-ii).
+2. Under **Updates**, look for **Digitakt II OS 1.16**, download its official distribution ZIP, and extract `Digitakt_II_OS1.16.syx`.
+3. Before selecting it in the builder, confirm both the filename and SHA-256 above.
+
+Do not choose a newer OS. The official page currently lists OS 1.17, which the builder intentionally rejects. If OS 1.16 is not listed, use **Contact Support** at the bottom of that same official Digitakt II page and request the original Digitakt II OS 1.16 download. Do not use a mirror or substitute version.
 
 ## Controls
 
