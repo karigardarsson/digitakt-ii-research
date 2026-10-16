@@ -72,6 +72,15 @@ Elektron's normal update instructions are available at [How to update your devic
 
 No official Elektron firmware, extracted firmware section, emulator snapshot, generated firmware, sample library, or credential is stored in this repository.
 
+## Credits & acknowledgements
+
+- [Mutable Instruments — Marbles](https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/) inspired the Déjà Vu random-loop concept. No Marbles code is included here.
+- [Bezronczek — Syntakt Firmware Workbench](https://github.com/Bezronczek/syntakt-firmware-workbench) provided the DV-F/DV-T behavioral reference. Its MIT-licensed implementation informed the behavior; Digitakt II uses its own native ColdFire implementation adapted to the Digitakt II LFO architecture.
+- [ElekLabs — digikit](https://github.com/ElekLabs/digikit) (AGPL-3.0) provided reverse-engineering and emulation infrastructure during research and development. It is development tooling and is not bundled in the Windows application.
+- [mischa85 — elektron-firmware-tool](https://github.com/mischa85/elektron-firmware-tool) provides the MIT-licensed firmware-container handling, compression, and repacking code used by the builder. Its pinned source and license notice are included under [`windows-builder/vendor/elektron-firmware-tool/`](windows-builder/vendor/elektron-firmware-tool/).
+
+See [third-party notices](THIRD_PARTY_NOTICES.md) for the redistribution boundaries and attribution details. These acknowledgements do not imply collaboration, approval, or endorsement by any named project, author, or company.
+
 ## Evidence levels
 
 | Level | Meaning |
