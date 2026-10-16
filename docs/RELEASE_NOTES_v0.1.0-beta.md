@@ -17,6 +17,10 @@ MODE selects 2, 4, 8, 16, or 32 steps. SPH controls refresh, lock, and reorder b
 
 The builder contains no Elektron firmware and performs no USB/MIDI transmission or flashing. It accepts only stock OS 1.16 SHA-256 `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec` and writes only the exact tested V5.1 result SHA-256 `d9fe67b3778ce5d31aaaa807e6e43ac1929d0f36a10c393adc0a8c590c547835`.
 
+Windows ZIP SHA-256: `f9669074bebe6f3a8e8b393deb12f93deb8e3747ed3f8d48cfb911fbff9f90b1`
+
+Builder EXE SHA-256: `1529456ff4369306d5a0abc9571ffca4cf1232f27e7763ca07489c29e3f2cfc6`
+
 ## Hardware evidence
 
 V5.1 was generated with the Windows builder and tested on Digitakt II hardware: normal boot, clean DV-F/DV-T labels, audible modulation from both waveforms, DV-T repeat/retrigger behavior, and working stock LFO waveforms were observed.
