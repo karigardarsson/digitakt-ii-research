@@ -2,6 +2,7 @@
 *.syx
 *.bin
 !windows-builder/resources/dv-v51-overlay.bin
+!windows-builder/resources/dv-v51-os117-overlay.bin
 *.elf
 *.o
 *.snap

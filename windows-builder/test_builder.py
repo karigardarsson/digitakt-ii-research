@@ -16,10 +16,19 @@ def test_directory():
 
 class BuilderValidationTests(unittest.TestCase):
     def test_resource_integrity(self):
-        tool, overlay, manifest = core._load_resources()
-        self.assertTrue(tool.is_file())
-        self.assertEqual(core.hashlib.sha256(overlay).hexdigest(), core.OVERLAY_SHA256)
-        self.assertEqual(manifest["device"], "Elektron Digitakt II")
+        for version, profile in core.PROFILES.items():
+            with self.subTest(version=version):
+                tool, overlay, manifest = core._load_resources(profile)
+                self.assertTrue(tool.is_file())
+                self.assertEqual(core.hashlib.sha256(overlay).hexdigest(), profile.overlay_sha256)
+                self.assertEqual(manifest["device"], "Elektron Digitakt II")
+                self.assertEqual(manifest["os"], version)
+
+    def test_profiles_are_separate_and_hash_gated(self):
+        self.assertEqual(set(core.PROFILES), {"1.16", "1.17"})
+        self.assertEqual(len(core.PROFILES_BY_STOCK_HASH), 2)
+        self.assertNotEqual(core.PROFILES["1.16"].manifest_sha256, core.PROFILES["1.17"].manifest_sha256)
+        self.assertNotEqual(core.PROFILES["1.16"].output_sha256, core.PROFILES["1.17"].output_sha256)
 
     def test_missing_input(self):
         with test_directory() as name:
@@ -37,7 +46,7 @@ class BuilderValidationTests(unittest.TestCase):
         with test_directory() as name:
             source = Path(name) / "stock.syx"
             source.write_bytes(b"not firmware")
-            with self.assertRaisesRegex(core.BuildError, "not the verified official"):
+            with self.assertRaisesRegex(core.BuildError, "not a verified official"):
                 core.build_firmware(source, Path(name) / "out.syx")
 
     def test_input_cannot_be_output(self):

@@ -1,20 +1,19 @@
 # Installation
 
-This beta is for Digitakt II using the exact official OS 1.16 source file. Back up important projects, presets, and samples first.
+This beta is for Digitakt II using an exact official OS 1.17 or OS 1.16 source file. OS 1.17 is recommended. Back up important projects, presets, and samples first.
 
-1. Download the Windows builder from the v0.1.0-beta release.
-2. Open [Elektron Support & Downloads — Digitakt II](https://www.elektron.se/support-downloads/digitakt-ii). Under **Updates**, look for **Digitakt II OS 1.16**. Download its official distribution ZIP and extract `Digitakt_II_OS1.16.syx`.
-3. Confirm that the extracted file is named `Digitakt_II_OS1.16.syx` and that its SHA-256 is `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec`.
-4. The official page currently lists OS 1.17. Do not use it, or any other version: the builder intentionally rejects them. If OS 1.16 is absent, use **Contact Support** at the bottom of the same official Digitakt II page and request the original OS 1.16 download. Do not use a mirror.
-5. Run DT2-DejaVu-Builder.exe.
-6. Select the verified OS 1.16 .syx, choose an output location, and click **Build Déjà Vu**.
-7. Wait for the success message. The verified output SHA-256 is d9fe67b3778ce5d31aaaa807e6e43ac1929d0f36a10c393adc0a8c590c547835.
+1. Download the Windows builder from the v0.1.1-beta release.
+2. Open [Elektron Support & Downloads — Digitakt II](https://www.elektron.se/support-downloads/digitakt-ii), download the official OS distribution, and extract the `.syx`.
+3. Use OS 1.17 with SHA-256 `26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5`, or OS 1.16 with SHA-256 `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec`.
+4. Run `DT2-DejaVu-Builder.exe`.
+5. Select the stock `.syx` and confirm that the window detects the intended version.
+6. Choose an output location and click **Build Déjà Vu**.
+7. Wait for 100% and the success message. The verified output hash is shown in the release README.
 8. Connect Digitakt II directly by USB and open Elektron Transfer.
-9. Select Digitakt II for MIDI IN and MIDI OUT, then drop the generated .syx on the **DROP** page.
+9. Select Digitakt II for MIDI IN and MIDI OUT, then drop the generated `.syx` on the **DROP** page.
 10. Follow the prompts and confirm the update on the device.
 11. Keep power and USB connected until installation finishes and the instrument reboots.
 
 Official reference: [Elektron — How to update your device](https://support.elektron.se/support/solutions/articles/43000662890-how-to-update-your-device).
 
 The builder does not connect to Digitakt II, invoke Elektron Transfer, or install firmware.
-

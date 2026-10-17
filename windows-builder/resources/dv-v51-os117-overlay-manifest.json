@@ -1,0 +1,212 @@
+{
+  "kind": "quarantined DT2 DV V5.1 OS 1.17 port overlay",
+  "device": "Elektron Digitakt II",
+  "os": "1.17",
+  "stock_syx_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "stock_main_sha256": "a1e7b657b705eba1a19d81c33c1e11ba9c409816447ad74005d7bbf36da6d964",
+  "base_v51_overlay_sha256": "b600e5ae92cced79c14311a5fa4f74e301f68b6d5454f837936fdb7a7ae46d4e",
+  "base_v51_manifest_sha256": "d9084149c424485f8d8017ee6df986a1ba12791ed919f1eacf171a1c80711a14",
+  "cave_audit_sha256": "5a1a256fd1a3b12a39b2a2b4914551e47751786de02dcc29eab2679b72e9f4e3",
+  "cave_runtime_confirmation": {
+    "instructions": 60000000,
+    "checked": 527,
+    "failures": 0
+  },
+  "cave": {
+    "start": "0x403117c4",
+    "end": "0x40312000",
+    "capacity": 2108,
+    "payload_end": "0x40311fb2",
+    "payload_bytes": 2030,
+    "free_before_pointer": 50,
+    "pointer_word": "0x40311ff0",
+    "bundle_sha256": "2c29de1de21907148d3148ec15829aa9105240b4632675ef4620d3807fd78b4f",
+    "free_before_latches": 50,
+    "latch_bytes": 12
+  },
+  "parts": {
+    "native_dv_alloc": {
+      "start": "0x40311840",
+      "bytes": 874,
+      "end": "0x40311baa",
+      "sha256": "3e6e7cdbf73eb62ef7b2d9e28b758b182d6ac214272c945d4ae1e80b12313bc6"
+    },
+    "native_trampoline_cave": {
+      "start": "0x40311bb0",
+      "bytes": 72,
+      "end": "0x40311bf8",
+      "sha256": "2938244209139a2e454cb3bc315ddbfbc714ed0a8d2a99566b6663a2842e371c"
+    },
+    "native_gate": {
+      "start": "0x40311c00",
+      "bytes": 40,
+      "end": "0x40311c28",
+      "sha256": "19bd9de2902c90c3fe7d203947c373deb66da2b97eab88ce01f588b1a6606bb5"
+    },
+    "clamp": {
+      "start": "0x40311c30",
+      "bytes": 32,
+      "end": "0x40311c50",
+      "sha256": "661835f36e66215aaf7bfc514a6c43672294336f60b0c29ab32e0b41444fd199"
+    },
+    "wave_status_formatter_v4_tail": {
+      "start": "0x40311f3e",
+      "end": "0x40311fb2",
+      "bytes": 116,
+      "sha256": "97d2bfd195e4fd7fa8af926d8d786fc6eca2020d16507be85a9d3a9fe8d9a255",
+      "allocation_end": "0x40311fe4"
+    },
+    "wave_status_formatter_v4_pending": {
+      "start": "0x403117c4",
+      "end": "0x40311822",
+      "bytes": 94,
+      "sha256": "6951e816fa88b684a82f7eeb3a784860859a68890cdc128a437f1e9ac5656583",
+      "allocation_end": "0x40311840"
+    },
+    "startup_common_v5": {
+      "start": "0x40311d20",
+      "end": "0x40311dc6",
+      "bytes": 166,
+      "sha256": "fee141c015bea04aaac01b8322ecbf25e8b3512a78e0a561f4a318a3788b85d9",
+      "allocation_end": "0x40311f3e"
+    },
+    "wave_formatter_v51": {
+      "start": "0x40311c50",
+      "end": "0x40311c92",
+      "bytes": 66,
+      "sha256": "39b39cece374fbaf8b0cbdf378f09cb6b1ea354703e178bf45eca93effcc964b"
+    },
+    "retained_inactive_v4_formatter_bytes": {
+      "start": "0x40311c92",
+      "end": "0x40311d12",
+      "bytes": 128,
+      "reachable": false,
+      "note": "retained byte-for-byte to minimize the V5.1 delta"
+    }
+  },
+  "patches": [
+    {
+      "name": "startup_common",
+      "address": "0x40033948",
+      "bytes": 6,
+      "stock": "4eb9400c1640",
+      "overlay": "4eb940311d20"
+    },
+    {
+      "name": "clamp",
+      "address": "0x401396a2",
+      "bytes": 8,
+      "stock": "7e06be836c027606",
+      "overlay": "4ef940311c304e71"
+    },
+    {
+      "name": "gate",
+      "address": "0x401397fc",
+      "bytes": 8,
+      "stock": "4a1267044a816768",
+      "overlay": "4ef940311c004e71"
+    },
+    {
+      "name": "dispatch",
+      "address": "0x40139804",
+      "bytes": 6,
+      "stock": "7e06be836728",
+      "overlay": "4ef940311bb0"
+    },
+    {
+      "name": "lfo1_wave_max",
+      "address": "0x4021082c",
+      "bytes": 4,
+      "stock": "00000600",
+      "overlay": "00000800"
+    },
+    {
+      "name": "lfo1_wave_formatter",
+      "address": "0x40210854",
+      "bytes": 4,
+      "stock": "400e1b68",
+      "overlay": "40311c50"
+    },
+    {
+      "name": "lfo2_wave_max",
+      "address": "0x40210a84",
+      "bytes": 4,
+      "stock": "00000600",
+      "overlay": "00000800"
+    },
+    {
+      "name": "lfo2_wave_formatter",
+      "address": "0x40210aac",
+      "bytes": 4,
+      "stock": "400e1b68",
+      "overlay": "40311c50"
+    },
+    {
+      "name": "lfo3_wave_max",
+      "address": "0x40210cdc",
+      "bytes": 4,
+      "stock": "00000600",
+      "overlay": "00000800"
+    },
+    {
+      "name": "lfo3_wave_formatter",
+      "address": "0x40210d04",
+      "bytes": 4,
+      "stock": "400e1b68",
+      "overlay": "40311c50"
+    }
+  ],
+  "diagnostic": {
+    "wave7": "native DV-F through 0x40311bb0",
+    "wave8_hook_unseen": "stock SINE (1)",
+    "wave8_malloc_zero": "stock SQR (2)",
+    "wave8_pointer_lost": "stock SAW (3)",
+    "wave8_unexpected": "stock RAMP (5)",
+    "wave8_valid_pointer": "unchanged native DV at 0x40311840",
+    "wave8_visual": "disabled; WAVE 8 label restored to DV-T",
+    "formatter": "0x40311c50",
+    "startup": "0x40311d20",
+    "dispatch": "0x40311bb0",
+    "latches": {
+      "hook_seen": "0x40311fe4",
+      "malloc_result": "0x40311fe8",
+      "publish_ok": "0x40311fec",
+      "pointer": "0x40311ff0"
+    },
+    "wave8": "native DV-T through 0x40311bb0"
+  },
+  "initialization": {
+    "old_hook": "removed; stock bytes retained at 0x40133646",
+    "common_callsite": "0x40033948",
+    "stock_callee": "0x400c1640",
+    "initializer": "0x40311d20",
+    "allocator": "0x4011e954",
+    "allocation_bytes": 8192,
+    "idempotent": true,
+    "failure_retry": "pointer remains -1; a repeated call retries"
+  },
+  "address_map": {
+    "startup_common": "0x40033948",
+    "stock_callee": "0x400c1640",
+    "stock_formatter": "0x400e1b68",
+    "malloc": "0x4011e954",
+    "clamp": "0x401396a2",
+    "clamp_rejoin": "0x401396aa",
+    "gate": "0x401397fc",
+    "dispatch": "0x40139804",
+    "wave_0_5": "0x4013980a",
+    "rand": "0x40139832",
+    "stock_skip": "0x4013986c",
+    "apply": "0x4013989e"
+  },
+  "descriptors": [
+    "0x40210820",
+    "0x40210a78",
+    "0x40210cd0"
+  ],
+  "patched_main_sha256": "c41dacf2f0a9c2eec88f8b857d72f69660d2ecac0d2f2ff6c92db2028defd4c8",
+  "total_static_patch_bytes": 2082,
+  "branch_model": "absolute startup/clamp/gate/dispatch jumps; linked native call; absolute formatter tail-jump",
+  "hardware_evidence": "UNTESTED",
+  "flashing_supported": false
+}

@@ -4,6 +4,7 @@ $Vendor = Join-Path $Root "vendor\elektron-firmware-tool"
 $Native = Join-Path $Root "native\elektron-firmware-tool.exe"
 $BuildDeps = Join-Path $Root ".build-deps"
 $Gcc = "C:\msys64\ucrt64\bin\gcc.exe"
+$Python = (Get-Command python.exe -ErrorAction Stop).Source
 
 if (-not (Test-Path -LiteralPath $Gcc)) {
     throw "MSYS2 UCRT64 GCC was not found at $Gcc"
@@ -19,13 +20,13 @@ try {
     Pop-Location
 }
 
-python -m unittest discover -s $Root -p "test_builder.py" -v
+& $Python -m unittest discover -s $Root -p "test_builder.py" -v
 if ($LASTEXITCODE -ne 0) { throw "Builder tests failed." }
 
 if (-not (Test-Path -LiteralPath (Join-Path $BuildDeps "PyInstaller"))) {
-    python -m pip install --disable-pip-version-check --target $BuildDeps -r (Join-Path $Root "requirements-build.txt")
+    & $Python -m pip install --disable-pip-version-check --target $BuildDeps -r (Join-Path $Root "requirements-build.txt")
     if ($LASTEXITCODE -ne 0) { throw "PyInstaller dependency installation failed." }
 }
 $env:PYTHONPATH = $BuildDeps
-python -m PyInstaller --noconfirm --clean --distpath (Join-Path $Root "dist") --workpath (Join-Path $Root "build") (Join-Path $Root "DT2-DejaVu-Builder.spec")
+& $Python -m PyInstaller --noconfirm --clean --distpath (Join-Path $Root "dist") --workpath (Join-Path $Root "build") (Join-Path $Root "DT2-DejaVu-Builder.spec")
 if ($LASTEXITCODE -ne 0) { throw "PyInstaller build failed." }

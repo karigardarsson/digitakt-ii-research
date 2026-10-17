@@ -1,19 +1,20 @@
-"""Single-window Windows GUI for the DT2 Déjà Vu v0.1.0 builder."""
+"""Single-window Windows GUI for the DT2 Déjà Vu v0.1.1 builder."""
 
 from __future__ import annotations
 
 import sys
 import threading
 import time
+import json
 import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, messagebox, ttk
 
-from builder_core import BuildError, build_firmware, default_output_path
+from builder_core import BuildError, build_firmware, default_output_path, detect_profile
 
 
 PROGRESS_BY_MESSAGE = {
-    "Checking official OS 1.16 firmware…": 10,
+    "Checking official firmware…": 10,
     "Reading firmware sections…": 30,
     "Building Déjà Vu firmware…": 55,
     "Verifying all six sections and checksums…": 80,
@@ -29,64 +30,78 @@ def accepted_dialog_path(value: str) -> str | None:
 class BuilderWindow:
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("DT2 Déjà Vu Builder v0.1.0")
-        self.root.geometry("680x330")
-        self.root.minsize(620, 310)
+        self.root.title("DT2 Déjà Vu Builder v0.1.1")
+        self.root.geometry("680x360")
+        self.root.minsize(620, 340)
         self.stock = tk.StringVar()
         self.output = tk.StringVar()
-        self.status = tk.StringVar(value="Select the official Digitakt II OS 1.16 firmware.")
+        self.detected = tk.StringVar(value="Detected OS: none")
+        self.status = tk.StringVar(value="Select the official Digitakt II OS 1.16 or OS 1.17 firmware.")
         self._build_ui()
 
     def _build_ui(self):
         frame = ttk.Frame(self.root, padding=20)
         frame.pack(fill="both", expand=True)
-        ttk.Label(frame, text="DT2 Déjà Vu v0.1.0 Beta", font=("Segoe UI", 16, "bold")).grid(
+        ttk.Label(frame, text="DT2 Déjà Vu v0.1.1 Beta", font=("Segoe UI", 16, "bold")).grid(
             row=0, column=0, columnspan=3, sticky="w", pady=(0, 6)
         )
         ttk.Label(
             frame,
-            text="Build the exact Déjà Vu V5.1 firmware from your official Digitakt II OS 1.16 file.",
+            text="Build the matching Déjà Vu V5.1 firmware from official Digitakt II OS 1.16 or OS 1.17.",
             wraplength=620,
         ).grid(row=1, column=0, columnspan=3, sticky="w", pady=(0, 18))
 
-        ttk.Label(frame, text="Official OS 1.16 firmware").grid(row=2, column=0, columnspan=3, sticky="w")
+        ttk.Label(frame, text="Official Digitakt II firmware").grid(row=2, column=0, columnspan=3, sticky="w")
         self.stock_entry = ttk.Entry(frame, textvariable=self.stock)
         self.stock_entry.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(4, 12))
         self.stock_button = ttk.Button(frame, text="Browse…", command=self.choose_stock)
         self.stock_button.grid(row=3, column=2, padx=(8, 0), pady=(4, 12))
 
-        ttk.Label(frame, text="Output firmware").grid(row=4, column=0, columnspan=3, sticky="w")
+        ttk.Label(frame, textvariable=self.detected, foreground="#245a9b").grid(
+            row=4, column=0, columnspan=3, sticky="w", pady=(0, 10)
+        )
+        ttk.Label(frame, text="Output firmware").grid(row=5, column=0, columnspan=3, sticky="w")
         self.output_entry = ttk.Entry(frame, textvariable=self.output)
-        self.output_entry.grid(row=5, column=0, columnspan=2, sticky="ew", pady=(4, 16))
+        self.output_entry.grid(row=6, column=0, columnspan=2, sticky="ew", pady=(4, 16))
         self.output_button = ttk.Button(frame, text="Choose…", command=self.choose_output)
-        self.output_button.grid(row=5, column=2, padx=(8, 0), pady=(4, 16))
+        self.output_button.grid(row=6, column=2, padx=(8, 0), pady=(4, 16))
 
         self.build_button = ttk.Button(frame, text="Build Déjà Vu", command=self.start_build)
-        self.build_button.grid(row=6, column=0, sticky="w")
+        self.build_button.grid(row=7, column=0, sticky="w")
         self.progress = ttk.Progressbar(frame, mode="determinate", maximum=100, length=180)
-        self.progress.grid(row=6, column=1, sticky="w", padx=(12, 0))
+        self.progress.grid(row=7, column=1, sticky="w", padx=(12, 0))
         ttk.Label(frame, textvariable=self.status, wraplength=620).grid(
-            row=7, column=0, columnspan=3, sticky="w", pady=(16, 0)
+            row=8, column=0, columnspan=3, sticky="w", pady=(16, 0)
         )
         ttk.Label(
             frame,
             text="This tool only creates a file. It does not connect to or update your Digitakt II.",
             foreground="#555555",
-        ).grid(row=8, column=0, columnspan=3, sticky="w", pady=(14, 0))
+        ).grid(row=9, column=0, columnspan=3, sticky="w", pady=(14, 0))
         frame.columnconfigure(0, weight=1)
         frame.columnconfigure(1, weight=1)
 
     def choose_stock(self):
         selected = filedialog.askopenfilename(
-            title="Select official Digitakt II OS 1.16 firmware",
+            title="Select official Digitakt II OS 1.16 or OS 1.17 firmware",
             filetypes=[("Elektron firmware", "*.syx"), ("All files", "*.*")],
         )
         selected = accepted_dialog_path(selected)
         if selected is None:
             return
+        self._accept_stock_path(selected)
+
+    def _accept_stock_path(self, selected: str):
         self.stock.set(selected)
-        self.output.set(str(default_output_path(Path(selected))))
-        self.status.set("Ready to build.")
+        profile = detect_profile(selected)
+        if profile is None:
+            self.detected.set("Detected OS: unsupported or modified firmware")
+            self.output.set("")
+            self.status.set("This file is not a supported official OS 1.16 or OS 1.17 image.")
+        else:
+            self.detected.set(f"Detected OS: Digitakt II {profile.os_version}")
+            self.output.set(str(default_output_path(Path(selected), profile)))
+            self.status.set(f"Ready to build the verified OS {profile.os_version} version.")
 
     def choose_output(self):
         initial = self.output.get().strip()
@@ -94,7 +109,7 @@ class BuilderWindow:
             title="Choose output firmware location",
             defaultextension=".syx",
             initialdir=str(Path(initial).parent) if initial else None,
-            initialfile=Path(initial).name if initial else "DT2_Deja_Vu_v0.1.0-beta_OS1.16.syx",
+            initialfile=Path(initial).name if initial else "DT2_Deja_Vu_v0.1.1-beta.syx",
             filetypes=[("Elektron firmware", "*.syx")],
         )
         selected = accepted_dialog_path(selected)
@@ -111,7 +126,10 @@ class BuilderWindow:
 
     def _update_progress(self, message: str):
         self.status.set(message)
-        self.progress["value"] = PROGRESS_BY_MESSAGE.get(message, self.progress["value"])
+        if message.startswith("Detected Digitakt II OS "):
+            self.progress["value"] = 20
+        else:
+            self.progress["value"] = PROGRESS_BY_MESSAGE.get(message, self.progress["value"])
 
     def _begin_progress(self):
         self.progress["value"] = 0
@@ -215,6 +233,39 @@ def main() -> int:
         messagebox.showerror = original_error
         root.destroy()
         return 0 if passed else 3
+    if len(sys.argv) == 4 and sys.argv[1] == "--gui-e2e-test":
+        root = tk.Tk()
+        window = BuilderWindow(root)
+        observations = {}
+        original_info = messagebox.showinfo
+        original_error = messagebox.showerror
+        def record_result(result):
+            observations["result"] = result
+            root.after_idle(root.quit)
+        messagebox.showinfo = lambda *_args, **_kwargs: record_result("success")
+        messagebox.showerror = lambda *_args, **_kwargs: record_result("error")
+        window._accept_stock_path(sys.argv[2])
+        window.output.set(sys.argv[3])
+        root.after(0, window.start_build)
+        root.after(60_000, lambda: record_result("timeout"))
+        root.mainloop()
+        passed = all((
+            observations.get("result") == "success",
+            int(float(window.progress["value"])) == 100,
+            window.status.get().startswith("Success: "),
+            Path(sys.argv[3]).is_file(),
+        ))
+        Path(sys.argv[3] + ".gui-test.json").write_text(json.dumps({
+            "detected": window.detected.get(),
+            "status": window.status.get(),
+            "progress": int(float(window.progress["value"])),
+            "result": observations.get("result"),
+            "output_exists": Path(sys.argv[3]).is_file(),
+        }, indent=2), encoding="utf-8")
+        messagebox.showinfo = original_info
+        messagebox.showerror = original_error
+        root.destroy()
+        return 0 if passed else 4
     root = tk.Tk()
     BuilderWindow(root)
     root.mainloop()
