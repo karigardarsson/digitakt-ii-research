@@ -12,6 +12,8 @@ a = Analysis(
         (str(root / "resources/dv-v51-overlay-manifest.json"), "resources"),
         (str(root / "resources/dv-v51-os117-overlay.bin"), "resources"),
         (str(root / "resources/dv-v51-os117-overlay-manifest.json"), "resources"),
+        (str(root / "resources/zoom-v11-payload.bin"), "resources"),
+        (str(root / "resources/zoom-v11-manifest.json"), "resources"),
     ],
     # PyInstaller's inspect runtime hook reaches urllib.parse dynamically.
     # Keep both modules explicit so the windowed one-file build cannot omit them.

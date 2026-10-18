@@ -67,7 +67,9 @@ class BuilderValidationTests(unittest.TestCase):
         self.assertIsNone(accepted_dialog_path(""))
 
     def test_progress_stages_are_monotonic_and_stop_before_completion(self):
-        self.assertEqual(list(PROGRESS_BY_MESSAGE.values()), [10, 30, 55, 80, 95])
+        values = list(PROGRESS_BY_MESSAGE.values())
+        self.assertEqual(values, sorted(values))
+        self.assertEqual(values[-1], 95)
 
     def test_existing_output_is_refused(self):
         with test_directory() as name:

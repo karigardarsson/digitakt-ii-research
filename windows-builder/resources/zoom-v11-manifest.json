@@ -1,0 +1,17 @@
+{
+  "version": "V11",
+  "payload_sha256": "320ea0b5904a3345ce39b8f2429b845939895784e42891fda75958fe3086b2bf",
+  "patched_main_sha256": "d9ef3cb7634c0a0b19889702babb60c878f1e80f319c316ea75ba39472b54352",
+  "loader_address": "0x40311c92",
+  "loader": "41f94031ff6020185280671c538022582218e488670622d8538066fae48967e64299538166fa60de4eb94000045c4eb9400004b24e75",
+  "segment_address": "0x4031ff60",
+  "expansion_address": "0x47e8b000",
+  "patches": [
+    {"address":"0x4000053e","stock":"4ebaff1c4ebaff6e","overlay":"4eb940311c924e71"},
+    {"address":"0x400181fe","stock":"4e56ffcc48d71cfc","overlay":"4ef947e8b0004e71"},
+    {"address":"0x400184ea","stock":"4e56ffcc48d73cfc","overlay":"4ef947e8b09c4e71"},
+    {"address":"0x4001706a","stock":"4eb94010ee64","overlay":"4eb947e8b18a"},
+    {"address":"0x4010ee84","stock":"4eb9401a04e4","overlay":"4eb947e8b3da"},
+    {"address":"0x4010ecd0","stock":"42002f0a246f0008","overlay":"4ef947e8b4144e71"}
+  ]
+}

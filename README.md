@@ -1,4 +1,4 @@
-# Digitakt II Déjà Vu
+# Digitakt II Déjà Vu + ONESHOT Zoom
 
 An unofficial Digitakt II OS 1.17 and OS 1.16 modification that adds two random-loop LFO waveforms:
 
@@ -9,7 +9,7 @@ DV-F and DV-T are available on all three LFOs. Stock WAVE 0–6 remain on their 
 
 ## Windows beta
 
-The v0.1.1 Beta release provides a portable Windows x64 builder. It contains no Elektron firmware. You supply the official Digitakt II OS 1.17 or OS 1.16 `.syx`; the builder detects the exact version by SHA-256 and applies only its matching profile.
+The v0.2.0 Beta release provides a portable Windows x64 builder. It contains no Elektron firmware. You supply the official Digitakt II OS 1.17 or OS 1.16 `.syx`; the builder detects the exact version by SHA-256 and offers only compatible editions.
 
 **Download builder → Select official stock OS → Build → Install via Elektron Transfer**
 
@@ -19,6 +19,7 @@ No Python, Git, WSL, terminal, internet connection, or administrator rights are 
 - Recommended base: **official OS 1.17**
 - Also supported: **official OS 1.16**
 - OS 1.17 stock/output SHA-256: `26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5` / `cd553ef6e84d60401b8ac3abc3492b61343ba8a6ac720cf019e15b613cd67b2e`
+- OS 1.17 Déjà Vu + Zoom output SHA-256: `6163640ce056b2266b57a9b0d3d8b568c6423ac1dfe8c9d079b03519e3bfebd4`
 - OS 1.16 stock/output SHA-256: `278541e466edcd77d6b3e018a91fb90185932d3c7de224dd3e68294dddf3a9ec` / `d9fe67b3778ce5d31aaaa807e6e43ac1929d0f36a10c393adc0a8c590c547835`
 
 The Windows executable is unsigned. Windows SmartScreen may show an unrecognized-app warning.
@@ -47,6 +48,10 @@ SPH controls the random loop:
 - Intermediate values blend probabilistically toward the corresponding endpoint behavior.
 
 Existing SPD, MULT, FADE, DEP, and DEST processing remains on the stock paths.
+
+## ONESHOT Zoom
+
+The OS 1.17 combined edition adds real waveform detail to the ONESHOT SRC waveform page. Press encoder C to cycle 1x, 2x, 3.75x, and 1x. Turn C to pan while zoomed. Zoom depends on Déjà Vu's runtime allocation and is therefore not offered as a standalone edition.
 
 ## Hardware status
 

@@ -35,10 +35,12 @@ class BuildProfile:
     output_size: int
     overlay_resource: str
     manifest_resource: str
+    edition: str = "Déjà Vu"
 
     @property
     def output_name(self) -> str:
-        return f"DT2_Deja_Vu_v0.1.1-beta_OS{self.os_version}.syx"
+        slug = "Deja_Vu_Zoom" if self.edition.endswith("Zoom") else "Deja_Vu"
+        return f"DT2_{slug}_v0.2.0-beta_OS{self.os_version}.syx"
 
 
 PROFILES = {
@@ -68,6 +70,19 @@ PROFILES = {
     ),
 }
 PROFILES_BY_STOCK_HASH = {profile.stock_sha256: profile for profile in PROFILES.values()}
+ZOOM_PROFILE = BuildProfile(
+    os_version="1.17",
+    stock_sha256=PROFILES["1.17"].stock_sha256,
+    stock_main_sha256=PROFILES["1.17"].stock_main_sha256,
+    overlay_sha256=PROFILES["1.17"].overlay_sha256,
+    manifest_sha256=PROFILES["1.17"].manifest_sha256,
+    patched_main_sha256="d9ef3cb7634c0a0b19889702babb60c878f1e80f319c316ea75ba39472b54352",
+    output_sha256="6163640ce056b2266b57a9b0d3d8b568c6423ac1dfe8c9d079b03519e3bfebd4",
+    output_size=1_850_784,
+    overlay_resource=PROFILES["1.17"].overlay_resource,
+    manifest_resource=PROFILES["1.17"].manifest_resource,
+    edition="Déjà Vu + ONESHOT Zoom",
+)
 
 
 class BuildError(Exception):
@@ -207,6 +222,45 @@ def _apply_patch(stock_main: bytes, overlay: bytes, manifest: dict, profile: Bui
     return result
 
 
+def _apply_zoom_v11(v51_main: bytes) -> bytes:
+    manifest_path = resource_path("resources/zoom-v11-manifest.json")
+    payload_path = resource_path("resources/zoom-v11-payload.bin")
+    if not manifest_path.is_file() or not payload_path.is_file():
+        raise BuildError("The bundled Zoom patch is incomplete.")
+    try:
+        zoom = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise BuildError("The bundled Zoom patch manifest is invalid.") from exc
+    payload = payload_path.read_bytes()
+    if hashlib.sha256(payload).hexdigest() != zoom.get("payload_sha256"):
+        raise BuildError("The bundled Zoom patch failed its integrity check.")
+    main = bytearray(v51_main)
+    base = MAIN_BASE
+    loader_addr = int(zoom["loader_address"], 16)
+    loader = bytes.fromhex(zoom["loader"])
+    loader_off = loader_addr - base
+    if hashlib.sha256(bytes(main[loader_off:loader_off + len(loader)])).hexdigest() != "9a50da9b441759c8af25412bde770b32fced71845054b59d5a37265d01069126":
+        raise BuildError("The verified Zoom loader slot is not available.")
+    main[loader_off:loader_off + len(loader)] = loader
+    ranges = [(loader_off, loader_off + len(loader))]
+    for item in zoom["patches"]:
+        addr = int(item["address"], 16)
+        old = bytes.fromhex(item["stock"])
+        new = bytes.fromhex(item["overlay"])
+        off = addr - base
+        if bytes(main[off:off + len(old)]) != old:
+            raise BuildError("The selected firmware does not match a required Zoom patch site.")
+        main[off:off + len(new)] = new
+        ranges.append((off, off + len(new)))
+    if len(main) != int(zoom["segment_address"], 16) - base:
+        raise BuildError("The verified Zoom staging boundary is unavailable.")
+    main.extend(len(payload).to_bytes(4, "big") + int(zoom["expansion_address"], 16).to_bytes(4, "big") + b"\0\0\0\0" + payload + b"\xff\xff\xff\xff")
+    result = bytes(main)
+    if hashlib.sha256(result).hexdigest() != zoom["patched_main_sha256"]:
+        raise BuildError("The patched Zoom image did not match the verified V11 firmware.")
+    return result
+
+
 def _extract_all(tool: Path, syx: Path, out_dir: Path) -> dict[str, Path]:
     _run_tool(tool, "-i", syx, "-o", out_dir)
     files = {path.name: path for path in out_dir.iterdir() if path.is_file()}
@@ -250,7 +304,7 @@ def _atomic_copy(source: Path, destination: Path, profile: BuildProfile) -> None
                 pass
 
 
-def build_firmware(stock_path: str | Path, output_path: str | Path, progress=None) -> dict:
+def build_firmware(stock_path: str | Path, output_path: str | Path, progress=None, zoom: bool = False) -> dict:
     stock = Path(stock_path)
     output = Path(output_path)
     notify = progress or (lambda _message: None)
@@ -271,9 +325,14 @@ def build_firmware(stock_path: str | Path, output_path: str | Path, progress=Non
         stock_hash = sha256_file(stock)
     except OSError as exc:
         raise BuildError("The selected firmware file could not be read.") from exc
-    profile = PROFILES_BY_STOCK_HASH.get(stock_hash)
-    if profile is None:
+    base_profile = PROFILES_BY_STOCK_HASH.get(stock_hash)
+    if base_profile is None:
         raise BuildError("This is not a verified official Digitakt II OS 1.16 or OS 1.17 firmware file.")
+    profile = base_profile
+    if zoom:
+        if profile.os_version != "1.17":
+            raise BuildError("ONESHOT Zoom is available only with official Digitakt II OS 1.17.")
+        profile = ZOOM_PROFILE
 
     notify(f"Detected Digitakt II OS {profile.os_version}.")
     tool, overlay, manifest = _load_resources(profile)
@@ -289,12 +348,14 @@ def build_firmware(stock_path: str | Path, output_path: str | Path, progress=Non
         notify("Reading firmware sections…")
         stock_sections = _extract_all(tool, stock, stock_sections_dir)
         patched_main = _apply_patch(
-            stock_sections["section_3_MAIN_OS.bin"].read_bytes(), overlay, manifest, profile
+            stock_sections["section_3_MAIN_OS.bin"].read_bytes(), overlay, manifest, base_profile
         )
+        if profile is ZOOM_PROFILE:
+            patched_main = _apply_zoom_v11(patched_main)
         patched_main_path = temp / "patched-main.bin"
         patched_main_path.write_bytes(patched_main)
 
-        notify("Building Déjà Vu firmware…")
+        notify(f"Building {profile.edition} firmware…")
         candidate = temp / profile.output_name
         _run_tool(tool, "-i", stock, "-c", "3", patched_main_path, "-l", "0", "-o", candidate)
         if not candidate.is_file() or candidate.stat().st_size != profile.output_size:
