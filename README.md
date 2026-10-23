@@ -1,3 +1,19 @@
+# Digitakt II All-in-One
+
+## v0.3.0 Community Beta — OS 1.17
+
+[Download the Windows builder, matching source and notices](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.3.0-beta) · [All-in-One guide and limitations](docs/ALL_IN_ONE_v0.3.0.md)
+
+25 optimized Plaits model selections and four DX7 banks from Tyler Neely/spacejam, Kári's graphical Plaits UI2.1, Musical WAVE V4/Déjà Vu and One-Shot Zoom V11. Original Elektron animation retained, followed by legal credits.
+
+Supply your own official OS1.17. No Elektron firmware is distributed; the offline Windows builder never connects to or flashes hardware. The complete corresponding source is the explicitly named release asset, **not** GitHub's automatically generated source archive of this research repository.
+
+**Experimental/as-is:** recurring Plaits trigger click remains. Earlier Plaits25/DX7 hardware behavior is confirmed; the exact upper-label-fix plus credits image is NOT hardware-tested. No guaranteed support, requested features, maintenance schedule or future OS compatibility. Community contributions welcome. Read the recovery prerequisites before installing.
+
+This All-in-One edition derives from **digikit by Em D - https://github.com/ElekLabs/digikit** and is supplied under AGPL-3.0-or-later plus DigiKit NOTICE and applicable per-file MIT/runtime licenses. Original Plaits: Emilie Gillet/Mutable Instruments. Earlier releases and this repository's separately authored MIT materials keep their existing licenses. See the release's source/license package; the repository's root MIT file does not replace upstream AGPL obligations.
+
+## Earlier Déjà Vu / Zoom editions
+
 # Digitakt II Déjà Vu + ONESHOT Zoom
 
 An unofficial Digitakt II OS 1.17 and OS 1.16 modification that adds two random-loop LFO waveforms:
@@ -93,7 +109,7 @@ No official Elektron firmware, extracted firmware section, emulator snapshot, ge
 
 - [Mutable Instruments — Marbles](https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/) inspired the Déjà Vu random-loop concept. No Marbles code is included here.
 - [Bezronczek — Syntakt Firmware Workbench](https://github.com/Bezronczek/syntakt-firmware-workbench) provided the DV-F/DV-T behavioral reference. Its MIT-licensed implementation informed the behavior; Digitakt II uses its own native ColdFire implementation adapted to the Digitakt II LFO architecture.
-- [ElekLabs — digikit](https://github.com/ElekLabs/digikit) (AGPL-3.0) provided reverse-engineering and emulation infrastructure during research and development. It is development tooling and is not bundled in the Windows application.
+- [ElekLabs — digikit](https://github.com/ElekLabs/digikit) (AGPL-3.0) provided reverse-engineering and emulation infrastructure during research and development. For the earlier v0.1/v0.2 editions it is development tooling, not bundled in their Windows application. The v0.3 All-in-One builder DOES include DigiKit native tooling and source, with its AGPL/NOTICE obligations as described above.
 - [mischa85 — elektron-firmware-tool](https://github.com/mischa85/elektron-firmware-tool) provides the MIT-licensed firmware-container handling, compression, and repacking code used by the builder. Its pinned source and license notice are included under [`windows-builder/vendor/elektron-firmware-tool/`](windows-builder/vendor/elektron-firmware-tool/).
 
 See [third-party notices](THIRD_PARTY_NOTICES.md) for the redistribution boundaries and attribution details. These acknowledgements do not imply collaboration, approval, or endorsement by any named project, author, or company.
