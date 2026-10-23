@@ -1,5 +1,7 @@
 # Restore official stock OS
 
+[All-in-One installation](INSTALLATION.md) · [Practical HOW TO](DIGITAKT_II_ALL_IN_ONE_USER_GUIDE.md) · [v0.3.0 release](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.3.0-beta)
+
 Keep a known-good official Digitakt II stock `.syx`, a physical MIDI interface, and a MIDI cable ready before installing unofficial firmware.
 
 1. Connect the interface's **MIDI OUT** to Digitakt II **MIDI IN**.
