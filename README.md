@@ -2,7 +2,7 @@
 
 ## v0.3.0 Community Beta — OS 1.17
 
-[Download the Windows builder, matching source and notices](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.3.0-beta) · [All-in-One guide and limitations](docs/ALL_IN_ONE_v0.3.0.md)
+[Download the Windows builder, matching source and notices](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.3.0-beta) · [HOW TO: Plaits, Musical WAVE, Déjà Vu, Zoom/Pan](docs/DIGITAKT_II_ALL_IN_ONE_USER_GUIDE.md) · [Installation](docs/INSTALLATION.md) · [Recovery](docs/RECOVERY.md) · [Known issues](docs/ALL_IN_ONE_v0.3.0.md)
 
 25 optimized Plaits model selections and four DX7 banks from Tyler Neely/spacejam, Kári's graphical Plaits UI2.1, Musical WAVE V4/Déjà Vu and One-Shot Zoom V11. Original Elektron animation retained, followed by legal credits.
 
@@ -12,7 +12,9 @@ Supply your own official OS1.17. No Elektron firmware is distributed; the offlin
 
 This All-in-One edition derives from **digikit by Em D - https://github.com/ElekLabs/digikit** and is supplied under AGPL-3.0-or-later plus DigiKit NOTICE and applicable per-file MIT/runtime licenses. Original Plaits: Emilie Gillet/Mutable Instruments. Earlier releases and this repository's separately authored MIT materials keep their existing licenses. See the release's source/license package; the repository's root MIT file does not replace upstream AGPL obligations.
 
-## Earlier Déjà Vu / Zoom editions
+## Earlier Déjà Vu / Zoom editions — v0.1/v0.2 only
+
+The older builder and output hashes below are **not** the v0.3.0 All-in-One. Use the links above for v0.3.0 (OS1.17 only).
 
 # Digitakt II Déjà Vu + ONESHOT Zoom
 
