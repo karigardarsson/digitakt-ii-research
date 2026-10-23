@@ -4,6 +4,10 @@ Unofficial OS1.17 modification: 25 optimized Plaits selections, four DX7 banks, 
 
 The builder displays DigiKit attribution. Generated firmware preserves the original Elektron animation and then shows a five-second credits panel with origin, copyright, AGPL/no-warranty and source/license information. This is the only firmware change since the DX7 upper-label fix. The developer console-boot flag skips the intro task, as in stock.
 
+[**Practical HOW TO: Plaits, Musical WAVE, Déjà Vu and Zoom/Pan**](DIGITAKT_II_ALL_IN_ONE_USER_GUIDE.md) · [Installation](INSTALLATION.md) · [Recovery](RECOVERY.md) · [Windows download](https://github.com/karigardarsson/digitakt-ii-research/releases/download/v0.3.0-beta/DT2-All-in-One-v0.3.0-beta-Windows-r2.zip)
+
+Windows presentation revision r2 updates the title, feature list, ready status and credits, and handles invalid inputs correctly. Generated firmware is unchanged.
+
 ## Build your own firmware
 
 Windows x64. Extract the whole package to a normal local folder. Start `DT2-All-in-One-Builder.exe`, choose **your own official Digitakt II OS1.17 `.syx`**, choose a new output filename, then Build. No Python, Rust or WSL is needed to use the packaged application. It works offline, creates a file only, and never connects to or flashes a device. The executable is unsigned; Windows may show a SmartScreen warning. Do not disable security software or run untrusted copies.
@@ -51,6 +55,6 @@ Experimental community beta, provided **as-is**, without warranty. No promised u
 
 This is a modified work derived from **digikit by Em D - https://github.com/ElekLabs/digikit**. Optimized Plaits integration: Tyler Neely/spacejam, pinned `e48d0a2a83f055c549391173247cea02c571927f`. Original Plaits/stmlib algorithms and tables: Emilie Gillet, MIT. Graphical integration, Musical WAVE and Zoom: Kári's DT2 work, supplied in this community edition under AGPL-3.0-or-later without retroactive relicensing of earlier assets. Original MIT notices are retained; DigiKit's AGPL license and additional NOTICE terms are included. This does not grant rights to Elektron firmware or trademarks and implies no endorsement.
 
-`DT2-All-in-One-Corresponding-Source.zip` accompanies the application, including exact pinned DigiKit source, local graphics/integration, preferred DV/Zoom sources, source-only V5.1 reconstruction, native-tool source and the27 linked Rust dependency sources. See `SOURCE.md`, `THIRD_PARTY_NOTICES.md` and `licenses/`. Attribution alone is not the source offer: keep the corresponding-source archive and notices available alongside every distributed binary. No future feature/support promise is required.
+`DT2-All-in-One-Corresponding-Source-r2.zip` accompanies the application, including exact pinned DigiKit source, local graphics/integration, preferred DV/Zoom sources, source-only V5.1 reconstruction, native-tool source and the27 linked Rust dependency sources. See `SOURCE.md`, `THIRD_PARTY_NOTICES.md` and `licenses/`. Attribution alone is not the source offer: keep the corresponding-source archive and notices available alongside every distributed binary. No future feature/support promise is required.
 
 Provenance disclosure: upstream speech tables disclose TI-ROM-derived word data, and the fourth DX7 bank is the upstream owner's curated bank; those provenance facts are not an independent third-party rights clearance. Both the builder and generated firmware now display DigiKit attribution. Source, full license and NOTICE accompany the package. No Elektron redistribution rights or endorsement are implied.
