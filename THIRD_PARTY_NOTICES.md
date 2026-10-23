@@ -2,6 +2,12 @@
 
 This document distinguishes conceptual inspiration, research or development tooling, and code redistributed by this repository or its Windows builder. The repository's top-level MIT license covers the original project material; it does not replace the license terms of included third-party material.
 
+## All-in-One v0.3.0 scope
+
+Unlike the earlier v0.1/v0.2 builders, All-in-One v0.3.0 **does include DigiKit tooling/framework code** and Tyler Neely/spacejam's optimized Plaits port. This edition is AGPL-3.0-or-later with DigiKit NOTICE and applicable per-file MIT/runtime licenses retained. Its complete corresponding source, licenses and exact provenance disclosures accompany the [v0.3.0 release](https://github.com/karigardarsson/digitakt-ii-research/releases/tag/v0.3.0-beta). The root MIT license does not replace those obligations. Original Plaits: Emilie Gillet/Mutable Instruments; Kári supplies the integration, graphics, Musical WAVE and Zoom/Pan. Read the release's THIRD_PARTY_NOTICES.md for the complete edition-specific inventory.
+
+The historical tooling statements below describe v0.1/v0.2 only, not All-in-One.
+
 ## Conceptual inspiration
 
 - **Mutable Instruments — [Marbles](https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/):** the original inspiration for the Déjà Vu random-loop concept. No Marbles code is included in this repository or the Windows application.
