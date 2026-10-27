@@ -1,0 +1,425 @@
+[module]
+id = "core/params"
+version = "0.3.0"
+name = "Parameter descriptors"
+category = "core"
+status = "experimental"
+summary = "Framework that adds parameter descriptors (names, range, default, formatter) to the Digitakt II and Digitone II MAIN OS: a copy of the parameter table with one row appended per parameter, every reader repointed and bounded"
+requires = []
+conflicts = []
+
+# Content modules list `core/params` in `requires` and add parameters with
+#
+#     [[entry]]
+#     registry = "params"
+#     id = "pluck_decay"
+#     name = "Decay"          # the page header when the knob is touched
+#     short = "DECAY"         # the label under the knob
+#     template = 0xd1         # stock code whose row is copied: owner, flag, kind, mask, formatter and the value-class
+#                             # object the UI keeps for the code (a template of the same class)
+#     slot = 1                # descriptor field (engine slot) 0..7: fixes the mirror index (25, 26, 27, 28, 31, 32, 33, 34)
+#     min = 0
+#     max = 0x7f00
+#     default = 0x4000
+#     formatter = "my_fmt"    # optional: a ColdFire function of the module, void my_fmt(int raw, char *buf), that writes
+#                             # the value text (the header `Name=value`); 0 or absent = the template's formatter
+#
+# The code of a parameter is `params.first + k` (symbol params.<id>.index); a machine's fields name it. Finding 02,
+# "core.params": the table is copied at patch time from the image (nothing of the firmware is stored here), the
+# references and bounds are anchors (cf.params.ref.N, cf.params.bound.N) found by tools/patchkit/port_resolve.py.
+# Digitone II: the same, with the slot = the sound-array slot itself (25 .. 64; a slot a machine's pages map with the
+# `pages` registry of core/machines), template a stock code of the 321 rows (e.g. 0xd5, A Env Decay: a plain 0 .. 127
+# word), and the table is 321 rows.
+# Loops that visit every code (the defaults refresh, the per-owner lookup maps, the owner enumeration of the modulation
+# destination list) end on `bne`/`beq`, not on a clamp, and keep the stock count: the new rows do not enter them.
+
+[targets]
+"dt2-1.16" = "experimental"
+"dt2-1.17" = "experimental"
+"dn2-1.11" = "untested"
+"dn2-1.12" = "experimental"
+
+[[registry]]
+name = "params"
+devices = ["dt2"]
+first = "image.u32(cf.params.t2 + 6)"      # the immediate of `cmpi.l #count,D0` in the accessor: the stock row count
+max = 64
+region = "cf.expansion"
+
+[[registry.field]]
+name = "name"
+kind = "cstr"
+max_len = 31
+[[registry.field]]
+name = "short"
+kind = "cstr"
+max_len = 15
+[[registry.field]]
+name = "template"
+kind = "u32"
+[[registry.field]]
+name = "slot"
+kind = "u32"
+[[registry.field]]
+name = "min"
+kind = "u32"
+[[registry.field]]
+name = "max"
+kind = "u32"
+[[registry.field]]
+name = "default"
+kind = "u32"
+[[registry.field]]
+name = "formatter"          # ColdFire code address of the value formatter fmt(int raw, char *buf); 0 = the template's
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "randomize"          # SRC+YES: 0 = the template's randomizer (none for the LEV template), 1 = uniform over min .. max in
+kind = "u32"                # steps of 0x100, else a ColdFire function fn(rnd, min, max) -> raw value (src/cf/dt2/randomize.s)
+default = 0
+
+[[registry]]
+name = "params"
+devices = ["dn2"]
+first = "image.u32(cf.params.t2 + 6)"      # the immediate of `cmpi.l #count,D0` in the accessor: the stock row count
+max = 64
+region = "cf.expansion"
+
+[[registry.field]]
+name = "name"
+kind = "cstr"
+max_len = 31
+[[registry.field]]
+name = "short"
+kind = "cstr"
+max_len = 15
+[[registry.field]]
+name = "template"
+kind = "u32"
+[[registry.field]]
+name = "slot"
+kind = "u32"
+[[registry.field]]
+name = "min"
+kind = "u32"
+[[registry.field]]
+name = "max"
+kind = "u32"
+[[registry.field]]
+name = "default"
+kind = "u32"
+[[registry.field]]
+name = "formatter"          # ColdFire code address of the value formatter fmt(int raw, char *buf); 0 = the template's
+kind = "u32"
+default = 0
+
+# the parameter table, 60-byte rows: owner, mirror index, min, max, default, flag, (cc << 16 | kind), 0x80 + slot,
+# 2 words of the template, name, template word, short, formatter, template word. The formatter (+0x34) is the entry's
+# `formatter` when non-zero, else the template's: the manifest language has no conditional, so the template's word is
+# masked with ~((f | -f) >> 62), which is 0 for any f != 0 and -1 for f = 0 (the values are 64-bit)
+[[section]]
+name = "pf_table"
+region = "cf.expansion"
+devices = ["dt2"]
+from = { anchor = "cf.params.t1", len = "image.u32(cf.params.t2 + 6) * 60" }
+append = { registry = "params", row = [
+  "image.u32(cf.params.t1 + 60 * $template + 0x00)",
+  "25 + $slot + ($slot >> 2) * 2 - ($slot >> 3) * 8",
+  "$min",
+  "$max",
+  "$default",
+  "image.u32(cf.params.t1 + 60 * $template + 0x14)",
+  "(0x10 + $slot + ((($slot + 1) >> 2) & 1) * (1 - ($slot >> 2)) * 0xffec) << 16 | (image.u32(cf.params.t1 + 60 * $template + 0x18) & 0xffff)",
+  "0x80 + $slot",
+  "image.u32(cf.params.t1 + 60 * $template + 0x20)",
+  "image.u32(cf.params.t1 + 60 * $template + 0x24)",
+  "$name",
+  "image.u32(cf.params.t1 + 60 * $template + 0x2c)",
+  "$short",
+  "$formatter | (image.u32(cf.params.t1 + 60 * $template + 0x34) & ~(($formatter | -$formatter) >> 62))",
+  "image.u32(cf.params.t1 + 60 * $template + 0x38)",
+] }
+
+# Digitone II: the same 60-byte rows; the slot is the sound-array slot itself (25 .. 64) and the template supplies the
+# MIDI CC word and the key (the lookup maps are built from the stock rows only)
+[[section]]
+name = "pf_table"
+region = "cf.expansion"
+devices = ["dn2"]
+from = { anchor = "cf.params.t1", len = "image.u32(cf.params.t2 + 6) * 60" }
+append = { registry = "params", row = [
+  "image.u32(cf.params.t1 + 60 * $template + 0x00)",
+  "$slot",
+  "$min",
+  "$max",
+  "$default",
+  "image.u32(cf.params.t1 + 60 * $template + 0x14)",
+  "image.u32(cf.params.t1 + 60 * $template + 0x18)",
+  "image.u32(cf.params.t1 + 60 * $template + 0x1c)",
+  "image.u32(cf.params.t1 + 60 * $template + 0x20)",
+  "image.u32(cf.params.t1 + 60 * $template + 0x24)",
+  "$name",
+  "image.u32(cf.params.t1 + 60 * $template + 0x2c)",
+  "$short",
+  "$formatter | (image.u32(cf.params.t1 + 60 * $template + 0x34) & ~(($formatter | -$formatter) >> 62))",
+  "image.u32(cf.params.t1 + 60 * $template + 0x38)",
+] }
+
+[[object]]
+path = "../../../../../digikit/modules/core/params/build/params-dt2.dko.json"
+sources = ["../../../../../digikit/modules/core/params/src/cf/dt2/params.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+[object.externs]
+_pf_first = "params.first"
+_pf_count = "params.count"
+_pf_rows = "params.rows"
+_pf_rowsize = "params.row_size"
+_pf_t_t2 = "hook.cf.params.t2.4.tail"
+
+# SRC+YES for added parameters (src/cf/dt2/randomize.s; finding 02, "SRC+YES randomizes a page")
+[[object]]
+path = "../../../../../digikit/modules/core/params/build/params-randomize-dt2.dko.json"
+sources = ["../../../../../digikit/modules/core/params/src/cf/dt2/randomize.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+[object.externs]
+_pf_first = "params.first"
+_pf_count = "params.count"
+_pf_rows = "params.rows"
+_pf_rowsize = "params.row_size"
+_pf_rand = "cf.params.rand"
+_pf_write = "cf.params.write"
+_pf_t_rnd = "hook.cf.params.randone.tail"
+
+# the knob bar of an added parameter spans the row's range (src/cf/dt2/barscale.s)
+[[object]]
+path = "../../../../../digikit/modules/core/params/build/params-barscale-dt2.dko.json"
+sources = ["../../../../../digikit/modules/core/params/src/cf/dt2/barscale.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+[object.externs]
+_pf_first = "params.first"
+_pf_count = "params.count"
+_pf_rows = "params.rows"
+_pf_rowsize = "params.row_size"
+_pf_t_draw = "hook.cf.params.drawone.tail"
+
+[[object]]
+path = "../../../../../digikit/modules/core/params/build/params-dn2.dko.json"
+sources = ["../../../../../digikit/modules/core/params/src/cf/dt2/params.s"]
+place = "cf.expansion"
+devices = ["dn2"]
+
+[object.externs]
+_pf_first = "params.first"
+_pf_count = "params.count"
+_pf_rows = "params.rows"
+_pf_rowsize = "params.row_size"
+_pf_t_t2 = "hook.cf.params.t2.4.tail"
+
+# the second per-code table's accessor: `move.l 4(sp),D0; cmpi.l #count,D0`; hook the compare
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.params.t2"
+offset = 4
+to = "pf_t2"
+displaced = "run"
+devices = ["dt2"]
+
+# the knob drawer (ParameterSet::vfunc_24): the value of an added code is mapped from its range onto 0 .. 0x7f00
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.params.drawone"
+offset = 0
+to = "pf_drawone"
+displaced = "run"
+devices = ["dt2"]
+
+# the per-code randomizer (ParameterSet::vfunc_7): an added code with a `randomize` value picks and writes its own value
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.params.randone"
+offset = 0
+to = "pf_randone"
+displaced = "run"
+devices = ["dt2"]
+
+# every absolute reference into the stock table now points into the copy (same offset)
+[[op]]
+op = "write"
+anchors = "cf.params.ref.*"
+offset = 0
+value = "pf_table + (image.u32(this) - cf.params.t1)"
+width = 4
+devices = ["dt2"]
+
+# every clamp bound `cmpi.l #N,Dn` (N = the stock count or one less) grows by the number of added rows
+[[op]]
+op = "write"
+anchors = "cf.params.bound.*"
+offset = 2
+value = "image.u32(this + 2) + params.count"
+width = 4
+devices = ["dt2"]
+
+# (Digitone II) the second per-code table's accessor: `move.l 4(sp),D0; cmpi.l #count,D0`; hook the compare
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.params.t2"
+offset = 4
+to = "pf_t2"
+displaced = "run"
+devices = ["dn2"]
+
+# every absolute reference into the stock table now points into the copy (same offset)
+[[op]]
+op = "write"
+anchors = "cf.params.ref.*"
+offset = 0
+value = "pf_table + (image.u32(this) - cf.params.t1)"
+width = 4
+devices = ["dn2"]
+
+# every clamp bound `cmpi.l #N,Dn` (N = the stock count or one less) grows by the number of added rows
+[[op]]
+op = "write"
+anchors = "cf.params.bound.*"
+offset = 2
+value = "image.u32(this + 2) + params.count"
+width = 4
+devices = ["dn2"]
+
+[[claim]]
+resource = "cf.params.sites"
+
+# ---- anchor rules -------------------------------------------------------------------------------------------------------
+
+# the parameter table (60-byte rows), by the signature of its reader
+[[anchor_rule]]
+name = "cf.params.t1"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_params_t1"
+mark = "D"
+
+# the accessor of the second per-code table (0x44-byte value-class objects built at boot): `move.l 4(sp),D0;
+# cmpi.l #0x113,D0`
+[[anchor_rule]]
+name = "cf.params.t2"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "254d9fca9141d9a4f7f2308730fafa3a"
+offset = 0x0
+len = 10
+mark = "D"
+
+# every absolute reference into the table (a 32-bit word) and every clamp bound of its readers (7 bytes, the
+# immediate at +2), in address order; the bounds inside the accessor above are left out (the hook handles it)
+[[anchor_rule]]
+name = "cf.params.ref"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_params_refs"
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.params.bound"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_params_bounds"
+mark = "D"
+exclude_anchors = ["cf.params.t2"]
+
+
+# SRC+YES (1.17): the per-code randomizer `ParameterSet::vfunc_7(this, code)` (entry: `link.w a6,#-0x34; movem.l d2-d5`), the
+# firmware's 15-bit generator (an LCG on a global, returns 0 .. 0x7fff) and the value writer
+# `ParameterSet::setValue(this, code, value, -1, 0, 1, 1)` that both the stock randomizer and the UI use
+[[anchor_rule]]
+name = "cf.params.randone"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "2f5c230d1f2850085a8499aa99b7a461"
+offset = 0x0
+len = 8
+mark = "D"
+
+# the knob drawer `ParameterSet::vfunc_24(this, code, value, ...)` (entry: `lea -0x14(a7),a7; movem.l d2-d6,(a7)`)
+[[anchor_rule]]
+name = "cf.params.drawone"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "aabec4ab92ef9e78d32bb1c4f9121435"
+offset = 0x0
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.params.rand"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "62e6d786577d1378a58ccafd1c524496"
+offset = 0x0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.params.write"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "89d965df70565c490efde3016d66a843"
+offset = 0x0
+len = 6
+mark = "D"
+
+# ---- anchor rules (Digitone II) -------------------------------------------------------------------------------------------------------
+
+# the parameter table (60-byte rows), by the signature of its reader
+[[anchor_rule]]
+name = "cf.params.t1"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_params_t1"
+mark = "D"
+
+# the accessor of the second per-code table (0x44-byte value-class objects built at boot): `move.l 4(sp),D0;
+# cmpi.l #0x113,D0`
+[[anchor_rule]]
+name = "cf.params.t2"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "ad9a012d7c22efe3de4430746f3ad4cf"
+offset = 0x0
+len = 10
+mark = "D"
+
+# every absolute reference into the table (a 32-bit word) and every clamp bound of its readers (7 bytes, the
+# immediate at +2), in address order; the bounds inside the accessor above are left out (the hook handles it)
+[[anchor_rule]]
+name = "cf.params.ref"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_params_refs"
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.params.bound"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_params_bounds"
+mark = "D"
+exclude_anchors = ["cf.params.t2"]
+

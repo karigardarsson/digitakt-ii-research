@@ -1,0 +1,97 @@
+[module]
+id = "machines/plaits-48k"
+version = "0.1.0"
+name = "Plaits, direct 48 kHz"
+category = "machines"
+status = "experimental"
+summary = "PLAITS rendered at 48 kHz straight into the voice output (the default build)."
+ports = ["dt2-1.17"]
+requires = ["machines/plaits", "core/dsp-inline"]
+conflicts = ["machines/plaits-96k"]
+
+[targets]
+"dt2-1.17" = "experimental"
+
+# The PLAITS voice routine (modules/machines/plaits: the entry shim src/dsp/plaits_entry.s, the C voice wrapper and
+# engines) in mode 1: 32 samples at 48 kHz written straight into the voice output (the stock decimator is skipped;
+# core/dsp-inline `_di_return_out`). src/dsp/mode.s, listed first, defines PLAITS_MODE for the shim; the C sources are
+# the same in both builds (the shim passes the output rate). Images: out/patch/plaits-va-48k-1.17.syx (H2, VA), out/patch/plaits-2models-48k-1.17.syx (H3, VA and ASYM-TRI), out/patch/plaits-5models-48k-1.17.syx (H3b, models 0 to 4).
+[[object]]
+path = "../../../../digikit/modules/machines/plaits-48k/build/plaits-48k-dsp.dko.json"
+sources = [
+  "../../../../digikit/modules/machines/plaits-48k/src/dsp/mode.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/plaits_entry.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/resonator_svf4_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/drums_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/post_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/wrap_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/wavetable_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/string_synth_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/chord_loops_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/phase_dist_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/additive_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/va_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/grain_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/noise_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/dust_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/string_machine_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/swarm_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/terrain_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/fm_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/vcf_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/wavetable_engine_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/svf_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/sam_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/ws_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/va_mix_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/plaits.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/va.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/waveshaping.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/fm.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/grain.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/additive.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/wavetable.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/chord.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/tables.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/waves.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/wavetable_oscillator.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/string_synth_oscillator.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/chord_bank.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/speech.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/svf.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/naive_speech_synth.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/sam_speech_synth.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/lpc_speech_synth.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/speech_tables.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/modal.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/resonator.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/terrain.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/noise.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/phase_dist.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/vcf.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/square.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/string_machine.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/dust.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/swarm.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/six_op.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/dx_tables.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/dx7_banks.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/string_engine.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/ensemble.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/kick.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/snare.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/engines/hihat.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/fast_sine_oscillator.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/halfband.c",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/string_sm.s",
+  "../../../../digikit/modules/machines/plaits/src/dsp/lib/dx_sm.s",
+]
+place = "dsp.l2"
+devices = ["dt2"]
+
+[[entry]]
+registry = "inline_voices"
+id = "plaits"
+type = "machines.plaits.index"
+pc = "_pl_render"
+devices = ["dt2"]

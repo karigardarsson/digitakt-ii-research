@@ -1,0 +1,16 @@
+# Quick tests of core/dsp-inline: `mise run patch:dev` runs them after every rebuild, `mise run patch:test` with the smoke tour.
+# Steps (tools/patchkit/pk_harness.py): tap, hold, turn, wait_ms, expect_frame, expect_pcm_db, expect_no_fault.
+# With no machine module registered, every track renders through the hook's stock path: a trig plays the stock sample.
+[test]
+name = "audible"
+devices = ["dt2"]
+quick = true
+
+[[step]]
+tap = "TRIG 1"
+[[step]]
+wait_ms = 400
+[[step]]
+expect_pcm_db = { min = -60, max = -3 }
+[[step]]
+expect_no_fault = true

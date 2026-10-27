@@ -1,0 +1,213 @@
+[module]
+id = "machines/twinshot"
+version = "0.1.0"
+name = "Twinshot"
+category = "machines"
+status = "experimental"
+summary = "Two native stereo sampler contexts, independent tuning/direction, layer-one decay/filter and gated layer-two looping."
+ports = ["dt2-1.17"]
+requires = ["core/machines", "core/params", "core/dsp-inline"]
+conflicts = []
+
+[targets]
+"dt2-1.17" = "experimental"
+
+[[object]]
+path = "../../../../twinshot/build/twinshot-dsp.dko.json"
+sources = ["../../../../twinshot/entry.s", "../../../../twinshot/lifecycle.s", "../../../../twinshot/adapter.c"]
+place = "dsp.l2"
+devices = ["dt2"]
+[object.externs]
+_native_slot = "twinshot.native.slot"
+"tw_load." = "twinshot.native.load"
+"tw_arm." = "twinshot.native.arm"
+"tw_pitch." = "twinshot.native.pitch"
+"tw_sample." = "twinshot.native.sample"
+_tw_header_body = "hook.twinshot.header.begin.return"
+# SHARC hooks replace six bytes. The two displaced stores occupy eight;
+# replay both, then explicitly resume at the native return, NOT site+6.
+_tw_header_return = "twinshot.native.header_return"
+
+[[object]]
+path = "../../../build/transport-cf.dko.json"
+sources = ["../../../../twinshot/controls.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+[object.externs]
+twinshot_type = "machines.twinshot.index"
+native_sample_fmt = "twinshot.native.sample_fmt"
+twin_sample1 = "params.twin_sample1.index"
+twin_sample2 = "params.twin_sample2.index"
+twin_slot_mask_return = "hook.twinshot.slot_mask.2.return"
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "twinshot.slot_mask"
+offset = 2
+to = "twinshot_slot_mask"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "twinshot.smoother"
+offset = 6
+to = "twinshot_smoother"
+kind = "call"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "sharc"
+anchor = "twinshot.header.begin"
+offset = 0
+to = "_tw_header_begin"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "sharc"
+anchor = "twinshot.header.end"
+offset = 0
+to = "_tw_header_end"
+displaced = "drop"
+devices = ["dt2"]
+
+[[anchor_rule]]
+name = "twinshot.slot_mask"
+cpu = "cf"
+devices = ["dt2"]
+kind = "cf_words"
+words = [0xd2810281, 0x00000700, 0x3941005c, 0x727fc081]
+mark = "D"
+
+[[anchor_rule]]
+name = "twinshot.smoother"
+cpu = "cf"
+devices = ["dt2"]
+kind = "cf_words"
+words = [0x48798000, 0x33404eb9, 0x400d9406, 0x588f4287]
+mark = "D"
+
+[[anchor_rule]]
+name = "twinshot.header.begin"
+cpu = "sharc"
+devices = ["dt2"]
+kind = "sharc_func"
+reloc_hash = "69cf00a4fbf7ac5a67f9bb878d536b1bf801ba78c7de4498f2d9de6e9058a150"
+offset = 0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "twinshot.header.end"
+cpu = "sharc"
+devices = ["dt2"]
+kind = "sharc_func"
+reloc_hash = "69cf00a4fbf7ac5a67f9bb878d536b1bf801ba78c7de4498f2d9de6e9058a150"
+offset = 0x21
+len = 8
+mark = "D"
+
+[[entry]]
+registry = "inline_voices"
+id = "twinshot"
+type = "machines.twinshot.index"
+pc = "_tw_render"
+devices = ["dt2"]
+
+[[entry]]
+registry = "machines"
+id = "twinshot"
+name = "Twinshot"
+short = "TWIN"
+clone_of = 6
+f0 = 0xf8
+f1 = "params.twin_filter.index"
+f2 = "params.twin_decay.index"
+f3 = "params.twin_sample1.index"
+f4 = "params.twin_tune2.index"
+f5 = "params.twin_mix.index"
+f6 = "params.twin_sample2.index"
+f7 = 0xfe
+f8 = 0x0a
+one_page = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "twin_filter"
+name = "Layer 1 Filter"
+short = "FILT1"
+template = 0xfe
+slot = 1
+min = 0
+max = 0x7f00
+default = 0x4000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "twin_decay"
+name = "Layer 1 Decay"
+short = "DEC1"
+template = 0xfe
+slot = 2
+min = 0
+max = 0x7f00
+default = 0x7f00
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "twin_sample1"
+name = "Sample 1 + Direction"
+short = "SMP1"
+template = 0xfb
+slot = 3
+min = 0
+max = 2047
+default = 0
+formatter = "twinshot_sample_fmt"
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "twin_tune2"
+name = "Layer 2 Tune"
+short = "TUNE2"
+template = 0xf8
+slot = 4
+min = 0x400
+max = 0x7c00
+default = 0x4000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "twin_mix"
+name = "Layer Mix"
+short = "MIX"
+template = 0xfe
+slot = 5
+min = 0
+max = 0x7f00
+default = 0x4000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "twin_sample2"
+name = "Sample 2 + Direction"
+short = "SMP2"
+template = 0xfb
+slot = 6
+min = 0
+max = 2047
+default = 0
+formatter = "twinshot_sample_fmt"
+devices = ["dt2"]

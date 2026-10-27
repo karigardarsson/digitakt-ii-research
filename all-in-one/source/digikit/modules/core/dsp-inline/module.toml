@@ -1,0 +1,171 @@
+[module]
+id = "core/dsp-inline"
+version = "0.1.0"
+name = "DSP inline voice hook"
+category = "core"
+status = "experimental"
+summary = "In-renderer voice hook of the SHARC engine: machine types registered by other modules render their voice's block with their own DSP routine inside the stock renderer, every other type renders as stock"
+ports = ["dt2-1.17"]
+requires = ["core/machines"]
+conflicts = ["core/dsp-voice"]
+
+# Test status per firmware; patchkit does not read it.
+[targets]
+"dt2-1.17" = "experimental"
+
+[[object]]
+path = "build/dsp-inline-dsp.dko.json"
+sources = ["src/dsp/dsp-inline.s"]
+place = "dsp.l2"
+devices = ["dt2"]
+
+[object.externs]
+_di_table = "inline_voices.rows"
+_fw_records = "dsp.inline.voice_records"
+_fw_type_cache = "dsp.voice.type_cache"
+_fw_frame = "dsp.inline.frame_base"
+_fw_trig_latch = "dsp.inline.trig_latch"
+_fw_release_latch = "dsp.inline.release_latch"
+_fw_decimate = "dsp.inline.decimate"
+_fw_after_decimate = "dsp.inline.after_decimate"
+_fw_stock = "hook.dsp.voice.render_entry.140.tail"
+
+# The renderer's two instructions at SW 0x1c4f15 (`R4 = DM(I4, M5)`, 16 bits, and `R12 = LEFTZ R4`, 32 bits: six
+# bytes 5499a801408c, both position-independent) become `JUMP _di_entry`. Every type that has no row
+# leaves through patchkit's tail `hook.dsp.voice.render_entry.140.tail`: the six bytes, then `JUMP 0x1c4f18`. The site
+# lies past the anchor's six bytes, so it is pinned by its hash.
+[[op]]
+op = "hook"
+cpu = "sharc"
+anchor = "dsp.voice.render_entry"
+offset = 0x8c
+to = "_di_entry"
+displaced = "run"
+expect_sha256 = "57dad92fd389349408eae05cea470c49e1a257883a2987bda6cb8439f914cd98"
+devices = ["dt2"]
+
+# Machine modules add rows {type, routine pc} with `[[entry]] registry = "inline_voices"`:
+#
+#     [[entry]]
+#     registry = "inline_voices"
+#     id = "plaits"
+#     type = "machines.plaits.index"   # the machine type (a number, or the index of a machines entry)
+#     pc = "_pl_render"                # the routine's symbol in the module's DSP object
+#
+# The routine ABI is in src/dsp/dsp-inline.s: the hook enters `pc` with `JUMP (M13, I12)`; the routine ends with
+# `JUMP _di_return_work;` (work buffer, the stock decimator runs) or `JUMP _di_return_out;` (48 kHz output written,
+# decimator skipped), never with an indirect jump. The scan ends at the zero row patchkit appends (terminator); at most
+# 16 types.
+[[registry]]
+name = "inline_voices"
+first = "0"
+max = 16
+region = "dsp.l2"
+terminator = true
+
+[[registry.field]]
+name = "type"
+kind = "u32"
+[[registry.field]]
+name = "pc"
+kind = "u32"
+
+[[claim]]
+resource = "dsp.voice.hook"
+
+# ---- anchors shared with core/dsp-voice (the same rules; the two modules conflict)
+
+[[anchor_rule]]
+name = "dsp.voice.render_entry"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_func"
+reloc_hash = "830c02524f18d34629acb569a92d052d66f23c9ab260ac27ef8e4a9869c22fd2"
+offset = 0x0
+len = 6
+mark = "D"
+
+# The DSP's per-track machine type cache: the literal `I4 = 0x255970` in the per-track unpack.
+[[anchor_rule]]
+name = "dsp.voice.type_cache"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_literal"
+reloc_hash = "d2c02a587786f9ee328897985095c271ff1c5b65f289224e435968ea4b5d3f00"
+offset = 0x1e5
+mark = "D"
+
+# ---- anchors of this module (docs/findings/06, "In-renderer hook: core/dsp-inline")
+
+# The DSP's copy of the ColdFire frame: the literal `I5 = 0x2558dc` of the per-block copy (the rule of
+# dsp.voice.frame_base under this module's name).
+[[anchor_rule]]
+name = "dsp.inline.frame_base"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_literal"
+reloc_hash = "55a5d8458350a1b67249f5aca8d49a4692d9ab5886fd12d95c259479f83ce780"
+offset = 0x14d
+mark = "D"
+
+# The 32 voice records (stride 0x1d8 bytes): the literal `I4 = MODIFY(I4, 0x2412cc)` of FUN_1c149b (SW 0x1c14ab).
+[[anchor_rule]]
+name = "dsp.inline.voice_records"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_literal"
+reloc_hash = "ccf2126904f1e961766a21e8d73ee54ac25fd8e25ae173100b6f7dd2aca2b033"
+offset = 0x10
+mark = "D"
+
+# The trigger latch, one byte per voice (32 bytes): the literal `I4 = 0x24f0ac` of the trigger writer (SW 0x1c33c9,
+# the pending array) plus 0x20: the end of FUN_1c642a copies pending[v] to latch[v] = pending + 0x20 (SW 0x1c71a3).
+[[anchor_rule]]
+name = "dsp.inline.trig_latch"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_literal"
+reloc_hash = "75588fd22204b80ad6a84264f64407bf3d19d78c73b0595d832a2b3d34f74b68"
+offset = 0x140
+add = 0x20
+mark = "D"
+
+# The release flag, one byte per voice (32 bytes), 0x40 past the trigger writer's pending array: the same literal
+# `I4 = 0x24f0ac` of SW 0x1c33c9 plus 0x40 = 0x24f0ec (E + 0xde24 of the engine object at 0x2412c8). The release path
+# FUN_1c6056 (called for the voices of a track whose bit is set in the frame's release mask, hw 0x24) stores 1 there
+# and clears the voice's pending and latched trigger bytes; the trigger path (SW 0x1c33ba, before it sets the pending
+# byte at 0x1c33ce) stores 0. So the byte is 1 from the DT2 note-off to the next note-on and 0 from the note-on
+# (docs/findings/06, "PLAITS DX7: the note-off").
+[[anchor_rule]]
+name = "dsp.inline.release_latch"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_literal"
+reloc_hash = "75588fd22204b80ad6a84264f64407bf3d19d78c73b0595d832a2b3d34f74b68"
+offset = 0x140
+add = 0x40
+mark = "D"
+
+# The stock decimator's entry inside the renderer: SW 0x1c524a `MODIFY(I7, M7)`, then the frame reloads and
+# `CJUMP 0xb80000`.
+[[anchor_rule]]
+name = "dsp.inline.decimate"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_func"
+reloc_hash = "0fdcc22882c2e6eb7ecbb77881b4b902ec0f7898b776ceb67085377845db0922"
+offset = 0x2c9
+len = 6
+mark = "D"
+
+# Where the decimator call returns: SW 0x1c5264 `JUMP 0x1c4f56 (DB)` (delay slots `I7 = MODIFY(I7, 2) (NW)`, NOP),
+# then the renderer's epilogue.
+[[anchor_rule]]
+name = "dsp.inline.after_decimate"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_func"
+reloc_hash = "0fdcc22882c2e6eb7ecbb77881b4b902ec0f7898b776ceb67085377845db0922"
+offset = 0x2e3
+len = 6
+mark = "D"

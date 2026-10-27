@@ -1,0 +1,61 @@
+# PLAITS is the 8th entry of the machine list; YES commits type 11 (the track object, byte 0x4265338e), a trig on
+# track 1 brings the type to the DSP (its type cache, DM 0x255970, holds 11) and nothing faults.
+# The VA voice needs one of the routine modules (machines/plaits-48k or -96k); their tests check that it sounds.
+
+[test]
+name = "select_plaits"
+devices = ["dt2"]
+quick = true
+
+[[step]]
+wait_ms = 1500
+[[step]]
+tap = ["FUNC", "SRC"]
+[[step]]
+wait_ms = 200
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "YES"
+[[step]]
+wait_ms = 0x12c
+[[step]]
+expect_mem = { addr = 0x4265338c, mask = 0xff00, eq = 0xb00 }
+[[step]]
+tap = "YES"
+[[step]]
+wait_ms = 0x12c
+[[step]]
+tap = "TRIG 1"
+[[step]]
+wait_ms = 0x1f4
+[[step]]
+expect_dsp = { addr = 0x255970, hex = "0b" }
+[[step]]
+expect_no_fault = true

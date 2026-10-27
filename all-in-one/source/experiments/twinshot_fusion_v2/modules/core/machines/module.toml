@@ -1,0 +1,1587 @@
+[module]
+id = "core/machines"
+version = "0.2.0"
+name = "Machine types"
+category = "core"
+status = "experimental"
+summary = "Framework that adds machine types to the Digitakt II and Digitone II MAIN OS: ordinary ColdFire assembly that looks the registry up at run time, hooks at the firmware's machine sites, and copies of the stock tables with one row appended per machine"
+requires = []
+conflicts = []
+
+# Content modules list `core/machines` in `requires` and add machines with
+#
+#     [[entry]]
+#     registry = "machines"
+#     id = "pluck"
+#     name = "Pluck"           # the machine list (the UI upper-cases it)
+#     short = "PLK"            # the SRC page header
+#     clone_of = 0             # stock type whose permission, per-type byte, name hint and DSP selector it copies
+#     position = 2             # index in the displayed list (default: the end)
+#     f0 = 0xca ... f8 = 0x0a  # the nine descriptor ID fields; a parameter of core/params as "params.<id>.index"
+#     own_dsp = 1              # Digitone II: the DSP is told the machine's own type
+#
+# The type of an entry is its permanent number in types.toml (key "<module id>:<entry id>", per device; the file
+# also holds the highest supported number); patchkit refuses an entry without a number. Symbols: machines.first,
+# .count (rows incl. gaps), .entries (rows that are machines), .rows, .row_size, machines.<id>.index (the type number a
+# DSP object or a voice entry names).
+# Row layout (offsets in src/cf/*/machines.s): the order of the fields below, every field one 32-bit word.
+# Digitone II: a machine with own parameter pages adds `[[entry]] registry = "pages"` rows (documented at the registry
+# below) and, for its knobs, `registry = "params"` rows of core/params; without page rows it is a clone of `clone_of`.
+# Contract, evidence and limits: finding 02, "core.machines" and "DN2 own parameter pages: built".
+
+[targets]
+"dt2-1.16" = "experimental"
+"dt2-1.17" = "experimental"
+"dn2-1.11" = "experimental"
+"dn2-1.12" = "experimental"
+
+# ---- the registry --------------------------------------------------------------------------------------------------
+
+[[registry]]
+name = "machines"
+first = "image.u8(cf.machines.dispatch + 1) + 1"   # `moveq #last,D1` of the dispatch: the stock type count
+max = 32
+region = "cf.expansion"
+# Permanent type numbers (types.toml, finding 02 "Stable machine type numbers"): a machine's type is its number in that
+# table, never "the k-th selected machine". A number nobody selected is a gap row: a clone of type 0 that the machine
+# list does not show (position 0xffffffff) and nobody can pick; a stored project that names it plays as type 0.
+index_table = "types.toml"
+
+[registry.gap]
+clone_of = 0
+position = 0xffffffff
+own_dsp = 0
+name = ""
+short = ""
+
+# 0, 1: the dispatch descriptor's long and short name (std::string characters), built at run time from name and short
+[[registry.field]]
+name = "d_long"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "d_short"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f0"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f1"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f2"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f3"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f4"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f5"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f6"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f7"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "f8"
+kind = "u32"
+default = 10
+[[registry.field]]
+name = "clone_of"
+kind = "u32"
+[[registry.field]]
+name = "position"
+kind = "u32"
+default = 255
+[[registry.field]]
+name = "own_dsp"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "name"
+kind = "cstr"
+max_len = 23
+[[registry.field]]
+name = "short"
+kind = "cstr"
+max_len = 23
+[[registry.field]]
+name = "one_page"           # Digitakt II: 1 = one SRC page (src/cf/dt2/onepage.s); the second page repeats the first
+kind = "u32"
+default = 0
+
+[[claim]]
+resource = "cf.machines.sites"
+
+# ---- own parameter pages (Digitone II) ---------------------------------------------------------------------------
+
+# One row per page of a machine with its own parameter pages (the page table of the firmware has a page descriptor of 44
+# bytes per page: two std::string characters pointers and nine parameter codes, the last one 10 = the track level).
+# Content modules add pages with
+#
+#     [[entry]]
+#     registry = "pages"
+#     machine = "machines.pluck.index"   # the type the page belongs to (pages are numbered in entry order)
+#     name = "PLUCK"                     # the short page name (SYN1 ...), at most 23 characters
+#     title = "Pluck"                    # the title shown on the page
+#     c0 = "params.pluck_decay.index"    # knob A .. H: a parameter code (a core/params code, or a stock code); 0 = no knob
+#     s0 = 25                            # the sound-array slot (25 .. 64) of that code's row: slot -> code for the defaults
+#     ...                                # c8 = 10 (track level) by default
+#
+# A machine with at least one page gets: its own page count and descriptors, its own slot -> code mapping, and the page
+# and draw functions see its own type (not the clone's). A machine without a page row behaves as a clone.
+[[registry]]
+name = "pages"
+devices = ["dn2"]
+first = "0"
+max = 32
+region = "cf.expansion"
+
+[[registry.field]]
+name = "name"
+kind = "cstr"
+max_len = 23
+[[registry.field]]
+name = "title"
+kind = "cstr"
+max_len = 23
+[[registry.field]]
+name = "c0"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c1"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c2"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c3"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c4"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c5"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c6"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c7"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "c8"
+kind = "u32"
+default = 10
+[[registry.field]]
+name = "machine"
+kind = "u32"
+[[registry.field]]
+name = "s0"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s1"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s2"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s3"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s4"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s5"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s6"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s7"
+kind = "u32"
+default = 0
+[[registry.field]]
+name = "s8"
+kind = "u32"
+default = 0
+
+# ---- copies of the stock tables, one row appended per machine (the clone's row; names are ours) -------------------------
+
+# the displayed order of the stock list (the run-time builder inserts the machines at their positions)
+[[section]]
+name = "mf_list_stock"
+region = "cf.expansion"
+from = { anchor = "cf.machines.tab.list", len = "(image.u8(cf.machines.dispatch + 1) + 1) * 4" }
+
+# name table: {long, short, header hint} per type
+[[section]]
+name = "mf_names"
+region = "cf.expansion"
+from = { anchor = "cf.machines.tab.names", len = "(image.u8(cf.machines.dispatch + 1) + 1) * 12" }
+append = { registry = "machines", row = ["$name", "$short", "image.u32(cf.machines.tab.names + 12 * $clone_of + 8)"] }
+
+# permission mask per type
+[[section]]
+name = "mf_permit"
+region = "cf.expansion"
+from = { anchor = "cf.machines.tab.permit", len = "(image.u8(cf.machines.dispatch + 1) + 1) * 4" }
+append = { registry = "machines", row = ["image.u32(cf.machines.tab.permit + 4 * $clone_of)"] }
+
+# one byte per type (Digitakt II only)
+[[section]]
+name = "mf_pertype"
+region = "cf.expansion"
+devices = ["dt2"]
+from = { anchor = "cf.machines.tab.pertype", len = "(image.u8(cf.machines.dispatch + 1) + 1)" }
+append = { registry = "machines", row = ["u8:image.u8(cf.machines.tab.pertype + $clone_of)"] }
+
+# the type -> selector word table of the DSP's sample renderer chooser (Digitakt II only)
+[[section]]
+name = "mf_selector"
+region = "dsp.l2"
+devices = ["dt2"]
+from = { anchor = "dsp.machines.selector_data", len = "(image.u8(cf.machines.dispatch + 1) + 1) * 4" }
+append = { registry = "machines", row = ["image.u32(dsp.machines.selector_data + 4 * $clone_of)"] }
+
+# the type reader of the Digitone II, copied: its callers that want the real type call this copy
+[[section]]
+name = "mf_reader_real"
+region = "cf.expansion"
+devices = ["dn2"]
+from = { anchor = "cf.machines.reader_fn", len = 48 }
+
+# ---- code -----------------------------------------------------------------------------------------------------------
+
+[[object]]
+path = "../../../../../digikit/modules/core/machines/build/machines-dt2.dko.json"
+sources = ["../../../../../digikit/modules/core/machines/src/cf/dt2/machines.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+[object.externs]
+_mf_first = "machines.first"
+_mf_count = "machines.count"
+_mf_entries = "machines.entries"
+_mf_rows = "machines.rows"
+_mf_list_stock = "mf_list_stock"
+_mf_t_dispatch = "hook.cf.machines.dispatch.tail"
+_mf_t_list = "hook.cf.machines.list_entry.tail"
+_mf_t_rank = "hook.cf.machines.rank.tail"
+_mf_t_typearg = "hook.cf.machines.typearg.0.tail"
+_mf_x_typearg = "cf.machines.typearg.exit"
+_mf_t_clone5 = "hook.cf.machines.clone.5.tail"
+_mf_c0 = "cf.machines.clone.0"
+_mf_c0a = "cf.machines.clone.0.alt"
+_mf_c1 = "cf.machines.clone.1"
+_mf_c1a = "cf.machines.clone.1.alt"
+_mf_c2 = "cf.machines.clone.2"
+_mf_c2a = "cf.machines.clone.2.alt"
+_mf_c3 = "cf.machines.clone.3"
+_mf_c3a = "cf.machines.clone.3.alt"
+_mf_c4 = "cf.machines.clone.4"
+_mf_c4a = "cf.machines.clone.4.alt"
+_mf_c6 = "cf.machines.clone.6"
+_mf_c6a = "cf.machines.clone.6.alt"
+
+# one SRC page for a machine with `one_page = 1` (src/cf/dt2/onepage.s)
+[[object]]
+path = "../../../../../digikit/modules/core/machines/build/machines-onepage-dt2.dko.json"
+sources = ["../../../../../digikit/modules/core/machines/src/cf/dt2/onepage.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+[object.externs]
+_mo_first = "machines.first"
+_mo_count = "machines.count"
+_mo_rows = "machines.rows"
+_mo_srcvt = "cf.machines.sourcevt"
+_mo_cur = "cf.machines.curtrack"
+_mo_track = "cf.machines.trackobj"
+_mo_type = "cf.machines.tracktype"
+_mo_t_count = "hook.cf.machines.pagecount.tail"
+_mo_t_setpage = "hook.cf.machines.setpage.tail"
+
+[[object]]
+path = "../../../../../digikit/modules/core/machines/build/machines-dn2.dko.json"
+sources = ["../../../../../digikit/modules/core/machines/src/cf/dn2/machines.s"]
+place = "cf.expansion"
+devices = ["dn2"]
+
+[object.externs]
+_mf_first = "machines.first"
+_mf_count = "machines.count"
+_mf_entries = "machines.entries"
+_mf_rows = "machines.rows"
+_mf_list_stock = "mf_list_stock"
+_mf_t_dispatch = "hook.cf.machines.dispatch.tail"
+_mf_t_list = "hook.cf.machines.list_entry.tail"
+_mf_t_group = "hook.cf.machines.group.tail"
+_mf_t_typemap0 = "hook.cf.machines.typemap.0.tail"
+_mf_t_typemap1 = "hook.cf.machines.typemap.1.tail"
+_mf_t_typemap2 = "hook.cf.machines.typemap.2.tail"
+_mf_ft = "cf.machines.frametype"
+_mf_rd = "cf.machines.reader"
+_mf_ow = "cf.machines.owner"
+_mf_rc0 = "cf.machines.reader_call.0"
+_mf_rc1 = "cf.machines.reader_call.1"
+_mf_rc2 = "cf.machines.reader_call.2"
+_mf_rc3 = "cf.machines.reader_call.3"
+_mf_rc4 = "cf.machines.reader_call.4"
+_mf_rc5 = "cf.machines.reader_call.5"
+_mf_rc6 = "cf.machines.reader_call.6"
+_mf_rc7 = "cf.machines.reader_call.7"
+_mf_rc8 = "cf.machines.reader_call.8"
+_mf_pgrows = "pages.rows"
+_mf_pgn = "pages.count"
+
+# ---- patches: hooks (code in the objects above), bound writes and repointed table references ------------------------
+
+# dispatch: the descriptor of an added type is its registry row
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.dispatch"
+offset = 0
+to = "mf_dispatch"
+displaced = "run"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.dispatch"
+offset = 0
+to = "mf_dispatch"
+displaced = "run"
+devices = ["dn2"]
+
+# one SRC page: the page count and the page setter of the views
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.pagecount"
+offset = 0
+to = "mo_count"
+displaced = "run"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.setpage"
+offset = 0
+to = "mo_setpage"
+displaced = "run"
+devices = ["dt2"]
+
+# list builder: the tables exist before it runs; it copies mf_list_buf (stock order plus the machines at their positions)
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.list_entry"
+offset = 0
+to = "mf_list_entry"
+displaced = "run"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.list_entry"
+offset = 0
+to = "mf_list_entry"
+displaced = "run"
+devices = ["dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.list_alloc"
+offset = 0x2
+value = "(machines.first + machines.entries) * 4"
+width = 2
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.list"
+offset = 0x8
+value = "(machines.first + machines.entries) * 4"
+width = 2
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.list"
+offset = 0x2
+value = "mf_list_buf + (machines.first + machines.entries) * 4"
+width = 4
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.list"
+offset = 0xc
+value = "mf_list_buf"
+width = 4
+devices = ["dt2", "dn2"]
+
+# rank (Digitakt II): the sort comparator's std::map gets (type, display position) pairs
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.rank"
+offset = 0
+to = "mf_rank"
+displaced = "run"
+devices = ["dt2"]
+
+# group (Digitakt II): SLICE and its clones; (Digitone II: a hook, below). Bound = the last type, branch `bne` -> `bcs`
+
+[[op]]
+op = "write"
+anchor = "cf.machines.group"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.group"
+offset = 0x4
+value = "0x65"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.group"
+offset = 0
+to = "mf_group"
+displaced = "run"
+devices = ["dn2"]
+
+# names: three accessors (long, short, header hint), each bounded by `moveq #last,D1`, each reading a column of the table
+
+[[op]]
+op = "write"
+anchor = "cf.machines.name.0"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.name.0"
+offset = 0x12
+value = "mf_names + 0"
+width = 4
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.name.1"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.name.1"
+offset = 0x14
+value = "mf_names + 4"
+width = 4
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.name.2"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.name.2"
+offset = 0x14
+value = "mf_names + 8"
+width = 4
+devices = ["dt2", "dn2"]
+
+# permission mask table (bound `moveq #last,D2`)
+
+[[op]]
+op = "write"
+anchor = "cf.machines.permit"
+offset = 0x3
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2", "dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.permit"
+offset = 0x1a
+value = "mf_permit"
+width = 4
+devices = ["dt2", "dn2"]
+
+# persistence: the sound loader keeps a stored machine type when (u8)(type + 1) < the immediate
+
+[[op]]
+op = "write"
+anchor = "cf.machines.persist"
+offset = 0x1
+value = "image.u8(cf.machines.persist + 1) + machines.count"
+width = 1
+devices = ["dt2", "dn2"]
+
+# per-type byte (Digitakt II): six bounds and six table references
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.0"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.0"
+offset = 0x8
+value = "mf_pertype"
+width = 4
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.1"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.1"
+offset = 0xc
+value = "mf_pertype"
+width = 4
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.2"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.2"
+offset = 0xc
+value = "mf_pertype"
+width = 4
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.3"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.3"
+offset = 0x10
+value = "mf_pertype"
+width = 4
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.4"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.4"
+offset = 0x8
+value = "mf_pertype"
+width = 4
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.5"
+offset = 0x1
+value = "machines.first + machines.count - 1"
+width = 1
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.pertype.5"
+offset = 0x22
+value = "mf_pertype"
+width = 4
+devices = ["dt2"]
+
+# clone tests (Digitakt II): `type == MANUAL SLICE` also holds for an added clone of it
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.0"
+offset = 0
+to = "mf_clone0"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.1"
+offset = 0
+to = "mf_clone1"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.2"
+offset = 0
+to = "mf_clone2"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.3"
+offset = 0
+to = "mf_clone3"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.4"
+offset = 0
+to = "mf_clone4"
+displaced = "drop"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.5"
+offset = 0
+to = "mf_clone5"
+displaced = "run"
+devices = ["dt2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.clone.6"
+offset = 0
+to = "mf_clone6"
+displaced = "drop"
+devices = ["dt2"]
+
+# type argument of the parameter mapping (Digitakt II)
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.typearg.0"
+offset = 0
+to = "fusion2_typearg"
+displaced = "run"
+devices = ["dt2"]
+
+# DSP (Digitakt II): the selector table moves to mf_selector; the literal that loads its address follows
+
+[[op]]
+op = "write"
+anchor = "dsp.machines.selector_table"
+offset = 2
+value = "(mf_selector >> 16) & 0xffff"
+width = 2
+devices = ["dt2"]
+
+[[op]]
+op = "write"
+anchor = "dsp.machines.selector_table"
+offset = 4
+value = "mf_selector & 0xffff"
+width = 2
+devices = ["dt2"]
+
+# Digitone II: type maps, frame type, type reader (a hook that drops the load and does it itself), owner test
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.typemap.0"
+offset = 0
+to = "mf_typemap0"
+displaced = "run"
+devices = ["dn2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.typemap.1"
+offset = 0
+to = "mf_typemap1"
+displaced = "run"
+devices = ["dn2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.typemap.2"
+offset = 0
+to = "mf_typemap2"
+displaced = "run"
+devices = ["dn2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.frametype"
+offset = 0
+to = "mf_frametype"
+displaced = "drop"
+devices = ["dn2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.reader"
+offset = 0
+to = "mf_reader"
+displaced = "drop"
+devices = ["dn2"]
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "cf.machines.owner"
+offset = 0
+to = "mf_owner"
+displaced = "drop"
+devices = ["dn2"]
+
+[[op]]
+op = "write"
+anchor = "cf.machines.reader_tail"
+offset = 0x2
+value = "mf_reader_real"
+width = 4
+devices = ["dn2"]
+
+# ---- anchor rules ---------------------------------------------------------------------------------------------------
+
+[[anchor_rule]]
+name = "cf.machines.dispatch"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "23bd854acb5ba6bf224522cb9c0e6063"
+offset = 0x0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.list"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7c680e4200eed1964a22109ee2d43932"
+offset = 0x44
+len = 16
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.list_alloc"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7c680e4200eed1964a22109ee2d43932"
+offset = 0x24
+len = 4
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.group"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "b116211181665f1af3688c59da3eae0f"
+offset = 0x12
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.name.0"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "5fd4ff30eda1da21d9c57e4c68b890fe"
+offset = 0x0
+len = 24
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.name.1"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "405272bf74679f1207d399966557c9b3"
+ordinal = 0
+offset = 0x0
+len = 24
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.name.2"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "405272bf74679f1207d399966557c9b3"
+ordinal = 1
+offset = 0x0
+len = 24
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.rank"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "50c665290477cfa36d46f17239fff705"
+offset = 0xae
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.permit"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "33592e80678e363e0e66fad4f5d07083"
+offset = 0x0
+len = 30
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.pertype.0"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "d5ac854dcaa12d112a91bb9bac8650c5"
+offset = 0x44
+len = 12
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.pertype.1"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "67ba508cef8e925b9f1c2f5cef86c548"
+offset = 0x9e
+len = 16
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.pertype.2"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7cfb03d8b7163f10c63bdf01c87981ed"
+offset = 0xa0
+len = 16
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.pertype.3"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7cfb03d8b7163f10c63bdf01c87981ed"
+offset = 0xf4
+len = 20
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.pertype.4"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "f3fa0e264fac08c57a25ef73e316d73c"
+offset = 0x1e
+len = 12
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.pertype.5"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "3c5126f97f25254451a9ecc93561b488"
+offset = 0x4
+len = 38
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.0"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "cda6789150920d540acf061ca9321fd1"
+offset = 0xe0
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.1"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "294532983de6494ff0bf7999b150febf"
+offset = 0xd6
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.2"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "f76a21ed019dd060daebc8df6133f886"
+offset = 0x10c
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.3"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "352d15c2c4edd7717e1afa1924e2754a"
+offset = 0x28c
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.4"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7e07c7cb054799ae481616fec559037b"
+offset = 0x56
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.5"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "6e5398e048beea2451c38258daa7b651"
+offset = 0x498
+len = 12
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.6"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "e17112316e2cef97a3ebdd4ec57cc849"
+offset = 0xf0c
+len = 12
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.typearg.0"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "810f1ffd5d04a9c50bfc5d261c714ea7"
+offset = 0xa
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.persist"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "d5cd38f131d3119fd16d700d526b4fb9"
+offset = 0x9c
+len = 2
+mark = "D"
+
+
+# DSP: the machine type -> selector table (`I3 = 0x2567c0`, then `S2 = DM(I3, M2)` with M2 the type from the frame,
+# FUN_1c24e9; finding 06). The instruction loads the table address as a literal: the anchor's value is the table.
+[[anchor_rule]]
+name = "dsp.machines.selector_table"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_literal"
+reloc_hash = "d2c02a587786f9ee328897985095c271ff1c5b65f289224e435968ea4b5d3f00"
+offset = 0x248
+mark = "D"
+
+# one SRC page (1.17; src/cf/dt2/onepage.s): the view's page count `(end - begin) >> 2` (entry: `movea.l 4(a7),a0; move.l
+# 0x80(a0),d0`), its page setter (the same two instructions), SourcePageView's vtable (the literal of its constructor's
+# `move.l #vtable,(a2)`) and the three accessors that give the track's machine type
+[[anchor_rule]]
+name = "cf.machines.pagecount"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "d3bc9d5acfeb2f9193ce4607f563c4f4"
+offset = 0x0
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.setpage"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "1f5d82f40749d76d4c32ff8f7104b96b"
+offset = 0x0
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.sourcevt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "4cc4e9c7b4dcc695b77e033ae65f1f6f"
+offset = 0xe6
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.curtrack"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "cedb2a1ea2dbc72965b79e3f95f41157"
+ordinal = 1
+offset = 0x0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.trackobj"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "9fbd7b798068d1cc0a201b9060ff7250"
+offset = 0x0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tracktype"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "efdd2b55b3246b302b337c760bcc57b6"
+offset = 0x0
+len = 6
+mark = "D"
+
+# Digitone II: the same framework with the sites of tools/patchkit/pk_machine_rules_dn2.py (finding 02, "core.machines on Digitone II")
+[[anchor_rule]]
+name = "cf.machines.dispatch"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "b3931880ae258f0623f20d8045645f98"
+offset = 0x0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.list"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "69828342bcd67f7587f7d51d4c4a6575"
+offset = 0x4a
+len = 16
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.list_alloc"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "69828342bcd67f7587f7d51d4c4a6575"
+offset = 0x2a
+len = 4
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.group"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7f5f7446948bca2ab9bbdd15984287be"
+offset = 0x6
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.name.0"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "feed4ccea8848444496f10f25c10b1bc"
+offset = 0x0
+len = 24
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.name.1"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "feed4ccea8848444496f10f25c10b1bc"
+offset = 0x26
+len = 24
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.name.2"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "feed4ccea8848444496f10f25c10b1bc"
+offset = 0x4c
+len = 24
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.permit"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "36780fb9834dbd3942e3c1be04ae5e07"
+offset = 0x0
+len = 30
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.persist"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "f766c42c6be0674aadb1177f3f536367"
+offset = 0x9c
+len = 2
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.frametype"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "f44b8037b4b199d47efc3899eb659b74"
+offset = 0x1746
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.typemap.0"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "bb7ea4b4ffdbc9a265444fc127b1fe32"
+offset = 0x0
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.typemap.1"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "bc430516afda815e7d3171c08bb89d7a"
+offset = 0x4
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.typemap.2"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "bb697208cd65a5f73453587214728899"
+offset = 0x8
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "a7a6201a589e7e386aa0e948dc221cd9"
+offset = 0x24
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_fn"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "a7a6201a589e7e386aa0e948dc221cd9"
+offset = 0x0
+len = 48
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_tail"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7f68bc71629aaed41f2ffa075e03c222"
+offset = 0x46
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.owner"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "611122a695e36329f7759bda6a048352"
+offset = 0x2a
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.0"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "644c3ff2522cc84bc9f8df67f4382fbd"
+offset = 0x30
+len = 4
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.1"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "e47218b1266498370e28ee4276faec48"
+offset = 0x16
+len = 4
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.2"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "a367853313630d9dede2edeb6084aef4"
+offset = 0x27a
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.3"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "63d23fd083e0fe51fed7fb79e9f0bfa1"
+offset = 0x11a
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.4"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "4939f0cc9176ced67b08dc9cb03e34dc"
+offset = 0x3c
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.5"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "f538ba5ebebb9adc67aab6af15c0705a"
+offset = 0x20e
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.6"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "c05fe1eaa6a7ee820420abaa12e079da"
+offset = 0x9e
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.7"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "5d42addd8bdc36762ad7a3e983a6f9c1"
+offset = 0x3fe
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.reader_call.8"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "5d42addd8bdc36762ad7a3e983a6f9c1"
+offset = 0xe48
+len = 6
+mark = "D"
+
+
+# ---- sites added for the module version (3b.2): hooks that need a longer window, run-time table pointers and exits
+
+[[anchor_rule]]
+name = "cf.machines.list_entry"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7c680e4200eed1964a22109ee2d43932"
+offset = 0x0
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.list"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "7c680e4200eed1964a22109ee2d43932"
+offset = 0x50
+len = 28
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.names"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "5fd4ff30eda1da21d9c57e4c68b890fe"
+offset = 0x12
+len = 84
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.permit"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "33592e80678e363e0e66fad4f5d07083"
+offset = 0x1a
+len = 28
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.pertype"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "d5ac854dcaa12d112a91bb9bac8650c5"
+offset = 0x4c
+len = 7
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.typearg.exit"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "810f1ffd5d04a9c50bfc5d261c714ea7"
+offset = 0x82
+len = 6
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.list_entry"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "69828342bcd67f7587f7d51d4c4a6575"
+offset = 0x0
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.list"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "69828342bcd67f7587f7d51d4c4a6575"
+offset = 0x56
+len = 20
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.names"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "feed4ccea8848444496f10f25c10b1bc"
+offset = 0x12
+len = 60
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.tab.permit"
+devices = ["dn2"]
+cpu = "cf"
+kind = "cf_ptr"
+hash = "36780fb9834dbd3942e3c1be04ae5e07"
+offset = 0x1a
+len = 20
+mark = "D"
+
+# the table the selector literal points to (data: copied by mf_selector); the literal's instruction is the anchor above
+[[anchor_rule]]
+name = "dsp.machines.selector_data"
+devices = ["dt2"]
+cpu = "sharc"
+kind = "sharc_table"
+reloc_hash = "d2c02a587786f9ee328897985095c271ff1c5b65f289224e435968ea4b5d3f00"
+offset = 0x248
+len = 28
+mark = "D"
+
+# the branch target of each clone test (the other destination of the routine; see mf_clone* in src/cf/dt2/machines.s)
+
+[[anchor_rule]]
+name = "cf.machines.clone.0.alt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "cda6789150920d540acf061ca9321fd1"
+offset = 0x1c8
+len = 2
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.1.alt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "294532983de6494ff0bf7999b150febf"
+offset = 0xfe
+len = 2
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.2.alt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "f76a21ed019dd060daebc8df6133f886"
+offset = 0x27e
+len = 2
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.3.alt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "352d15c2c4edd7717e1afa1924e2754a"
+offset = 0x2b4
+len = 2
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.4.alt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "7e07c7cb054799ae481616fec559037b"
+offset = 0x70
+len = 2
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.machines.clone.6.alt"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "e17112316e2cef97a3ebdd4ec57cc849"
+offset = 0xfcc
+len = 2
+mark = "D"

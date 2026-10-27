@@ -1,0 +1,146 @@
+[module]
+id = "machines/sy-fang"
+version = "0.1.0"
+name = "SY Fang"
+category = "machines"
+status = "experimental"
+summary = "Bandlimited saw/pulse bass, nonlinear ladder, filter envelope, velocity accent and pitch glide."
+ports = ["dt2-1.17"]
+requires = ["core/machines", "core/params", "core/dsp-inline", "machines/twinshot-fusion"]
+conflicts = []
+[targets]
+"dt2-1.17" = "experimental"
+
+[[object]]
+path = "../../../../objects/fang-dsp.dko.json"
+sources = ["../../../../experiments/all_in_one_polish_fang/dsp/entry.s", "../../../../experiments/all_in_one_polish_fang/dsp/fang.c"]
+place = "dsp.l2"
+devices = ["dt2"]
+[object.externs]
+_fang_level_tail = "hook.fusion2.level_decode.tail"
+
+[[object]]
+path = "../../../../objects/fang-cf.dko.json"
+sources = ["../../../../experiments/all_in_one_polish_fang/controls.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+[object.externs]
+fang_typearg_exit = "cf.machines.typearg.exit"
+fang_wave = "params.fang_wave.index"
+fang_cut = "params.fang_cut.index"
+fang_res = "params.fang_res.index"
+fang_env = "params.fang_env.index"
+fang_dec = "params.fang_dec.index"
+fang_glide = "params.fang_glide.index"
+fang_bite = "params.fang_bite.index"
+
+[[entry]]
+registry = "inline_voices"
+id = "fang"
+type = "machines.fang.index"
+pc = "_fang_render"
+devices = ["dt2"]
+
+[[entry]]
+registry = "machines"
+id = "fang"
+name = "SY Fang"
+short = "FANG"
+clone_of = 6
+f0 = 0xf8
+f1 = "params.fang_wave.index"
+f2 = "params.fang_cut.index"
+# Keep the native sample-slot lookup empty. Only fang_param exposes RES on D;
+# fang_typearg resolves its actual mirror29, never mirror28.
+f3 = 0
+f4 = "params.fang_env.index"
+f5 = "params.fang_dec.index"
+f6 = "params.fang_glide.index"
+f7 = "params.fang_bite.index"
+f8 = 0x0a
+one_page = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_wave"
+name = "Oscillator wave"
+short = "WAVE"
+template = 0xfe
+slot = 1
+min = 0
+max = 0x7f00
+default = 0
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_cut"
+name = "Filter cutoff"
+short = "CUT"
+template = 0xfe
+slot = 2
+min = 0
+max = 0x7f00
+default = 0x4000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_res"
+name = "Filter resonance"
+short = "RES"
+template = 0xfe
+slot = 8
+min = 0
+max = 0x7f00
+default = 0x4800
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_env"
+name = "Filter envelope"
+short = "ENV"
+template = 0xfe
+slot = 4
+min = 0
+max = 0x7f00
+default = 0x5000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_dec"
+name = "Filter decay"
+short = "DEC"
+template = 0xfe
+slot = 5
+min = 0
+max = 0x7f00
+default = 0x3800
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_glide"
+name = "Pitch glide"
+short = "GLID"
+template = 0xfe
+slot = 6
+min = 0
+max = 0x7f00
+default = 0
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fang_bite"
+name = "Drive and accent"
+short = "BITE"
+template = 0xfe
+slot = 7
+min = 0
+max = 0x7f00
+default = 0x4000
+devices = ["dt2"]

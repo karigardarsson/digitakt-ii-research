@@ -8,6 +8,15 @@ Unlike the earlier v0.1/v0.2 builders, All-in-One v0.3.0 **does include DigiKit 
 
 The historical tooling statements below describe v0.1/v0.2 only, not All-in-One.
 
+## Current candidate source checkpoint
+
+The [all-in-one source subtree](all-in-one/README.md) adds the current native
+Credits/About, SY FANG and TWIN/FUSE integration sources for candidate
+`bbc534fae45fd4044625edba07c12d4be8b24d8997ccab313e6af0dfccd43626`.
+Its DigiKit NOTICE, AGPL license and per-file third-party licenses apply;
+see [subtree notices](all-in-one/THIRD_PARTY_NOTICES.md). This source checkpoint
+does not replace or alter the existing v0.3.0 builder/release assets.
+
 ## Conceptual inspiration
 
 - **Mutable Instruments — [Marbles](https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/):** the original inspiration for the Déjà Vu random-loop concept. No Marbles code is included in this repository or the Windows application.

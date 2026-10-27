@@ -1,0 +1,199 @@
+[module]
+id = "machines/plaits"
+version = "0.1.0"
+name = "Plaits"
+category = "machines"
+status = "experimental"
+summary = "Mutable Instruments Plaits as a Digitakt machine; this version has models 0 to 7 (VA to SPEECH), 8 (SWARM), 9 (NOISE), 10 (DUST), 11 (STRING), 12 to 15 (RINGS, KICK, SNARE, HIHAT), 16 (VCF-VA), 17 (PHASE-DIST), 18 to 20 and 24 (DX7-1 to DX7-4, the six-operator FM engine with a bank of 32 patches each, HARMONICS shows the patch name), 21 (TERRAIN), 22 (STRING MACHINE) and 23 (SQUARE)."
+ports = ["dt2-1.17"]
+requires = ["core/machines", "core/params"]
+conflicts = []
+
+[targets]
+"dt2-1.17" = "experimental"
+
+# The machine's type number is permanent: modules/core/machines/types.toml, key "machines/plaits:plaits"; it is
+# exported as `machines.plaits.index`. A clone of MANUAL SLICE (as XSLICE and ITONE, the configuration that works on
+# the owner's unit). The SRC page (docs/design/2026-10-17-plaits-machine-design.md, "Parameters and pages"):
+#   A TUNE (MANUAL SLICE's row 0xf8)   B MODEL       C HARMONICS   D -- (MANUAL SLICE's sample slot, unused)
+#   E TIMBRE                           F MORPH       G MIX         H LEV (MANUAL SLICE's row 0xfe)
+# MODEL, HARMONICS, TIMBRE, MORPH and MIX are rows of this module (core/params), formatted as LEV (template 0xfe, an
+# MSlice row: the owner the UI compares with the track's type mapped to its clone). Values are 0 .. 0x7f00 (UI
+# 0 .. 127); MODEL is 0 .. 0x1800 (UI 0 .. 24, the permanent model numbers in Plaits' own order: 0 VA, 1 ASYM-TRI,
+# 2 2FM, ...; docs/design/2026-10-17-plaits-machine-design.md and src/dsp/plaits.h).
+#
+# This module adds the machine and its rows only. The DSP routine (src/dsp/plaits_entry.s and the C sources) is built
+# twice, by two modules that each register it with core/dsp-inline for this type and conflict with each other:
+#   machines/plaits-48k   PLAITS_MODE 1: 32 samples at 48 kHz written to the voice's output (the default)
+#   machines/plaits-96k   PLAITS_MODE 0: 64 samples at 96 kHz (half-band interpolated) into the work buffer
+# Selected alone, the track plays as MANUAL SLICE.
+#
+# MODEL's value text is the model's name (`Model=ASYM-TRI` in the header): plaits_model_fmt (src/cf/model_fmt.s, in
+# cf.expansion, no firmware calls) is MODEL's formatter through core/params' `formatter` field. The template stays
+# 0xfe, so the knob slot draws LEV's fader (research-model-names.md).
+[[object]]
+path = "build/plaits-model-fmt.dko.json"
+sources = ["src/cf/model_fmt.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+# SRC+YES (randomize page) on a PLAITS track picks MODEL among the models the build has (plaits_model_rand, src/cf/randomize.s)
+# and HARMONICS, TIMBRE and MORPH over their range (`randomize = 1`); MIX has no `randomize` and is left alone, as are
+# TUNE and LEV, which the stock page randomizer does not touch.
+[[object]]
+path = "build/plaits-randomize.dko.json"
+sources = ["src/cf/randomize.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+# DX7-1..4: the knob-turn header of HARMONICS shows the name of the patch it selects (src/cf/dx7_text.s: the code and one hook on
+# the header's call of param_value_text; src/cf/dx7_names.s, generated with the DSP's quantiser table by
+# src/dsp/lib/gen_dx_tables.py: the thresholds and the 4 x 32 names). Other models and screens keep the number.
+[[object]]
+path = "build/plaits-dx7-names.dko.json"
+sources = ["src/cf/dx7_text.s", "src/cf/dx7_names.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+
+[object.externs]
+_dn_harm = "params.plaits_harm.index"
+_dn_model = "params.plaits_model.index"
+_dn_tail = "hook.plaits.dx7.headertext.tail"
+_dn_ret = "hook.plaits.dx7.headertext.return"
+_dn_effval = "plaits.dx7.effval"
+_dn_ltail = "hook.plaits.dx7.label.tail"
+_dn_lret = "hook.plaits.dx7.label.return"
+
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "plaits.dx7.headertext"
+offset = 0
+to = "dx7_header_text"
+displaced = "run"
+devices = ["dt2"]
+
+# the inline value label of the SRC page: before the `jsr (a1)` of ParameterSet::vfunc_23 in the cell drawer (1.17: 0x40069cc8, an
+# 8-byte site: `movea.l 0x5c(a1),a1; move.l d0,0x44(a7)`), and the firmware's cell-value function the page uses for its values
+[[op]]
+op = "hook"
+cpu = "cf"
+anchor = "plaits.dx7.label"
+offset = 0
+to = "dx7_label_text"
+displaced = "run"
+devices = ["dt2"]
+
+[[anchor_rule]]
+name = "plaits.dx7.label"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "eadeca25f9f3ca032eafe550d6496167"
+offset = 0x13a
+len = 8
+mark = "D"
+
+[[anchor_rule]]
+name = "plaits.dx7.effval"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "06835cc4e6ed1c9bd7a0e77ac5fcdf59"
+offset = 0
+len = 6
+mark = "D"
+
+# the `jsr param_value_text` of the knob-turn header (1.17: entry + 0x37e of the function whose body hash is below)
+[[anchor_rule]]
+name = "plaits.dx7.headertext"
+devices = ["dt2"]
+cpu = "cf"
+kind = "cf_func"
+hash = "005cf8f5bd1b35316fbd60a1abdafe54"
+offset = 0x37e
+len = 6
+mark = "D"
+
+[[entry]]
+registry = "machines"
+id = "plaits"
+name = "Plaits"
+short = "PLT"
+clone_of = 6
+f0 = 0xf8
+f1 = "params.plaits_model.index"
+f2 = "params.plaits_harm.index"
+f3 = 0
+f4 = "params.plaits_timbre.index"
+f5 = "params.plaits_morph.index"
+f6 = "params.plaits_mix.index"
+f7 = 0xfe
+f8 = 0x0a
+one_page = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "plaits_model"
+name = "Model"
+short = "MODEL"
+template = 0xfe
+slot = 1
+min = 0
+max = 0x1800
+default = 0
+formatter = "plaits_model_fmt"
+randomize = "plaits_model_rand"
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "plaits_harm"
+name = "Harmonics"
+short = "HARM"
+template = 0xfe
+slot = 2
+min = 0
+max = 0x7f00
+default = 0x4000
+randomize = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "plaits_timbre"
+name = "Timbre"
+short = "TIMB"
+template = 0xfe
+slot = 4
+min = 0
+max = 0x7f00
+default = 0x4000
+randomize = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "plaits_morph"
+name = "Morph"
+short = "MORPH"
+template = 0xfe
+slot = 5
+min = 0
+max = 0x7f00
+default = 0x4000
+randomize = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "plaits_mix"
+name = "Mix"
+short = "MIX"
+template = 0xfe
+slot = 6
+min = 0
+max = 0x7f00
+default = 0
+devices = ["dt2"]

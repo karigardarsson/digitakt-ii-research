@@ -1,0 +1,40 @@
+# Permanent machine type numbers (core/machines, registry "machines"). A project stores only the number, so a number
+# is never reused and never changed: a machine keeps its number whichever other modules are selected. Rules:
+#
+# - Key: "<module id>:<entry id>" (the module's directory under modules/, the `id` of its `[[entry]]`).
+# - Numbers start at the first non-stock type (Digitakt II 7, Digitone II 5) and stop at `last`. Stock types are never
+#   allocated. A number nobody selected is a gap row (not listed, plays as type 0).
+# - Digitakt II `last` = 23: the DSP's type -> selector table was read to entry 23 (findings 06), the frame word of type t
+#   is `0x94 + 2t` (finding 04), and the selector copy has one word per type up to the highest selected.
+# - Digitone II `last` = 23: the same number, chosen. The firmware bounds that were read are the persistence byte
+#   (`(u8)(type+1) < imm`, imm up to 255), the page tables (rows built per type by core/machines) and the FM engine, which
+#   knows types 0..4 and treats the rest as MIDI; no firmware table caps it lower (finding 02, "Stable machine type
+#   numbers"). Keeping it equal to the Digitakt's leaves one rule for both.
+# - A new machine takes the next free number of its device (`mise run patch:new` does that); a removed machine's number
+#   stays retired, so an old project never loads as another machine.
+
+[dt2]
+last = 23
+
+[dt2.alloc]
+"machines/xslice:xslice" = 7
+"test/machine-clone:xclone" = 8
+"machines/pluck:pluck" = 9
+"test/inline-tone:itone" = 10
+"machines/plaits:plaits" = 11
+"machines/twinshot:twinshot" = 12
+"machines/twinshot-fusion:twinshot_fusion" = 13
+"machines/twinshot-fusion:twinshot_fusion_v2" = 14
+
+"machines/chimera:chimera" = 15
+"machines/sy-fang:fang" = 16
+
+[dn2]
+last = 23
+
+[dn2.alloc]
+"test/dn2-clone:fmclone" = 5
+"test/dn2-pages:pages" = 6
+"test/dn2-sine:dn2sine" = 7
+"test/dn2-edge:dn2edge" = 8
+"machines/pluck:pluck" = 9

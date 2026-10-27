@@ -1,0 +1,60 @@
+[module]
+id = "core/expansion"
+version = "0.1.0"
+name = "Expansion memory"
+category = "core"
+status = "experimental"
+summary = "Reset-path loader that copies module code and data into the free top of RAM and zeroes module bss"
+requires = []
+conflicts = []
+
+# patchkit adds this module by itself whenever a module places an object in cf.expansion.
+[targets]
+"dt2-1.16" = "untested"
+"dt2-1.17" = "experimental"
+"dn2-1.11" = "untested"
+"dn2-1.12" = "experimental"
+
+[[object]]
+path = "build/loader.dko.json"
+sources = ["src/cf/loader.s"]
+place = "cf.flash_cave"
+
+[object.externs]
+pk_segs = "pk.segments"
+pk_copy_helper = "cf.reset.copy_helper"
+pk_clear_helper = "cf.reset.clear_helper"
+
+# `jsr copy; jsr clear` (4eba xxxx 4eba xxxx) becomes `jsr pk_loader.l; nop` (4eb9 <loader> 4e71).
+[[op]]
+op = "write"
+anchor = "cf.reset.init_calls"
+hex = "4eb9000000004e71"
+
+[[op.reloc]]
+offset = 2
+type = "cf.32"
+symbol = "pk_loader"
+
+[[claim]]
+resource = "cf.reset.init_calls"
+
+[[anchor_rule]]
+name = "cf.reset.init_calls"
+cpu = "cf"
+kind = "cf_reset_init_calls"
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.reset.copy_helper"
+cpu = "cf"
+kind = "cf_reset_helper"
+which = "copy"
+mark = "D"
+
+[[anchor_rule]]
+name = "cf.reset.clear_helper"
+cpu = "cf"
+kind = "cf_reset_helper"
+which = "clear"
+mark = "D"

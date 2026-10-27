@@ -12,6 +12,16 @@ Supply your own official OS1.17. No Elektron firmware is distributed; the offlin
 
 This All-in-One edition derives from **digikit by Em D - https://github.com/ElekLabs/digikit** and is supplied under AGPL-3.0-or-later plus DigiKit NOTICE and applicable per-file MIT/runtime licenses. Original Plaits: Emilie Gillet/Mutable Instruments. Earlier releases and this repository's separately authored MIT materials keep their existing licenses. See the release's source/license package; the repository's root MIT file does not replace upstream AGPL obligations.
 
+## Current development source checkpoint (not a release update)
+
+[Reviewed All-in-One source and validation](all-in-one/README.md) for candidate
+`bbc534fae45fd4044625edba07c12d4be8b24d8997ccab313e6af0dfccd43626`:
+native Settings > System > Credits/About with no additional boot delay,
+SY FANG, TWIN/FUSE Repair4/polish, existing Plaits25 graphics, Musical WAVE and
+Zoom. Exact candidate hardware acceptance remains unverified. No firmware,
+unfinished CHIMERA/ARP implementation or personal machine paths are included.
+The downloadable v0.3.0 builder and release assets above remain unchanged.
+
 ## Earlier Déjà Vu / Zoom editions — v0.1/v0.2 only
 
 The older builder and output hashes below are **not** the v0.3.0 All-in-One. Use the links above for v0.3.0 (OS1.17 only).

@@ -1,0 +1,135 @@
+[module]
+id = "machines/twinshot-fusion"
+version = "0.1.0"
+name = "Twinshot Sample Fusion"
+category = "machines"
+status = "experimental"
+summary = "Optional native rate synchronization and BLEND/RING/DUCK/MORPH cross-processing; V1 remains a separate unchanged machine."
+ports = ["dt2-1.17"]
+requires = ["core/machines", "core/params", "core/dsp-inline", "machines/plaits-48k", "machines/twinshot"]
+conflicts = []
+[targets]
+"dt2-1.17" = "experimental"
+
+[[object]]
+path = "../../../build/fusion-dsp.dko.json"
+sources = ["../../../entry.s", "../../../conversions.s", "../../../adapter.c"]
+place = "dsp.l2"
+devices = ["dt2"]
+[object.externs]
+"tw_load." = "twinshot.native.load"
+"tw_arm." = "twinshot.native.arm"
+"tw_pitch." = "twinshot.native.pitch"
+"tw_sample." = "twinshot.native.sample"
+
+[[object]]
+path = "../../../build/fusion-cf.dko.json"
+sources = ["../../../controls.s"]
+place = "cf.expansion"
+devices = ["dt2"]
+[object.externs]
+fusion_sync = "params.fusion_sync.index"
+fusion_mode = "params.fusion_mode.index"
+fusion_sample1 = "params.fusion_sample1.index"
+fusion_sample2 = "params.fusion_sample2.index"
+
+[[entry]]
+registry = "inline_voices"
+id = "twinshot_fusion"
+type = "machines.twinshot_fusion.index"
+pc = "_tf_render"
+devices = ["dt2"]
+
+[[entry]]
+registry = "machines"
+id = "twinshot_fusion"
+name = "Twin Fusion"
+short = "FUSE"
+clone_of = 6
+f0 = 0xf8
+f1 = "params.fusion_sync.index"
+f2 = "params.fusion_mode.index"
+f3 = "params.fusion_sample1.index"
+f4 = "params.fusion_tune2.index"
+f5 = "params.fusion_mix.index"
+f6 = "params.fusion_sample2.index"
+f7 = 0xfe
+f8 = 0x0a
+one_page = 1
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fusion_sync"
+name = "Duration Sync (B follows A)"
+short = "SYNC"
+template = 0xfe
+slot = 1
+min = 0
+max = 0x100
+default = 0
+formatter = "fusion_sync_fmt"
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fusion_mode"
+name = "Fusion Mode"
+short = "FUSE"
+template = 0xfe
+slot = 2
+min = 0
+max = 0x300
+default = 0
+formatter = "fusion_mode_fmt"
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fusion_sample1"
+name = "Fusion Sample 1 + Direction"
+short = "SMP1"
+template = 0xfb
+slot = 3
+min = 0
+max = 2047
+default = 0
+formatter = "twinshot_sample_fmt"
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fusion_tune2"
+name = "Layer 2 Tune (Sync Off)"
+short = "TUNE2"
+template = 0xf8
+slot = 4
+min = 0x400
+max = 0x7c00
+default = 0x4000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fusion_mix"
+name = "Blend Balance / Fusion Depth"
+short = "MIX"
+template = 0xfe
+slot = 5
+min = 0
+max = 0x7f00
+default = 0x4000
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fusion_sample2"
+name = "Fusion Sample 2 + Direction"
+short = "SMP2"
+template = 0xfb
+slot = 6
+min = 0
+max = 2047
+default = 0
+formatter = "twinshot_sample_fmt"
+devices = ["dt2"]

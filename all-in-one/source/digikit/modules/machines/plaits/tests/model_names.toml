@@ -1,0 +1,80 @@
+# MODEL's value text: PLAITS selected (as select.toml), the SRC page open, MODEL (knob B) turned down to 0, then up
+# to 1 (a burst of three events: single slow events change nothing, and the step count of a burst depends on the
+# encoder's acceleration; this sequence lands on 1 in the emulator, out/runs/lanes/model-names, 2026-10-18). The
+# header shows `Model=ASYM-TRI`: the firmware's param_value_text (0x400c8952, research-model-names.md) formats the
+# value through the row's +0x34 word, plaits_model_fmt, into its static 64-byte buffer at 0x4293b818, which the
+# header's `%s=%s` reads. The buffer must hold "ASYM-TRI" and its NUL after the turn.
+
+[test]
+name = "plaits_model_names"
+devices = ["dt2"]
+quick = true
+
+[[step]]
+wait_ms = 1500
+[[step]]
+tap = ["FUNC", "SRC"]
+[[step]]
+wait_ms = 200
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "DOWN"
+[[step]]
+wait_ms = 80
+[[step]]
+tap = "YES"
+[[step]]
+wait_ms = 0x12c
+[[step]]
+expect_mem = { addr = 0x4265338c, mask = 0xff00, eq = 0xb00 }
+[[step]]
+tap = "YES"
+[[step]]
+wait_ms = 0x12c
+[[step]]
+tap = "SRC"
+[[step]]
+wait_ms = 300
+[[step]]
+turn = "ENC B"
+by = -4
+events = 40
+[[step]]
+wait_ms = 500
+[[step]]
+turn = "ENC B"
+by = 1
+events = 3
+[[step]]
+wait_ms = 200
+[[step]]
+expect_mem = { addr = 0x4293b818, eq = 0x4153594d }
+[[step]]
+expect_mem = { addr = 0x4293b81c, eq = 0x2d545249 }
+[[step]]
+expect_mem = { addr = 0x4293b820, mask = 0xff000000, eq = 0 }
+[[step]]
+expect_no_fault = true
