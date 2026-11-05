@@ -1,61 +1,70 @@
-# Digitakt II Sample Editing Pack — OS 1.17
+# Digitakt II Sample Editing Pack
 
-Standalone **Universal Zoom + SmartSlice + SampleLAB + CFADE**. No All-in-One
-firmware base, unrelated synth engine or Modular+ runtime is required.
+Four tools for working with samples on Digitakt II:
 
-[Download the Windows x64 builder package](sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip?raw=1) · [HOW-TO](sample-editing/docs/HOW_TO.md) · [Package instructions](sample-editing/README.md) · [Build from source](sample-editing/BUILDING.md) · [Hardware acceptance](sample-editing/HARDWARE_ACCEPTANCE.md)
+- **Universal Zoom** — zoom in up to 64×, pan across the waveform and reset the view.
+- **SmartSlice** — find slice points automatically in the SLICE machine.
+- **SampleLAB** — load or record a sample, chop, trim, audition and save edited copies.
+- **CFADE** — blend the loop wrap in SLICE playback for smoother loops.
 
-Supply your own official **Digitakt II stock OS 1.17**. The builder checks the
-exact input, integrates the pack and saves a verified new file. It never flashes
-or connects to an instrument. No Elektron firmware is distributed.
+**[Download the Windows builder](sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip?raw=1)** · **[Read the HOW-TO](sample-editing/docs/HOW_TO.md)**
 
-**Hardware accepted by Kári on November 5, 2026**, including the corrected
-SampleLAB H rotation response. Accepted firmware SHA-256:
-`880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06`.
-This is the user's hardware report, not an assertion of exhaustive compatibility
-with every project or setup. The exact stock requirement is:
-`26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5`.
+For **Digitakt II with official stock OS 1.17**. The builder runs on Windows x64
+(tested on Windows 11). You supply your own stock firmware file; no Elektron
+firmware is included. The application is unsigned, so Windows may display a
+publisher warning.
 
-- **SmartSlice:** improved native detection and the native-owner exception/tiny-grid fixes.
-- **SampleLAB:** +Drive/recording sources, SmartChop, trim, marker undo, LOOP,
-  edge fade, audition, single/batch save and pool assignment. H-push cycles
-  Waveform → Settings → Info; H rotation selects adjacent actions. START/END
-  scale with the visible span and retain deep-zoom precision.
-- **Universal Zoom:** SRC overview through 64x, pan and reset; C on ordinary
-  sample machines, G on SLICE.
-- **CFADE:** native SLICE playback loop-wrap blending; separate from SampleLAB's
-  editing/export FADE.
+## Download and install
 
-### Four native UI demonstrations
+1. Download and extract the Windows package, then open **DT2-Sample-Editing-Builder.exe**.
+2. Select your official **Digitakt II OS 1.17 `.syx`** file.
+3. Choose a new output filename, click **Build Sample Editing Pack**, and wait for the success message.
+4. Back up your projects, Sounds and samples. Install the generated `.syx` using
+   Elektron Transfer and [Elektron's update instructions](https://support.elektron.se/support/solutions/articles/43000662890-how-to-update-your-device).
 
-These are real emulator renders, not hardware video. Selected frames are held
-for reading. The [capture notes](sample-editing/docs/CAPTURE_NOTES.md) explain
-the SmartSlice marker-view and supplied waveform-response limitations.
+The builder creates a file; it does not connect to or update your instrument.
+Keep your official stock firmware for recovery. Once installed, start with
+[SampleLAB loading and editing](sample-editing/docs/HOW_TO.md#samplelab-load-edit-and-save)
+or [SmartSlice](sample-editing/docs/HOW_TO.md#smartslice).
 
-![SmartSlice: SMART selection and detected markers](sample-editing/media/reddit/01-smartslice.gif)
+## See it in action
 
-![SampleLAB: SmartChop, Info, select and trim](sample-editing/media/reddit/02-samplelab-smartchop-edit.gif)
+**SmartSlice — choose SMART and create slice points**
 
-![Universal Zoom: overview to 64x detail](sample-editing/media/reddit/03-universal-zoom.gif)
+![SmartSlice](sample-editing/media/reddit/01-smartslice.gif)
 
-![SampleLAB: load from +Drive](sample-editing/media/reddit/04-samplelab-drive-load.gif)
+**SampleLAB — chop a sample, select a region and trim it**
 
-The download includes the Windows builder, required corresponding source,
-licenses, 36 native screenshots/enlargements and these four GIFs. See
-[package hashes](sample-editing/downloads/SHA256SUMS.txt) and
-[validation](sample-editing/TEST_REPORT.md). The EXE is unsigned; Windows10,
-ARM64, clean-VM and SmartScreen/antivirus acceptance are not newly qualified.
+![SampleLAB chopping and trimming](sample-editing/media/reddit/02-samplelab-smartchop-edit.gif)
 
-Modified work by Kári / karigardarsson, derived from
+**Universal Zoom — from overview to fine detail**
+
+![Universal Zoom](sample-editing/media/reddit/03-universal-zoom.gif)
+
+**SampleLAB — load a sample from +Drive**
+
+![SampleLAB +Drive loading](sample-editing/media/reddit/04-samplelab-drive-load.gif)
+
+## Help and credits
+
+- [HOW-TO: controls, shortcuts and saving](sample-editing/docs/HOW_TO.md)
+- [Windows package instructions](sample-editing/README.md)
+- [Technical notes, checksums and source](sample-editing/docs/TECHNICAL_NOTES.md)
+
+By **Kári / karigardarsson**, derived from
 **digikit by Em D - https://github.com/ElekLabs/digikit**.
-The Sample Editing subtree uses its [AGPL-3.0-or-later LICENSE](sample-editing/LICENSE),
+The pack uses its [AGPL-3.0-or-later license](sample-editing/LICENSE),
 [DigiKit NOTICE](sample-editing/NOTICE) and [third-party notices](sample-editing/THIRD_PARTY_NOTICES.txt).
-The repository root MIT file does not replace those terms. Not affiliated with Elektron.
+The repository's root MIT license does not replace those terms.
+This is an unofficial modification, not affiliated with Elektron.
 
----
+## Older editions
 
-The existing All-in-One and earlier Déjà Vu editions below are separate,
-unchanged packages. Their own candidate/hardware status and licenses still apply.
+The earlier All-in-One and Déjà Vu/Zoom editions are separate packages. Their
+downloads, instructions, credits and release history are preserved below.
+
+<details>
+<summary>All-in-One and Déjà Vu/Zoom documentation archive</summary>
 
 
 # Digitakt II All-in-One
@@ -198,3 +207,4 @@ See [third-party notices](THIRD_PARTY_NOTICES.md) for the redistribution boundar
 
 This project is unofficial and is not affiliated with or endorsed by Elektron. Elektron and Digitakt are trademarks of their respective owners.
 
+</details>
