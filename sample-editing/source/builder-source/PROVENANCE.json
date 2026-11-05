@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-05",
+  "creator": "KÃƒÆ’Ã‚Â¡ri / karigardarsson",
+  "approved_reference_sha256": "e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2",
+  "approved_reference_hardware_status": "USER HARDWARE-TESTED, per current builder request",
+  "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "reference_preserved": true,
+  "recipe": "39 bounded MAIN writes + seven CF segments; stock DSP + fixed custom CFADE components and copied native six-byte tail; full output pinned.",
+  "infrastructure": "Adapted existing Windows builder_core extraction, encoder invocation, six-section verification and staged output design. No patchkit.exe or AIO foundation/profile/runtime.",
+  "encoder": {
+    "binary_sha256": "196c0fbab647dd6fefe1392bfa16a36931031a550a8125869af86212e8489455",
+    "upstream": "https://github.com/mischa85/elektron-firmware-tool",
+    "commit": "a5bce9a6af644386d900924082993a805e812874",
+    "license": "MIT"
+  },
+  "module_origins": {
+    "lab": "DT2_SAMPLE_EDITING_FINAL_POLISH_20261105/source/sample_lab",
+    "smart": "DT2_SMARTSLICE_EXCEPTION_20261103\\work\\smart.bin",
+    "background": "DT2_SMARTSLICE_EXCEPTION_20261103\\work\\background.bin",
+    "overflow": "DT2_SMARTSLICE_EXCEPTION_20261103\\work\\overflow.bin",
+    "zoom": "DT2_SMARTSLICE_EXCEPTION_20261103\\work\\zoom.bin",
+    "credits": "DT2_SMARTSLICE_EXCEPTION_20261103\\work\\credits.bin"
+  },
+  "firmware_sources": "firmware-source/sample_lab is current preferred source. Current object/link map in objects/lab.*; other modules and DSP unchanged.",
+  "source_only_recompile": "Preserved6aac source reproduced byte-exact; exactly one shared H threshold expression changed; only sl_lab_encoder text section differs. GCC16.2.0, 28816B payload, BSS144 unchanged.",
+  "excluded": [
+    "Elektron stock or integrated firmware",
+    "original stock sections",
+    "audio",
+    "device tools",
+    "unrelated synth engines",
+    "AIO modules",
+    "private exception photograph"
+  ],
+  "baseline_approved_sha256": "e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2",
+  "new_candidate_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "hardware_tested": true,
+  "change": "Only shared H rotation threshold6 to2; magnitude ignored, original3-tick gate, adjacent-step clamp, CHOP/LOOP action bounds and H push unchanged. Other encoders/renderer/DSP/storage exact. Builder font10, initial Ready log and acceptance-dependent text; generation logic unchanged.",
+  "CFADE_source_exact_donor": true,
+  "intended_release_baseline_sha256": "3b6386010cd228ba603dbef3e681c42ed6490f2020e61ae80012fd458c4cec76",
+  "windows_freezer": "Existing local PyInstaller6.16.0, Python3.12 x64; no dependency installation.",
+  "parent_release_candidate_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+  "hardware_acceptance": {
+    "date": "2026-11-05",
+    "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+    "evidence": "User report in existing Codex thread: H is now good and hardware testing passes; GO to remove acceptance warning and finish release ZIP.",
+    "independently_observed_by_agent": false
+  },
+  "release_finalization": "Only builder_gui HARDWARE_ACCEPTED flag false->true. Firmware assets, generation core and exact output hash unchanged. No firmware compilation, flashing or publication.",
+  "public_preparation": {
+    "date": "2026-11-05",
+    "firmware_unchanged": true,
+    "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+    "scope": "Documentation/media integration, historical workstation path redaction, accepted hardware status in builder result JSON; no firmware or generation-logic change.",
+    "original_local_package_sha256": "c7010a2b4d8e11f963865a48a4db12cd724ff8bba556244090707806047dfa00",
+    "authorization": "Explicit user GO to commit and push to existing GitHub repository; no separate GitHub Release, device flashing or Reddit post."
+  }
+}

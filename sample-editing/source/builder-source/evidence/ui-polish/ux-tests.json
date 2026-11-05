@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "main_sha256": "262090e830145abb3fc11ad0a25e6872bed93c9d062e87d4725dd0126a2d765e",
+  "cases": [],
+  "lifecycle": [
+    {
+      "type": 0,
+      "button": 43,
+      "pan_encoder": 3,
+      "short_and_long": true,
+      "opposite_button_preserved": true,
+      "native_cell_pixels": true,
+      "pending_wave_pixels_held": true,
+      "coalesced_viewport_safe": true,
+      "stock_C_delegates_without_zoom_change": false
+    },
+    {
+      "type": 1,
+      "button": 43,
+      "pan_encoder": 3,
+      "short_and_long": true,
+      "opposite_button_preserved": true,
+      "native_cell_pixels": true,
+      "pending_wave_pixels_held": true,
+      "coalesced_viewport_safe": true,
+      "stock_C_delegates_without_zoom_change": false
+    },
+    {
+      "type": 2,
+      "button": 43,
+      "pan_encoder": 3,
+      "short_and_long": true,
+      "opposite_button_preserved": true,
+      "native_cell_pixels": true,
+      "pending_wave_pixels_held": true,
+      "coalesced_viewport_safe": true,
+      "stock_C_delegates_without_zoom_change": false
+    },
+    {
+      "type": 3,
+      "button": 43,
+      "pan_encoder": 3,
+      "short_and_long": true,
+      "opposite_button_preserved": true,
+      "native_cell_pixels": true,
+      "pending_wave_pixels_held": true,
+      "coalesced_viewport_safe": true,
+      "stock_C_delegates_without_zoom_change": false
+    },
+    {
+      "type": 4,
+      "button": 43,
+      "pan_encoder": 3,
+      "short_and_long": true,
+      "opposite_button_preserved": true,
+      "native_cell_pixels": true,
+      "pending_wave_pixels_held": true,
+      "coalesced_viewport_safe": true,
+      "stock_C_delegates_without_zoom_change": false
+    },
+    {
+      "type": 6,
+      "SLICE_all_pixels_exact_hardware_baseline": true,
+      "zooms": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "type": 6,
+      "button": 47,
+      "pan_encoder": 7,
+      "short_and_long": true,
+      "opposite_button_preserved": true,
+      "native_cell_pixels": true,
+      "pending_wave_pixels_held": true,
+      "coalesced_viewport_safe": true,
+      "stock_C_delegates_without_zoom_change": true
+    }
+  ],
+  "baseline_1x_2x_pixels_exact": false,
+  "evidence": "Native ColdFire UI/metadata/callback/RPC/parser/render execution; DSPI1 peer and queue delivery are fixture seams, not physical validation"
+}

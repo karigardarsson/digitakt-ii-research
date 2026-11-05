@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "image_sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+  "batch": [
+    8,
+    8,
+    5,
+    0,
+    0,
+    4
+  ],
+  "new_slots": [
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "full_pool_exact_after_fresh_Project_LOAD": true,
+  "production_code_pokes": 0,
+  "recording_PCM_seam": true,
+  "evidence": "Existing disposable named stock Project; native Lab ALL POOL, quick SAVE, fresh emulator boot and native Project LOAD. No physical media/power-cycle claim."
+}

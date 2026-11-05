@@ -1,0 +1,90 @@
+{
+  "status": "OFFLINE_VALIDATED_HARDWARE_TEST_CANDIDATE_RELEASE_HOLD",
+  "date": "2026-11-03",
+  "firmware": {
+    "path": "WORKSPACE/DT2_SMARTSLICE_EXCEPTION_20261103/HARDWARE_TEST/DT2_OS117_SAMPLE_EDITING_SMART_FIX.syx",
+    "sha256": "e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2",
+    "bytes": 1880992
+  },
+  "baseline": {
+    "path": "WORKSPACE/DT2_SAMPLE_EDITING_UI_POLISH_OS117/HARDWARE_TEST/DT2_OS117_SAMPLE_EDITING_UI_POLISH.syx",
+    "sha256": "52992b9d37d854bbcf9401096ec27db256bc64d2660a362a34686b7f1331726b",
+    "preserved": true
+  },
+  "original_hardware_tested": {
+    "path": "WORKSPACE/DT2_SAMPLE_EDITING_OS117/HARDWARE_TEST/DT2_OS117_SAMPLE_EDITING.syx",
+    "sha256": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+    "preserved": true
+  },
+  "root_cause": {
+    "function": "smart_notice",
+    "defect": "Native owner release used pair.object word instead of pair.control word; raw View encoder-interface vtable decremented",
+    "physical_fault_PC": "0x4011B5F8",
+    "photo_vector": "03",
+    "emulator_vector": "02",
+    "classification_boundary": "Real native constructor/callback/UART dispatch corruption reproduced; emulator maps the odd unmapped target to vector2, physical photo reports3.",
+    "before_interface_vtable": "0x4021D924",
+    "corrupt_interface_vtable": "0x4021D923",
+    "proof_sha256": "b193c09c141106cf75c31282b723b248ca369af5eee505e4ee29c49fb644b7b3",
+    "installed_UI_proof_sha256": "059ba3473725f5a22ed84b6a0184f4c6336033eda354e7c51b10117a0f6913d5"
+  },
+  "tiny_grid_guard": "Native fixed count2..64 with fewer nonempty resident frames than rows now fails before grid writes, preserving old grid; stock CLEAR and ordinary fixed requests delegate unchanged.",
+  "unchanged": {
+    "detectors_and_fallbacks": true,
+    "Zoom": true,
+    "SampleLAB": true,
+    "UI_polish": true,
+    "Credits": true,
+    "DSP": true,
+    "all_non_MAIN_stored_and_plain": true,
+    "persistent_formats": true,
+    "BSS": true,
+    "new_hooks": 0,
+    "retained_module_destinations": [
+      "0x47ee0000",
+      "0x47fb0000",
+      "0x47fb1000",
+      "0x47fd0000",
+      "0x47ed0000"
+    ]
+  },
+  "source_sha256": {
+    "source/sample_lab/engine.c": "af8838ae57e8af46c8f444b495b10a5f7df817059281d22bfaa80ffe36c03264",
+    "source/sample_lab/engine.h": "8bf4978d5fb47c45a3e3e6494ea8cc36070bbb4afbc866957271cfa8de7170bb",
+    "source/sample_lab/hook_trampolines.s": "93f5aff038e2712ccc68911ca066a9ea15ac13d23ca49e14bdafe813abe01ab3",
+    "source/sample_lab/native_adapter.c": "fcbc67f02df3ce89406df7f582fb1aa196ea08758e79bc335cef3fc4c5f33439",
+    "source/sample_lab/visual.c": "4c2d3d0b2ebce7fa3cb7d3d757e49c091c950ce2f6fdeaa1cf956ce1e81e958f",
+    "source/sample_lab/visual.h": "db2897940f0d84d140c3b2ff9fe01c100d980909f03444c9753ab72c944cb09a",
+    "source/sample_lab/workflow.c": "46710ee721c140dd3f38059e944c4df098619001fb69d3fba3eb26e089cdb112",
+    "source/smart/background.c": "53d317e813652d9d138a26d6d9509c569aee0bfcabe72362f574817c1867fee9",
+    "source/smart/engine.c": "271359b4087ae283b99f7a8d8e352749e8963f57ec8d1873797c8d804de40473",
+    "source/smart/engine.h": "8bf4978d5fb47c45a3e3e6494ea8cc36070bbb4afbc866957271cfa8de7170bb",
+    "source/smart/overflow.c": "06dba07346e2b127e2f6fc3a63c0ce6a55057f734c7d3d0e5736410620ebb920",
+    "source/smart/smart_grid.c": "06bc990ad2e7f3a8cd24848a0554f6692172f698075b0f9be94b44e11afcf975",
+    "source/smart/smart_notice.s": "1ed51c5d89b9526f79cd8eb7a287443740a69cc6aa94266a79b7df75eb07aebc"
+  },
+  "tests": {
+    "boot-tests.json": "dd696426cf3f7fe6900cd4c19406c6b4a968bc24dc8d4c790ab03fef1fa92530",
+    "journey-tests.json": "2b1e1c9b083a8d1249fc33c27897db50a93b021cf1c4d0e777ef29fa8b7d1f0b",
+    "record-tests.json": "2b4dd268d5551b1a6403a56fe4b7962b4df967579c4529337786013343e376cc",
+    "qol-tests.json": "4aa7c94882addb91e76c70d7702338a7ee40f1327b6a90a455bb679bd9210547",
+    "loop-trim-tests.json": "5a7f00b5a5d5eff06e004ebe26314535a797991d35f8b9d84db731711c988026",
+    "failure-tests.json": "f5a996201829a52dd0bf903075caec9e0afb48ee17e2d77108c432fab02587ac",
+    "smart-tests.json": "5106ec4be01265d344ad52bbdbfe59f58e7b1ec745bcdd7b5a19ec4ea6d969a3",
+    "repeated-final.json": "ef5d527207162a75723e09aa4e82af8a92b9eb1dd9696bb703912ca747d7135f",
+    "stress-final.json": "06a2fa437e6570275049fb954dc7cc0c96c1c29a10d2a137ebdfc2cabe934d10"
+  },
+  "final_native_file_cases": 9,
+  "final_attempts": 26,
+  "stress_cycles": 32,
+  "stress_attempts": 64,
+  "final_metadata_seams_used": 0,
+  "final_production_code_pokes": 0,
+  "photo": {
+    "path": "user-exception.png",
+    "sha256": "ff920445564a3f51ecac10e326c6d663824783cccb7248049635ff412a9e2927",
+    "private_local_evidence": true
+  },
+  "hardware_acceptance": "Required; public release remains HOLD until Kári tests and accepts this exact candidate.",
+  "no_flash_or_publication": true
+}

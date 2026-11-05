@@ -1,0 +1,57 @@
+{
+  "status": "PASS_SHARED_H_ROTATION_ONLY",
+  "baseline_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+  "changed_object_sections": [
+    ".text.sl_lab_encoder"
+  ],
+  "changed_code_sections": [
+    ".text.sl_lab_encoder"
+  ],
+  "H_threshold_events_before": 6,
+  "H_threshold_events_after": 2,
+  "other_encoders_navigation_zoom_processing_storage_workers_exact": true,
+  "all_other_six_modules_exact": true,
+  "Lab_BSS_bytes": 144,
+  "lab_payload_bytes": 28816,
+  "old_lab_payload_bytes": 28816,
+  "relocated_existing_hooks": [
+    {
+      "address": 1073875296,
+      "before": "4ef947ee44a84e71",
+      "after": "4ef947ee44a84e71",
+      "symbol": "sl_lab_encoder"
+    },
+    {
+      "address": 1073884270,
+      "before": "4ef947ee4bfc4e71",
+      "after": "4ef947ee4bfc4e71",
+      "symbol": "sl_lab_key"
+    },
+    {
+      "address": 1073880544,
+      "before": "4ef947ee51ec4e71",
+      "after": "4ef947ee51ec4e71",
+      "symbol": "sl_lab_draw"
+    },
+    {
+      "address": 1073877434,
+      "before": "4ef947ee43f44e71",
+      "after": "4ef947ee43f44e71",
+      "symbol": "sl_lab_tick"
+    },
+    {
+      "address": 1075429206,
+      "before": "4ef947ee43d84e71",
+      "after": "4ef947ee43d84e71",
+      "symbol": "sl_lab_destroy"
+    },
+    {
+      "address": 1074059744,
+      "before": "4ef947ee43564e71",
+      "after": "4ef947ee43564e71",
+      "symbol": "sl_lab_record_state"
+    }
+  ],
+  "stock_prefix_rollback_exact": true,
+  "no_DSP_or_persistent_format_change": true
+}

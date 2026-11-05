@@ -1,0 +1,119 @@
+DIGITAKT II SAMPLE EDITING PACK — CFADE INTEGRATION — 2026-11-05
+
+ONE NEW HARDWARE-TEST CANDIDATE
+DT2_OS117_SAMPLE_EDITING_CFADE.syx, 1,881,120 bytes.
+SHA-256: 247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44
+New exact image hardware_tested=false. No flash, device connection or publication.
+
+EVIDENCE / PRESERVATION
+User-approved hardware-tested Sample Editing baseline e0867dc7... and its
+Windows builder/ZIP are unchanged. Older d7cbee11... is unchanged. CFADE has
+USER hardware listening evidence on the older XSLICE71658c49 package. That
+does not prove this new SLICE6 standalone combination or its realtime load.
+Native SLICE CFADE source/controls/audio evidence from81c76039 is reused and
+rerun on this combination. Current compiler/linker reproduces the processor,
+inline helper and lifetime adapter byte-exact to that donor. No algorithm
+retuning or new synth engine. Current source and actual installed code take
+precedence over the stale generated seed plan's header return0x1c4009: the
+executed and installed contract returns0x1c400a. This is verified in the donor.
+
+MINIMAL IMPLEMENTATION
+Retain Universal Zoom, native SmartSlice with notification-owner/tiny-grid
+repairs, SampleLAB and all three approved UI fixes. The six existing CF
+modules and38 hooks are byte-exact. Add the existing18-byte/20-aligned SLICE
+initializer at0x47fa0000 and one6-byte call at401c4de4. It exposes native
+parameter250/mirror27 on C. G Zoom/pan/reset/fit stays unchanged.
+Add the existing CFADE processor, small inline dispatch and sample-header
+lifetime adapter to qualified free DSP L2. Three6-byte DSP hooks: voice render,
+sample-header begin/end. Private32-voice state,4100-byte epoch array,48-byte
+register save and4096-byte stack have explicit nonoverlapping ownership.
+No TWIN/FUSE/Plaits/FANG/GRLAB/XSLICE machine, AIO runtime or Modular+ rewrite.
+The original CFADE C, timing, source identity checks, private head and native
+decimator behavior are unchanged. CFADE blends loop wraps; it is not a new
+cross-slice phrase-transition engine or destructive sample edit.
+
+STORAGE / STOCK WORKFLOWS
+Uses the existing native SLICE parameter250 at Sound+0x4a; no parameter ID,
+Sound/Kit/Pattern/Project codec/version/layout change. Stock normal loading,
+LOAD FROM +DRIVE, RECORD, SampleLAB editing/undo/audition/fades/saving/Pool
+remain. Stock firmware ignores the exposed CFADE playback extension; its
+codecs can reload saved data. No compatibility claim for unrelated AIO Sounds.
+
+FRESH VALIDATION
+Independent original parser verifies transport checksums, HMAC, all packed
+section bootstrap decompression and SHARC boot stream. Undo the one MAIN
+patch and remove its added segment: MAIN equals approved e0867dc7 exactly.
+All sections except MAIN/DSP remain stored/plain exact. DSP reconstructs
+exactly from user stock plus custom code/data; the six displaced native
+instruction bytes are copied from the user's input, not bundled as firmware.
+
+28 native SHARC cases: OFF/other stock types0..6, voices0/31, exact PCM and
+record state; ON exact to existing CFADE across stereo, reverse, pitches,
+short loops1/2/3/16/64/1024, one-shot, parameter/type changes and retrigger;
+actual native loader ABA causes new-generation reseed, odd epoch delegates,
+modeled mid-render header IRQ rejects mixed generation; circular/private
+stack and callee-register ABI; all32 voice states. Existing supplied-loop
+benchmark boundary jump improves10.864dB with exact primary cursor timing.
+Interpreter uses approximate reciprocals; no physical sound/deadline proof.
+
+Native ColdFire: actual boot initializer, all SRC descriptors, real C encoder,
+Sound converter/container roundtrips0/1/64/127 with unchanged slice grid,
+native Pattern producer/vector191 locks and unlocked steps, smoother/LFO/final
+wire copy. No post-LFO value injection. SLICE6 alone is exposed; no XSLICE7.
+
+Fresh packaged-image loader readback: seven modules/39 hooks; no production
+code injection. Browser -> Lab -> Smart Chop -> Save As -> Pool; LOAD/RECORD
+equivalence; boundary editing, undo, fit, trim/LOOP Save As, failures/cancel;
+SMART16; eight-file ALL POOL + Project SAVE + fresh native LOAD; unmodified
+stock OS1.17 fresh LOAD of mod-saved Project with entire Pool exact. Recording
+PCM is supplied in the emulator; physical ADC/media not established here.
+Four real-file SMART cases/12 attempts: silent failure->LENGTH64,1/63-frame
+refusal with retained grids,96-attack fallback; real popup/encoder/NO,
+zero metadata or production-code pokes. Existing full9-case/32-cycle evidence
+also remains applicable by byte-exact SMART module and hook identity.
+
+Zoom: ordinary types0..4 assert PASS in the retained fixture; SLICE6 separately
+passes its complete UX/native C-CFADE/G Zoom interaction oracle. Earlier test
+adapter failures were missing imports/parser dependency and a30-second host
+timeout; the focused final pass uses the existing dependency and a bounded
+120-second fixture budget. No firmware patch was made for fixture failures.
+Recorder/TRIM UI fixes are retained byte-exact in the Lab module.
+
+WINDOWS BUILDER
+Reuses the fixed standalone builder; extends its guarded recipe to seven CF
+modules/39 writes and DSP composition. One exact stock OS1.17 input only.
+Input SHA gate -> stable private copy -> six stock section hashes -> MAIN/DSP
+composition -> existing MIT encoder -> exact full output SHA/size -> container
+and six decoded sections -> staged no-overwrite save. Custom assets/manifest
+and encoder are sealed in the EXE. No Python/WSL/compiler/internet required
+for end users. No Elektron firmware or generated .syx is in either ZIP.
+18 focused tests pass, including DSP bounds/hash/tampering, wrong input,
+overwrites and late destination race. Source, frozen CLI and GUI-initiated
+outputs equal the candidate. The final title-corrected EXE is rerun isolated
+with system-only PATH and nine rejection/file-safety cases. Seven CF payloads
+relink exactly from captured objects; embedded resources read back exactly.
+
+UI QA LIMIT
+The original CFADE builder layout was visually inspected and its actual Build
+button created an exact candidate. Kári stopped Computer Use with Escape
+before the completed screen was observed. No further GUI actions were taken.
+Per Kári's next instruction, final header/window title remove '+ CFADE' and
+read Digitakt II Sample Editing Pack; feature line still lists CFADE. This
+shorter text is source-verified. Final title rendering was not reinspected.
+The open test EXE was left alone; final output is in Windows-final to avoid
+overwriting the running test file. Firmware bytes are unaffected by the title.
+
+LIMITS / ACCEPTANCE
+Windows11 x64 tested; Windows10, ARM64, clean VM, non-Latin paths and unsigned
+download/antivirus handling untested. No new physical musical acceptance,
+ADC/media/power-cycle/rollback or silicon32-voice deadline claim. Historical
+preferred sources and link objects are supplied; a clean rebuild of all old
+GCC15/16 editor sources is not newly qualified. Public release awaits Kári.
+
+HARDWARE CHECKLIST (Kári performs device actions separately)
+1. SLICE: loop sustained material; compare C/CFADE0,1,64,127. Check loop pitch,
+timing/attack, forward/reverse and short loops. G tap/hold/pan/reset still works.
+2. Change/reload samples, tracks and Projects while looping; toggle CFADE and
+retrigger. Check stereo, no stale/silent playback, dense musical use.
+3. SMART insufficient/silent attempt -> encoder/NO -> LENGTH64; repeat. Verify
+known transient grid, Lab LOAD/RECORD/edit/undo/Save/Pool and Project recall.

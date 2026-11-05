@@ -1,0 +1,55 @@
+{
+  "name": "background",
+  "base": 1207631872,
+  "bytes": 1172,
+  "bss": 0,
+  "symbols": {
+    "sl_detect": 1207631872,
+    "memset": 1075012560
+  },
+  "text_ranges": [
+    [
+      1207631872,
+      1207633042
+    ]
+  ],
+  "ISA": {
+    "link": 1,
+    "movem_store": 1,
+    "move": 83,
+    "tst": 10,
+    "bcc": 53,
+    "subq": 7,
+    "cmpi": 4,
+    "lsr_i": 10,
+    "addi": 3,
+    "moveq": 13,
+    "cmp": 22,
+    "pea": 2,
+    "clr": 16,
+    "jsr": 1,
+    "lea": 13,
+    "suba": 9,
+    "divu_l": 7,
+    "movea": 19,
+    "muls_l": 4,
+    "mvz": 8,
+    "adda": 9,
+    "cmpa_l": 10,
+    "lsl_i": 8,
+    "sub_to_d": 8,
+    "add_to_d": 8,
+    "addq": 17,
+    "and_to_d": 1,
+    "lsl_r": 1,
+    "movem_load": 1,
+    "unlk": 1,
+    "rts": 1,
+    "bra": 19,
+    "neg": 4,
+    "mulu_w": 3,
+    "asr_i": 1,
+    "add_to_ea": 1
+  },
+  "sha256": "f9d4af825956e8e5675c7eafb62bee4d5764bba6350946068092609713cfe22f"
+}

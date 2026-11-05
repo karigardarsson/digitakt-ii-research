@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "resources": [
+    "assets\\background.bin",
+    "assets\\cf-init.bin",
+    "assets\\cfade.bin",
+    "assets\\credits.bin",
+    "assets\\dsp-extension.bin",
+    "assets\\dsp-recipe.json",
+    "assets\\inline.bin",
+    "assets\\lab.bin",
+    "assets\\lifecycle.bin",
+    "assets\\manifest.json",
+    "assets\\overflow.bin",
+    "assets\\smart.bin",
+    "assets\\zoom.bin",
+    "native\\elektron-firmware-tool.exe"
+  ],
+  "exe_sha256": "22e5f979c38388009a7d222ca39753e290337819c27417bac951b71216d546b2"
+}

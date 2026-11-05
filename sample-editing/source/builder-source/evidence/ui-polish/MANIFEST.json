@@ -1,0 +1,292 @@
+{
+  "status": "OFFLINE_VALIDATED_HARDWARE_TEST_CANDIDATE",
+  "date": "2026-11-03",
+  "sha256": "52992b9d37d854bbcf9401096ec27db256bc64d2660a362a34686b7f1331726b",
+  "path": "WORKSPACE/DT2_SAMPLE_EDITING_UI_POLISH_OS117/HARDWARE_TEST/DT2_OS117_SAMPLE_EDITING_UI_POLISH.syx",
+  "baseline": {
+    "path": "WORKSPACE/DT2_SAMPLE_EDITING_OS117/HARDWARE_TEST/DT2_OS117_SAMPLE_EDITING.syx",
+    "sha256": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+    "evidence": "USER HARDWARE: Kári reports all tested functionality works; preserved unchanged"
+  },
+  "changes": {
+    "status": "PASS_DRAW_ONLY",
+    "baseline_sha256": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+    "modules": {
+      "lab": {
+        "changed_object_sections": [
+          ".text.sl_lab_draw",
+          ".rodata.sl_lab_draw.str1.1"
+        ],
+        "changed_code_sections": [
+          ".text.sl_lab_draw"
+        ],
+        "all_other_unrelocated_code_exact": true
+      },
+      "zoom": {
+        "changed_object_sections": [
+          ".text.zoom_cell"
+        ],
+        "changed_code_sections": [
+          ".text.zoom_cell"
+        ],
+        "all_other_unrelocated_code_exact": true
+      }
+    },
+    "relocated_hooks": [
+      {
+        "address": 1073875296,
+        "before": "4ef947ee44a84e71",
+        "after": "4ef947ee44a84e71",
+        "owner": "lab",
+        "symbol": "sl_lab_encoder"
+      },
+      {
+        "address": 1073884270,
+        "before": "4ef947ee4c744e71",
+        "after": "4ef947ee4c744e71",
+        "owner": "lab",
+        "symbol": "sl_lab_key"
+      },
+      {
+        "address": 1073880544,
+        "before": "4ef947ee51f04e71",
+        "after": "4ef947ee51f04e71",
+        "owner": "lab",
+        "symbol": "sl_lab_draw"
+      },
+      {
+        "address": 1073877434,
+        "before": "4ef947ee43f44e71",
+        "after": "4ef947ee43f44e71",
+        "owner": "lab",
+        "symbol": "sl_lab_tick"
+      },
+      {
+        "address": 1075429206,
+        "before": "4ef947ee43d84e71",
+        "after": "4ef947ee43d84e71",
+        "owner": "lab",
+        "symbol": "sl_lab_destroy"
+      },
+      {
+        "address": 1074059744,
+        "before": "4ef947ee43564e71",
+        "after": "4ef947ee43564e71",
+        "owner": "lab",
+        "symbol": "sl_lab_record_state"
+      },
+      {
+        "address": 1073840638,
+        "before": "4ef947fd0000",
+        "after": "4ef947fd0000",
+        "owner": "zoom",
+        "symbol": "source_zoom_hook"
+      },
+      {
+        "address": 1073841386,
+        "before": "4ef947fd002c",
+        "after": "4ef947fd002c",
+        "owner": "zoom",
+        "symbol": "source_zoom_rotation_hook"
+      },
+      {
+        "address": 1073836138,
+        "before": "4eb947fd0058",
+        "after": "4eb947fd0058",
+        "owner": "zoom",
+        "symbol": "oneshot_zoom_wrapper"
+      },
+      {
+        "address": 1073836152,
+        "before": "4eb947fd005e",
+        "after": "4eb947fd005e",
+        "owner": "zoom",
+        "symbol": "werp_zoom_wrapper"
+      },
+      {
+        "address": 1073836124,
+        "before": "4eb947fd0064",
+        "after": "4eb947fd0064",
+        "owner": "zoom",
+        "symbol": "slice_zoom_wrapper"
+      },
+      {
+        "address": 1074851460,
+        "before": "4eb947fd007c",
+        "after": "4eb947fd007c",
+        "owner": "zoom",
+        "symbol": "zoom_factory_hook"
+      },
+      {
+        "address": 1074852706,
+        "before": "4eb947fd007c",
+        "after": "4eb947fd007c",
+        "owner": "zoom",
+        "symbol": "zoom_factory_hook"
+      },
+      {
+        "address": 1074853794,
+        "before": "4eb947fd007c",
+        "after": "4eb947fd007c",
+        "owner": "zoom",
+        "symbol": "zoom_factory_hook"
+      },
+      {
+        "address": 1074851876,
+        "before": "49f947fd16d2",
+        "after": "49f947fd16da",
+        "owner": "zoom",
+        "symbol": "zoom_vline"
+      },
+      {
+        "address": 1074851960,
+        "before": "4eb947fd170c",
+        "after": "4eb947fd1714",
+        "owner": "zoom",
+        "symbol": "zoom_line"
+      },
+      {
+        "address": 1074851988,
+        "before": "4eb947fd1744",
+        "after": "4eb947fd174c",
+        "owner": "zoom",
+        "symbol": "zoom_pixel"
+      },
+      {
+        "address": 1074852082,
+        "before": "4eb947fd170c",
+        "after": "4eb947fd1714",
+        "owner": "zoom",
+        "symbol": "zoom_line"
+      },
+      {
+        "address": 1074852110,
+        "before": "4eb947fd1744",
+        "after": "4eb947fd174c",
+        "owner": "zoom",
+        "symbol": "zoom_pixel"
+      },
+      {
+        "address": 1074852152,
+        "before": "4bf947fd170c",
+        "after": "4bf947fd1714",
+        "owner": "zoom",
+        "symbol": "zoom_line"
+      },
+      {
+        "address": 1074852278,
+        "before": "4eb947fd170c",
+        "after": "4eb947fd1714",
+        "owner": "zoom",
+        "symbol": "zoom_line"
+      },
+      {
+        "address": 1074853132,
+        "before": "47f947fd16d2",
+        "after": "47f947fd16da",
+        "owner": "zoom",
+        "symbol": "zoom_vline"
+      },
+      {
+        "address": 1074853138,
+        "before": "49f947fd1778",
+        "after": "49f947fd1780",
+        "owner": "zoom",
+        "symbol": "zoom_rect"
+      },
+      {
+        "address": 1074853364,
+        "before": "4eb947fd170c",
+        "after": "4eb947fd1714",
+        "owner": "zoom",
+        "symbol": "zoom_line"
+      },
+      {
+        "address": 1074854296,
+        "before": "4eb947fd1778",
+        "after": "4eb947fd1780",
+        "owner": "zoom",
+        "symbol": "zoom_rect"
+      },
+      {
+        "address": 1074854356,
+        "before": "4eb947fd170c",
+        "after": "4eb947fd1714",
+        "owner": "zoom",
+        "symbol": "zoom_line"
+      },
+      {
+        "address": 1075764420,
+        "before": "47fd05c8",
+        "after": "47fd05c8",
+        "owner": "zoom",
+        "symbol": "zoom_tick"
+      },
+      {
+        "address": 1075764408,
+        "before": "47fd062c",
+        "after": "47fd062c",
+        "owner": "zoom",
+        "symbol": "zoom_active"
+      },
+      {
+        "address": 1073835852,
+        "before": "4eb947fd0088",
+        "after": "4eb947fd0088",
+        "owner": "zoom",
+        "symbol": "zoom_empty_top"
+      },
+      {
+        "address": 1073835906,
+        "before": "4eb947fd009a",
+        "after": "4eb947fd009a",
+        "owner": "zoom",
+        "symbol": "zoom_empty_bottom"
+      }
+    ],
+    "no_new_hooks": true,
+    "all_other_modules_exact": true,
+    "stock_prefix_restores_exact": true
+  },
+  "all_non_MAIN_sections_exact": true,
+  "DSP_algorithms_persistent_formats_unchanged": true,
+  "BSS_unchanged": true,
+  "tests": {
+    "boot-tests.json": "b518ebeb2c4f224a2659ecee2b2513d9bef3a75dd86dd13fc3bad3515a1e4177",
+    "layout-tests.json": "d4419f2c0d1870fb1833ca0d8c48b6f86e5d7f251941374d8790752132acaa92",
+    "journey-tests.json": "f959244e6c868b01b2ffdb8935900f9744296c51348b8852c46ef6939b533acd",
+    "record-tests.json": "425fca2a08c5e096c0f1b0c07f5ae33432f6d3357b7e439b0f4610cbc4a8f874",
+    "qol-tests.json": "350aad6095894323a5763b153c660d5f44e6a0ad816bbed858d134aa441bf437",
+    "loop-trim-tests.json": "0894b12e956fe86b35efd5856a7b82b5dceecf0adf9eae9602b0b6d8c01c52a3",
+    "failure-tests.json": "3b201a59c9eed78b66d61751d294ebbd3908d122b75a3645c57bfce3d02a3919",
+    "smart-tests.json": "d9d88a0ab570373195d6864fc3c334ab71983cda334c26e49dd7cd8960da0f1e",
+    "ux-tests.json": "ec39a2d77da399cf136c0687ee88f3bde8e55858a1fc13543e407cb4e9bf2c8d",
+    "fit-tests.json": "0fd402b5a12da4618d2ec4dde3277319ed8af582b4e3db17cf7228152ebc8c57",
+    "text-metrics.json": "3666e896a4f3c4bb2fb5bd8b82b286e8ec725ebf9bbf8092af11b0c2fd48fe85"
+  },
+  "screenshots": {
+    "screenshots/post-record-lab-128x64.png": "83652ad29afe626f4d39e66c4f66b7d48ddab354b4ecf471d04e0691668d3f97",
+    "screenshots/post-record-lab.png": "df02c4a0a96b96dabc058dad3307ae55ffafc194ac4ab500add08026ebe69619",
+    "screenshots/record-load-128x64.png": "83fd9282b60f66bce876a1453a35206a935da2477fd44df49d50af95bd9e0000",
+    "screenshots/record-load.png": "bde0ac418f47fc9c97b72198c192e1eaa325ef97292df0c77abbaa079fe97155",
+    "screenshots/sample-zoom-128x64.png": "88072ee77ef0fd587349d5b9c924bf88461cc8e4fb1d48db7bb5b1d55db3df2a",
+    "screenshots/sample-zoom.png": "a5be95ed4a1ec17838d8f10a676117cfb1b7a6cb99f746f8f6fedd4961efa988"
+  },
+  "native_display": [
+    128,
+    64
+  ],
+  "exact_candidate_hardware_tested": false,
+  "no_flash_or_publication": true,
+  "sources": {
+    "source/sample_lab/engine.c": "af8838ae57e8af46c8f444b495b10a5f7df817059281d22bfaa80ffe36c03264",
+    "source/sample_lab/engine.h": "8bf4978d5fb47c45a3e3e6494ea8cc36070bbb4afbc866957271cfa8de7170bb",
+    "source/sample_lab/hook_trampolines.s": "93f5aff038e2712ccc68911ca066a9ea15ac13d23ca49e14bdafe813abe01ab3",
+    "source/sample_lab/native_adapter.c": "fcbc67f02df3ce89406df7f582fb1aa196ea08758e79bc335cef3fc4c5f33439",
+    "source/sample_lab/visual.c": "4c2d3d0b2ebce7fa3cb7d3d757e49c091c950ce2f6fdeaa1cf956ce1e81e958f",
+    "source/sample_lab/visual.h": "db2897940f0d84d140c3b2ff9fe01c100d980909f03444c9753ab72c944cb09a",
+    "source/sample_lab/workflow.c": "46710ee721c140dd3f38059e944c4df098619001fb69d3fba3eb26e089cdb112",
+    "source/zoom/entry.s": "3863f5567c1612cdde183e203b82b0d620d943b34cde93b5169611efd04ec15a",
+    "source/zoom/zoom.c": "d34d180e7c20880699804a01a747ee0f48e86efe3b4a234ac9ef9b290ee2f748"
+  }
+}

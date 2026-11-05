@@ -34,3 +34,19 @@ windows-builder/test-work/
 *.key
 *token*
 *credential*
+
+# Reviewed standalone Sample Editing Pack distribution; custom patches only.
+!sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip
+!sample-editing/docs/images/
+!sample-editing/docs/images/**
+!sample-editing/source/builder-source/assets/background.bin
+!sample-editing/source/builder-source/assets/cf-init.bin
+!sample-editing/source/builder-source/assets/cfade.bin
+!sample-editing/source/builder-source/assets/credits.bin
+!sample-editing/source/builder-source/assets/dsp-extension.bin
+!sample-editing/source/builder-source/assets/inline.bin
+!sample-editing/source/builder-source/assets/lab.bin
+!sample-editing/source/builder-source/assets/lifecycle.bin
+!sample-editing/source/builder-source/assets/overflow.bin
+!sample-editing/source/builder-source/assets/smart.bin
+!sample-editing/source/builder-source/assets/zoom.bin

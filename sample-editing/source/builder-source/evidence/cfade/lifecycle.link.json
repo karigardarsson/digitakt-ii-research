@@ -1,0 +1,15 @@
+{
+  "pc": 12466449,
+  "externs": {
+    "tw_generations.": 537729768,
+    "_tw_header_body": 1851368,
+    "_tw_header_return": 1851402
+  },
+  "symbols": {
+    "_tw_header_resume": 12466485,
+    "_tw_header_begin": 12466449,
+    "_tw_header_end": 12466491
+  },
+  "bytes": 144,
+  "sha256": "750ca36813b95c7dfdfc4398d44e073a1b98959802fd7cd646268eb76d5f0938"
+}

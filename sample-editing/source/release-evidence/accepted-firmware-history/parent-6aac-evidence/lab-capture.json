@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+  "actual_native_events": true,
+  "request_sha256": "9f1a10edfcad4024635869aa46552096a6aceb1093b2a95e19d6600350bfb2bc",
+  "frames": [
+    {
+      "label": "whole",
+      "call_index": 24,
+      "captured_index": 22,
+      "png_sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175"
+    },
+    {
+      "label": "settings",
+      "call_index": 28,
+      "captured_index": 28,
+      "png_sha256": "d2e9bfbc1d6f3cda6b57e713611159a72bff44ad45fb0127a80ebc11bab82556"
+    },
+    {
+      "label": "info-analyzed",
+      "call_index": 32,
+      "captured_index": 32,
+      "png_sha256": "2ae9534dee4c0adcaf11973d0fbf3cea46e412028404338034c935fd7bf70d9a"
+    },
+    {
+      "label": "analyzed",
+      "call_index": 36,
+      "captured_index": 36,
+      "png_sha256": "345023be2259924e942b5757cb9ab6a164d760a7747a5fb5455d412a13a8c7e5"
+    },
+    {
+      "label": "selected",
+      "call_index": 44,
+      "captured_index": 44,
+      "png_sha256": "fe23bfe03b49b9049fd727c0316f2512c2badfc6bdab12aa86cf26c4ed9162fb"
+    },
+    {
+      "label": "fit",
+      "call_index": 48,
+      "captured_index": 48,
+      "png_sha256": "c80af757692da7891226c2a293be50b45b59eeefe659b9fd428c4de7c75f0117"
+    },
+    {
+      "label": "trim-start",
+      "call_index": 50,
+      "captured_index": 50,
+      "png_sha256": "2203b88f9ee20e7e9c2d7f7203614ba1de9ee9be22d0805d5a52738d39e3bf3f"
+    },
+    {
+      "label": "trim-end",
+      "call_index": 52,
+      "captured_index": 52,
+      "png_sha256": "d7b45b742c807f7917ff00a3d4e695de03ecb8331a1436e4abfde7d831dd647c"
+    },
+    {
+      "label": "undo",
+      "call_index": 56,
+      "captured_index": 56,
+      "png_sha256": "8493861b8230bd6f3331f2305aba7e0cf5cbf0c3d97ef535da3c4c08efed1306"
+    }
+  ],
+  "limitation": "Native emulator filesystem/UI with supplied PCM and existing SamplerView fixture; not physical recording/audio proof."
+}

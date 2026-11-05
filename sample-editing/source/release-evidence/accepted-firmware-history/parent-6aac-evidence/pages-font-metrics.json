@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "text": "YES: ANALYZE",
+      "width": 53,
+      "height": 5
+    },
+    {
+      "text": "YES: SAVE ALL",
+      "width": 55,
+      "height": 5
+    },
+    {
+      "text": "YES: ALL POOL",
+      "width": 54,
+      "height": 5
+    },
+    {
+      "text": "PUSH A:FIT B:TYPE(SETTINGS)",
+      "width": 99,
+      "height": 5
+    },
+    {
+      "text": "PUSH D:SOURCE F:UNDO GRID",
+      "width": 92,
+      "height": 5
+    },
+    {
+      "text": "SETTINGS H:APPLY + INFO",
+      "width": 86,
+      "height": 5
+    },
+    {
+      "text": "NO:BACK TO WAVE / AGAIN:EXIT",
+      "width": 103,
+      "height": 5
+    },
+    {
+      "text": "H:APPLY+INFO  NO:WAVE",
+      "width": 77,
+      "height": 5
+    },
+    {
+      "text": "HOLD E:1fr F:BPM SET G:BEATS",
+      "width": 100,
+      "height": 5
+    },
+    {
+      "text": "YES:SAVE ALL / H:ACTION(WAVE)",
+      "width": 106,
+      "height": 5
+    },
+    {
+      "text": "YES:ALL POOL / H:ACTION(WAVE)",
+      "width": 106,
+      "height": 5
+    }
+  ]
+}

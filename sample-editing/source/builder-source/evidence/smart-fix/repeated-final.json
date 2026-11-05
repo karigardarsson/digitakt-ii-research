@@ -1,0 +1,324 @@
+{
+  "status": "PASS",
+  "image_sha256": "e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2",
+  "cases": [
+    {
+      "name": "silence",
+      "frames": 48000,
+      "channels": 1,
+      "generated_hits": 0,
+      "metadata_before": [
+        48000,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "few-two",
+      "frames": 192000,
+      "channels": 2,
+      "generated_hits": 2,
+      "metadata_before": [
+        384000,
+        1
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 2,
+          "count": 2,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 2,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 2,
+          "count": 2,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 2,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 2,
+          "count": 2,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 2,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short1",
+      "frames": 1,
+      "channels": 1,
+      "generated_hits": 1,
+      "metadata_before": [
+        1,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967295,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short63",
+      "frames": 63,
+      "channels": 2,
+      "generated_hits": 1,
+      "metadata_before": [
+        126,
+        1
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 1,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 4294967295,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short64",
+      "frames": 64,
+      "channels": 1,
+      "generated_hits": 1,
+      "metadata_before": [
+        64,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 1,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 1,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short143",
+      "frames": 143,
+      "channels": 2,
+      "generated_hits": 1,
+      "metadata_before": [
+        286,
+        1
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 1,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 1,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short144",
+      "frames": 144,
+      "channels": 1,
+      "generated_hits": 1,
+      "metadata_before": [
+        144,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 1,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 1,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "long66",
+      "frames": 3168000,
+      "channels": 2,
+      "generated_hits": 7,
+      "metadata_before": [
+        6336000,
+        1
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 7,
+          "count": 7,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 7,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "overflow96",
+      "frames": 576000,
+      "channels": 1,
+      "generated_hits": 96,
+      "metadata_before": [
+        576000,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 64,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "status": 64,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    }
+  ],
+  "evidence": "Native file export/reference/SMART/fixed-grid writer and actual non-null popup parent, UART encoder/NO. CF-only metadata completion seam explicitly recorded; no ADC/listening/hardware proof."
+}

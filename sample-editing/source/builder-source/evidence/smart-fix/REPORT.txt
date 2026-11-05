@@ -1,0 +1,124 @@
+SMARTSLICE EXCEPTION — CURRENT IMPLEMENTATION / CAUSE / VALIDATION
+2026-11-03; private hardware-test delivery, publication HOLD.
+
+IDENTITIES AND HARDWARE EVIDENCE
+Current input: UI polish52992b9d37d854bbcf9401096ec27db256bc64d2660a362a34686b7f1331726b.
+Earlier explicitly hardware-tested standalone:d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93.
+Both have the same defective SMART bytes. Neither is modified.
+Kári supplies a physical exception photo and clarifies native SLICE LENGTH64,
+not SampleLAB COUNT64. Photo: EXCEPTION050082, V03 M0 P4011B5F8.
+Raw visible stack words are preserved in audit.json; they are not all claimed
+to be return addresses. The word6D326A3B is a visual transcription, uncertain.
+The exact active firmware hash cannot be read from the photo; the fault region
+and notification defect are shared by both supplied standalone ancestors.
+
+END-TO-END PATH AND ESTABLISHED DEFECT
+Native grid selector constructor40019C02 has LENGTH1(SMART)..64; existing
+4-pointer patches select SMART counts/name/callback. Native selected callback
+lands in smart_grid. count1 uses the improved detector; count2..64 delegate to
+stock4005FE3E. Thus LENGTH64 does not call SampleLAB's COUNT/fill implementation.
+SMART's automatic >64-attack reduction is a distinct frozen kernel.
+Current Lab COUNT returns INSUFFICIENT when real candidates are inadequate;
+old FILL history is not proof that this native path manufactures those cuts.
+
+On both successful analysis and failure, smart_grid calls smart_notice.
+smart_make_text uses native401AE1C4; it creates a shared notification View,
+represented by {object,control}. Native4011B22A displays/copies that owner.
+Native40197D26 expects the ADDRESS OF THE CONTROL WORD. Its dereference then
+decrements control+4 (strong count). Stock callback4005FEC8 passes its local
+control word at A6-8, separate from the pair at A6-12.
+The mod passed &message (object word). This decrements raw View+4 instead:
+that word is the View's encoder-interface vtable. It also leaves the true
+local owner unreleased. The correct call is &message.control.
+
+Bounded native constructor/control test:
+raw notification450D1850; owner450D1840; encoder vtable4021D924.
+Wrong release changes vtable to4021D923. Correct release preserves4021D924.
+Next native encoder thunk4011B5DA resolves the interface callback and executes
+JMP(A1) at4011B5F8, the exact instruction in the hardware photo.
+This standalone release correction changes one byte (F8->FC at47F80077) when
+isolated, before adding the independent tiny-grid guard.
+
+ACTUAL INSTALLED CALLBACK / LIVE UI REPRODUCTION
+ownership_fixture.c constructs a genuine native SamplerView as a valid popup
+parent (common ViewController ABI), invokes the installed SMART failure
+callback with a non-null parent, then sends a real UART E encoder event.
+Unmodified52992b9d runs without any production code injection: popup interface
+becomes4021D923, probe4011B5F8 is hit, execution faults. Corrected owner release
+preserves4021D924 and dispatch/ready state pass. The pre-package A/B injected
+the corrected module only in its corrected arm; this seam is recorded.
+This is not a fabricated native SLICE parent-screen journey. The common real
+popup/event dispatch and actual SMART callback execute; final tests below use
+the same non-null parent and real native SLICE model/count writer.
+The physical photo reports vector03; the native emulator reports vector02 for
+the unmapped odd jump target. This classification difference is retained as a
+boundary, not silently relabelled or repaired in the emulator.
+
+WHY PREVIOUS TESTS MISSED IT
+Earlier native smart_fixture captures cap[0]=0. smart_notice returns early for
+a null controller, so file/detector/grid tests skipped notification ownership.
+The old feedback report explicitly acknowledged missing valid UI ownership.
+New reproduction and final repeated tests use actual non-null native owners.
+
+TINY SAMPLE GRID DEFECT / SMALLEST SAFETY RESPONSE
+Stock4005FE3E creates64 equal divisions for LENGTH64. With1 or63 frames, this
+produces duplicate starts and zero-width rows. A source-only metadata probe
+first establishes this independently; subsequent native-file tests show such
+files actually load with their natural metadata, so this is not based solely
+on an invented array value. No physical tiny-file exception is attributed to it.
+The wrapper now refuses only a positive fixed request2..64 whose actual
+nonempty native frame span is smaller than the count. It retains the old grid
+and uses the corrected existing error notification. No forced count, new cut
+algorithm, generic event suppression or notification disabling is introduced.
+Stock CLEAR/count0, ordinary fixed grids and SMART's detector remain intact.
+
+CHANGE / OWNER AUDIT
+Only source/smart/smart_grid.c is edited relative to the installed source.
+Object changes: smart_notice, smart_grid and the compiler's emitted existing
+Sound accessor (now called twice instead of inlined once). All detector and
+processing object sections remain exact. Four EXISTING references relocate
+with the larger SMART module; no new hook. SMART4992B versus4848B (+144),
+static BSS20B unchanged. All five other loader modules are exact including
+Zoom, Lab, both detector kernels and Credits. All non-MAIN stored/plain
+sections including DSP are exact. Restoring the old SMART record and four
+references reconstructs input MAIN exactly. No codecs/formats/IDs change.
+
+ENCODED-CANDIDATE TESTS
+Image:e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2.
+repeated-final.json:9 cases/26 requests, natural file metadata in every case,
+zero production byte injection. Native export, canonical reference, loader,
+SMART detector, stock fixed-grid writer, real popup owners, UART encoder/NO.
+Silence and two-hit stereo alternate SMART/LENGTH64 six times each. Tiny1/63
+refuse64 with prior grid exact;64/143/144 frames accept64 nonempty rows.
+66-second stereo returns7 SMART regions and64 fixed rows.96 attacks exercise
+the unchanged dense fallback and return64 actual SMART regions.
+All accepted rows satisfy bounds, ordering, capacity and positive width.
+Failures preserve all193 words of the old count/64-row slice table.
+stress-final.json:32 silent failure->LENGTH64 cycles =64 attempts, real popup
+input each time, zero production byte injection, no exception. Debug 'status'
+in the initial report schema is the last SMART status; native fixed callback
+returns void and deliberately does not rewrite that debug status. Grid contents
+and native popup/control behavior are the fixed-grid success evidence.
+
+Final-image actual loader/module/hook readback; +Drive LOAD/Smart Chop/preview/
+Save As/Pool; supplied-PCM recording; E/F edits, A fit, F undo; LOOP save;
+source-file preservation; partial-read/cancel cleanup;16-kick SMART all PASS.
+Zoom and UI-polish reports are reused only by exact unchanged module/hook
+identity, not relabelled as a fresh render. Prior native persistence and stock
+rollback evidence remain valid only by the exact unchanged codec/module bytes.
+No new physical playback, power-cycle, ADC, listening or silicon timing proof.
+
+REUSABLE ENGINEERING FINDING
+Native shared View owner release takes the address of the control field, not
+the pair head/raw View. A null-parent success fixture cannot qualify this ABI.
+Real popup dispatch tests and impossible-grid invariant tests are preserved
+separately from private firmware. Potential destination: existing DigiKit/
+sample-tools development after licensing/provenance review and explicit Kári
+publication authorization. No upstream PR or publication is performed.
+
+DELIVERY / HOLD
+One HARDWARE_TEST candidate plus source/evidence/manifest, with old artifacts
+preserved. Device acceptance procedure is in README.txt. Public Sample Editing
+Pack release remains on HOLD until Kári reproduces the failure sequence on the
+new candidate without the exception and accepts the result. No flash, device
+operation, new agent, external message or publication.

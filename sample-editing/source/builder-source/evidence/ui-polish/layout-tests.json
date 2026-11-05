@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "image_sha256": "52992b9d37d854bbcf9401096ec27db256bc64d2660a362a34686b7f1331726b",
+  "display": [
+    128,
+    64
+  ],
+  "rows": [
+    {
+      "state": 0,
+      "changed_pixels": 224,
+      "native_content_outside_requested_regions_exact": true
+    },
+    {
+      "state": 4,
+      "changed_pixels": 52,
+      "native_content_outside_requested_regions_exact": true
+    }
+  ],
+  "A_push_enters_Lab": true,
+  "B_LOAD_behavior_covered_by_journey": true,
+  "THRES_value_preserved": true,
+  "save_delete_FnH_shortcuts_pixel_exact": true,
+  "screenshots": [
+    "record-load.png",
+    "post-record-lab.png"
+  ],
+  "production_code_pokes": 0
+}

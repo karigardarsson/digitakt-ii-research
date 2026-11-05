@@ -1,0 +1,81 @@
+{
+  "name": "credits",
+  "base": 1206714368,
+  "bytes": 1300,
+  "bss": 0,
+  "symbols": {
+    "manager": 1206714412,
+    "pages": 1206715448,
+    "add": 1206714638,
+    "blank": 1206715508,
+    "credits_origin": 1206715536,
+    "credits_attribution": 1206715613,
+    "credits_append": 1206715040,
+    "adopt": 1206714390,
+    "credits_open": 1206714770,
+    "credits_draw": 1206714440,
+    "credits_ctor_tail": 1206714368,
+    "alloc": 1074916304,
+    "menu_append": 1074877050,
+    "str_ctor": 1075740282,
+    "menu_show": 1074898322,
+    "pair_drop": 1075412262,
+    "fill": 1074868654,
+    "text": 1074871752,
+    "menu_ctor": 1074896748,
+    "memset": 1075012560,
+    "item_ctor": 1074879376,
+    "str_dtor": 1075733450
+  },
+  "text_ranges": [
+    [
+      1206714368,
+      1206714412
+    ],
+    [
+      1206714412,
+      1206714440
+    ],
+    [
+      1206714440,
+      1206714638
+    ],
+    [
+      1206714638,
+      1206714770
+    ],
+    [
+      1206714770,
+      1206715040
+    ],
+    [
+      1206715040,
+      1206715072
+    ]
+  ],
+  "ISA": {
+    "move": 54,
+    "jsr": 22,
+    "addq": 6,
+    "movem_load": 2,
+    "lea": 17,
+    "rts": 7,
+    "movea": 14,
+    "moveq": 4,
+    "cmp": 3,
+    "bcc": 5,
+    "clr": 20,
+    "movem_store": 1,
+    "pea": 29,
+    "mulu_w": 1,
+    "addi": 2,
+    "subq": 1,
+    "link": 2,
+    "tst": 1,
+    "unlk": 2,
+    "bra": 1,
+    "adda": 1,
+    "cmpa_l": 1
+  },
+  "sha256": "c0395763d537fdedb186cf7e5c720bfbd7ae3f6cde18ef514b001f79219cd2c9"
+}

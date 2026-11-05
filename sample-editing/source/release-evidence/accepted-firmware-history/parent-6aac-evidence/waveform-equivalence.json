@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "whole_128x64_screen_pixel_exact": true,
+  "cases": [
+    "whole",
+    "auto",
+    "count-fill",
+    "count-full",
+    "even",
+    "loop",
+    "pan",
+    "save",
+    "saved",
+    "pool",
+    "save-all",
+    "all-pool",
+    "undo",
+    "no-undo",
+    "trim-start",
+    "trim-end",
+    "fade",
+    "load-busy",
+    "batch-busy",
+    "batch-error",
+    "count-error",
+    "load-error",
+    "fade-handles",
+    "empty"
+  ],
+  "baseline_sha256": "3b6386010cd228ba603dbef3e681c42ed6490f2020e61ae80012fd458c4cec76"
+}

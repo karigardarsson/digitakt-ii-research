@@ -1,0 +1,29 @@
+{
+  "status": "PREPARED",
+  "MAIN_sha256": "927f3b7d1615ba978bad53d62842ef9e49616ee5b61f2e471068bbad7ce9c00d",
+  "DSP_sha256": "cadeda43fc65a76d81edcabc829338b80b30246ebb3f25b6de81ff6f973d85ad",
+  "CF_init": {
+    "base": 1207566336,
+    "bytes": 20,
+    "bss": 0,
+    "symbols": {
+      "slice_cfade_init": 1207566336
+    }
+  },
+  "old_six_modules_unchanged": true,
+  "old_38_hooks_unchanged": true,
+  "new_MAIN_hook": "0x401c4de4",
+  "new_DSP_hooks": 3,
+  "source_sha256": {
+    "cf-init.dko.json": "6a02cf1875bd5c36e5b31c74989c0b05f0b8193c1b73208d93806b6ae60adb49",
+    "cfade.dko.json": "22c317670e5d9539522709e926555a4161e2eb3609dc085001912764feb681ed",
+    "crossfade-inline.s": "91e89e1be41e74931e2ed2e7f30a6218a13f1ab62dd3312f7581e357731d372c",
+    "crossfade.c": "a158e3cdda63feb3c1738a857cfec145cad55a40a4f13e38fbf5dfeb127f122e",
+    "dsp-inline.s": "c12cca745a34f12560ee07063923728564cbae2d608cfe427ca8123062ee8bcc",
+    "dsp_util.h": "efba2c91c242d1458150be6d39eb8f66875654b55230650a8c8b0f4c387120c3",
+    "entry.s": "bb856933bef3394c490e59336ee4039a15dd0821fe40cf49d72b248bd21b46e5",
+    "inline.dko.json": "7efe6a7313cb2eb1d5629cf1ff841395460427c483a357e5ad31f1146690a174",
+    "lifecycle.dko.json": "2b627dedfd41581990b876dc79d9e3d40de9fab6f259d55e2d4ddd810ae25cb6",
+    "lifecycle.s": "742c694b994f9ec659a26cab630c5f72c07c6df215bd4194eda7496233141ce8"
+  }
+}

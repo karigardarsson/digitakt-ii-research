@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+  "bytes": 1882144,
+  "integrity": {
+    "sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+    "bytes": 1882144,
+    "integrity": {
+      "file_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+      "file_size": 1882144,
+      "container_size": 1485024,
+      "message_count": 14704,
+      "content_checksum": "0x51b14cf7",
+      "hmac_sha256": "175eed006a5de50490354e41451eb9527069f4d8c38ba1792249116e4f539f21",
+      "packet_checksums": "14704/14704",
+      "post_container_padding": 72
+    },
+    "bootstrap": {
+      "2": {
+        "stored_size": 16136,
+        "plain_size": 30302,
+        "plain_sha256": "79667563ab7d8da070f461fbaa888207fe7a457748e538386cbd172239bf8d43",
+        "result": "PASS"
+      },
+      "3": {
+        "stored_size": 1147554,
+        "plain_size": 3319780,
+        "plain_sha256": "6b65e9168d8b6ee11d2266d4ccbb0d0890f6888247b91e696c6e5e8f6cf43c87",
+        "result": "PASS"
+      },
+      "7": {
+        "stored_size": 184902,
+        "plain_size": 328364,
+        "plain_sha256": "cadeda43fc65a76d81edcabc829338b80b30246ebb3f25b6de81ff6f973d85ad",
+        "result": "PASS"
+      },
+      "8": {
+        "stored_size": 103416,
+        "plain_size": 159948,
+        "plain_sha256": "6943b2f27773f40f1e7857ea6fa7a121269e930bd403098e6b6c00002327dc20",
+        "result": "PASS"
+      }
+    }
+  },
+  "all_non_MAIN_stored_and_plain_exact": true,
+  "baseline_sha256": "3b6386010cd228ba603dbef3e681c42ed6490f2020e61ae80012fd458c4cec76"
+}

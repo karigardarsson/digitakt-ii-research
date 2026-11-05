@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "stock_image_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "evidence_source_image_sha256": "36404579581ab7911fe2b709ca7d2b92f0b4a5eb9e746ea274d421d21d1a91c5",
+  "whole_pool_exact_in_fresh_stock_Project_LOAD": true,
+  "production_code_pokes": 0,
+  "evidence": "Unmodified stock OS1.17 loads the mod-saved disposable Project; native Pool helper only. No physical downgrade/power-cycle claim."
+}

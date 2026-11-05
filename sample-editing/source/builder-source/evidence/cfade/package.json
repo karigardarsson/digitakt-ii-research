@@ -1,0 +1,6 @@
+{
+  "status": "ENCODED_PENDING_NATIVE_ACCEPTANCE",
+  "sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+  "bytes": 1881120,
+  "summary": "device    : Digitakt II (0x14)\nversion   : 1.17\ncontainer : ELE3, 1484208 B\nsections  :\n  id 5   meta            15 B (raw)\n  id 2   bootstrap     30302 B\n  id 3   MAIN OS    3317924 B\n  id 4   updater      32776 B (raw)\n  id 7   blob        328364 B\n  id 8   ?           159948 B\nchecksums : ok\n"
+}

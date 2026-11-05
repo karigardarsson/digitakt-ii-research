@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "font": "0x44d2e6f4",
+  "rows": [
+    {
+      "label": "B:LOAD",
+      "min_x": 0,
+      "max_x": 20,
+      "pixel_width": 21,
+      "placed_x": 100,
+      "rightmost_pixel": 120,
+      "renderer_return": 22
+    },
+    {
+      "label": "A:LAB",
+      "min_x": 0,
+      "max_x": 16,
+      "pixel_width": 17,
+      "placed_x": 104,
+      "rightmost_pixel": 120,
+      "renderer_return": 18
+    }
+  ]
+}

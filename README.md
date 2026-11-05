@@ -1,3 +1,63 @@
+# Digitakt II Sample Editing Pack — OS 1.17
+
+Standalone **Universal Zoom + SmartSlice + SampleLAB + CFADE**. No All-in-One
+firmware base, unrelated synth engine or Modular+ runtime is required.
+
+[Download the Windows x64 builder package](sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip?raw=1) · [HOW-TO](sample-editing/docs/HOW_TO.md) · [Package instructions](sample-editing/README.md) · [Build from source](sample-editing/BUILDING.md) · [Hardware acceptance](sample-editing/HARDWARE_ACCEPTANCE.md)
+
+Supply your own official **Digitakt II stock OS 1.17**. The builder checks the
+exact input, integrates the pack and saves a verified new file. It never flashes
+or connects to an instrument. No Elektron firmware is distributed.
+
+**Hardware accepted by Kári on November 5, 2026**, including the corrected
+SampleLAB H rotation response. Accepted firmware SHA-256:
+`880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06`.
+This is the user's hardware report, not an assertion of exhaustive compatibility
+with every project or setup. The exact stock requirement is:
+`26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5`.
+
+- **SmartSlice:** improved native detection and the native-owner exception/tiny-grid fixes.
+- **SampleLAB:** +Drive/recording sources, SmartChop, trim, marker undo, LOOP,
+  edge fade, audition, single/batch save and pool assignment. H-push cycles
+  Waveform → Settings → Info; H rotation selects adjacent actions. START/END
+  scale with the visible span and retain deep-zoom precision.
+- **Universal Zoom:** SRC overview through 64x, pan and reset; C on ordinary
+  sample machines, G on SLICE.
+- **CFADE:** native SLICE playback loop-wrap blending; separate from SampleLAB's
+  editing/export FADE.
+
+### Four native UI demonstrations
+
+These are real emulator renders, not hardware video. Selected frames are held
+for reading. The [capture notes](sample-editing/docs/CAPTURE_NOTES.md) explain
+the SmartSlice marker-view and supplied waveform-response limitations.
+
+![SmartSlice: SMART selection and detected markers](sample-editing/media/reddit/01-smartslice.gif)
+
+![SampleLAB: SmartChop, Info, select and trim](sample-editing/media/reddit/02-samplelab-smartchop-edit.gif)
+
+![Universal Zoom: overview to 64x detail](sample-editing/media/reddit/03-universal-zoom.gif)
+
+![SampleLAB: load from +Drive](sample-editing/media/reddit/04-samplelab-drive-load.gif)
+
+The download includes the Windows builder, required corresponding source,
+licenses, 36 native screenshots/enlargements and these four GIFs. See
+[package hashes](sample-editing/downloads/SHA256SUMS.txt) and
+[validation](sample-editing/TEST_REPORT.md). The EXE is unsigned; Windows10,
+ARM64, clean-VM and SmartScreen/antivirus acceptance are not newly qualified.
+
+Modified work by Kári / karigardarsson, derived from
+**digikit by Em D - https://github.com/ElekLabs/digikit**.
+The Sample Editing subtree uses its [AGPL-3.0-or-later LICENSE](sample-editing/LICENSE),
+[DigiKit NOTICE](sample-editing/NOTICE) and [third-party notices](sample-editing/THIRD_PARTY_NOTICES.txt).
+The repository root MIT file does not replace those terms. Not affiliated with Elektron.
+
+---
+
+The existing All-in-One and earlier Déjà Vu editions below are separate,
+unchanged packages. Their own candidate/hardware status and licenses still apply.
+
+
 # Digitakt II All-in-One
 
 ## v0.3.0 Community Beta — OS 1.17

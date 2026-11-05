@@ -1,0 +1,63 @@
+{
+  "arch": "sharc+",
+  "parcel_order": "selache-be",
+  "source_sha256": "742c694b994f9ec659a26cab630c5f72c07c6df215bd4194eda7496233141ce8",
+  "toolchain": {
+    "selache_rev": "2b26d3b75c53063575bc5c820fa0d38879335187",
+    "selas_sha256": "4eec66351a9c2b9a03d94a912b739e4c9724cedb6b48ece0e4a5a94e4dfcc1f8",
+    "seldump_sha256": "22b46253f1cb5cc74486e0fc829235f89414f3fa9dcd61ce668290a77359bdae"
+  },
+  "section": "013e000210400602000000000f0200000401013e0000a042062200000000023e000002040f0100000000013e00001001703e0a000000597e00000000013e00029000597e800000001587fffffffe063e00000000a90100000002a90000000003023e000002040f0100000000013e00001001703e0a000000597e00000000013e00029000597e80000000063e00000000",
+  "symbols": {
+    "_tw_header_resume": {
+      "parcel": 36,
+      "global": false
+    },
+    "_tw_header_begin": {
+      "parcel": 0,
+      "global": true
+    },
+    "_tw_header_end": {
+      "parcel": 42,
+      "global": true
+    }
+  },
+  "relocs": [
+    {
+      "parcel": 3,
+      "rtype": 11,
+      "symbol": "_tw_header_resume",
+      "addend": 0
+    },
+    {
+      "parcel": 12,
+      "rtype": 11,
+      "symbol": "_tw_header_resume",
+      "addend": 0
+    },
+    {
+      "parcel": 18,
+      "rtype": 12,
+      "symbol": "tw_generations.",
+      "addend": 0
+    },
+    {
+      "parcel": 39,
+      "rtype": 11,
+      "symbol": "_tw_header_body",
+      "addend": 0
+    },
+    {
+      "parcel": 51,
+      "rtype": 12,
+      "symbol": "tw_generations.",
+      "addend": 0
+    },
+    {
+      "parcel": 69,
+      "rtype": 11,
+      "symbol": "_tw_header_return",
+      "addend": 0
+    }
+  ]
+}

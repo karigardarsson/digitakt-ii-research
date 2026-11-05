@@ -1,0 +1,569 @@
+{
+  "status": "NATIVE_RENDERED_PENDING_VISUAL_REVIEW",
+  "main_sha256": "6b65e9168d8b6ee11d2266d4ccbb0d0890f6888247b91e696c6e5e8f6cf43c87",
+  "display": [
+    128,
+    64
+  ],
+  "fixture": "Explicit UI states, native renderer and real fixture PCM; not file/event/hardware proof",
+  "source_pcm_sha256": "d5b1a7d51448b78d14d1e8990b06afc836ee97996e36a759eeedc8d1732f4ecd",
+  "screens": [
+    {
+      "name": "whole",
+      "fields": [
+        [
+          10,
+          0
+        ],
+        [
+          22,
+          1
+        ],
+        [
+          25,
+          192000
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      "native_sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175"
+    },
+    {
+      "name": "auto",
+      "fields": [],
+      "native_sha256": "8ccf49265544b3ff7887660f7de467275affbd248be142d0c257bff4d3f58855"
+    },
+    {
+      "name": "count-fill",
+      "fields": [
+        [
+          2,
+          1
+        ],
+        [
+          11,
+          64
+        ],
+        [
+          12,
+          3
+        ]
+      ],
+      "native_sha256": "9fa3862f8d5347ba8a46532397422a07161195fdb5a0580e07bf92c347218474"
+    },
+    {
+      "name": "count-full",
+      "fields": [
+        [
+          2,
+          1
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          22,
+          1
+        ],
+        [
+          25,
+          192000
+        ]
+      ],
+      "native_sha256": "70f5bb9de0df0a291e9946a8558653ffc2b86584bf9dc11d872b5447ba20bdc2"
+    },
+    {
+      "name": "even",
+      "fields": [
+        [
+          2,
+          2
+        ],
+        [
+          11,
+          8
+        ]
+      ],
+      "native_sha256": "8805bd36c448780eb608869f29012d221b6563c7a81f8b8019f348eb1514a40e"
+    },
+    {
+      "name": "loop",
+      "fields": [
+        [
+          1,
+          1
+        ]
+      ],
+      "native_sha256": "52953b96cf9b8d6214b6835130ffef7f92933cad001b1862b758b9846c67afbe"
+    },
+    {
+      "name": "settings-auto",
+      "fields": [
+        [
+          0,
+          1
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      "native_sha256": "3cf2f6974e6e6f0cc0adc469bd8b5ac17760a515a80d1389516d9e013f613e60"
+    },
+    {
+      "name": "settings-count",
+      "fields": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          11,
+          64
+        ]
+      ],
+      "native_sha256": "bcbbd3a4cffa6fe1e9f35de49d05140e12f122c4806424120bd71d235b7842a8"
+    },
+    {
+      "name": "settings-even",
+      "fields": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          11,
+          64
+        ]
+      ],
+      "native_sha256": "763d0c129db55a388c3407cfd9b545a8e5d7b88b2415c5cadbf6384f2e65a1e2"
+    },
+    {
+      "name": "settings-loop",
+      "fields": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          14,
+          4
+        ],
+        [
+          15,
+          120
+        ]
+      ],
+      "native_sha256": "0a8f2e3eed695e00e4034684cf2fc73dd790a3d2ce419a5d3207309306b5e746"
+    },
+    {
+      "name": "pan",
+      "fields": [
+        [
+          16,
+          1
+        ]
+      ],
+      "native_sha256": "f8235ca8ad2262f96f9ee01f98abd9d202893e701e588278e7bbaef1daa50484"
+    },
+    {
+      "name": "save",
+      "fields": [
+        [
+          3,
+          1
+        ]
+      ],
+      "native_sha256": "e9e3854efcb43c49f176bf172196ad0647cde84b45b085d9006cd03e4badadab"
+    },
+    {
+      "name": "saved",
+      "fields": [
+        [
+          3,
+          1
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "native_sha256": "26963a9ca93753bee3461c8a611ff5748a2ba0745fcd520bbe8e7ce20455ead6"
+    },
+    {
+      "name": "pool",
+      "fields": [
+        [
+          3,
+          2
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "native_sha256": "089a0f9f315f1883f190ddbc0c654cceda913ef71a105f3725dcdac8882f6c3b"
+    },
+    {
+      "name": "save-all",
+      "fields": [
+        [
+          3,
+          3
+        ]
+      ],
+      "native_sha256": "2d38afdf507e5947f6d8166b343dde9961722af91b36d9d038c7ae42ed28a9f0"
+    },
+    {
+      "name": "all-pool",
+      "fields": [
+        [
+          3,
+          4
+        ]
+      ],
+      "native_sha256": "2b16c7c186a26a06b375e4df1ebb621a6a16426137285b264e6e6ad567d4d2df"
+    },
+    {
+      "name": "undo",
+      "fields": [
+        [
+          4,
+          10
+        ]
+      ],
+      "native_sha256": "1ce84f6551c8364a26777df6d7fb25ad7cfacc28db7c021ca4adff540fc3fee4"
+    },
+    {
+      "name": "no-undo",
+      "fields": [
+        [
+          4,
+          11
+        ]
+      ],
+      "native_sha256": "9349b400818e560418567a8f4f7c9fbd61867f3e497834ad5f247922e60cad75"
+    },
+    {
+      "name": "trim-start",
+      "fields": [
+        [
+          4,
+          4
+        ]
+      ],
+      "native_sha256": "8cd236be8dee9791ef2ce48c916d018b8ca57d22e21cee77023c2479839861e0"
+    },
+    {
+      "name": "trim-end",
+      "fields": [
+        [
+          4,
+          5
+        ]
+      ],
+      "native_sha256": "3b80781180046731fe5aebc7258efa36b9f230e0cc2b305cc452c73d9e903aa7"
+    },
+    {
+      "name": "fade",
+      "fields": [
+        [
+          13,
+          50
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "native_sha256": "a0b32b156388731bf5376f4a40fd6e86e9a37895a6194cb619961150e4c5c76b"
+    },
+    {
+      "name": "load-busy",
+      "fields": [
+        [
+          7,
+          1
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "native_sha256": "04c81de92949e1f51845fb8e43ecb5c126d3b62a240dcc7895aae3e54b1f552a"
+    },
+    {
+      "name": "batch-busy",
+      "fields": [
+        [
+          7,
+          1
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          18,
+          64
+        ],
+        [
+          19,
+          63
+        ]
+      ],
+      "native_sha256": "67eddc7f0cc9337a88df6685d3e6d0c843522e0dfd94ad427efe2ad135933609"
+    },
+    {
+      "name": "batch-error",
+      "fields": [
+        [
+          6,
+          8
+        ],
+        [
+          5,
+          -8
+        ],
+        [
+          18,
+          64
+        ],
+        [
+          19,
+          63
+        ],
+        [
+          20,
+          62
+        ]
+      ],
+      "native_sha256": "54528cd0505c395aa5fea1cc1cd9a2fb0272ececd1cbd33ae6142cd0ba86f70e"
+    },
+    {
+      "name": "count-error",
+      "fields": [
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          -7
+        ],
+        [
+          11,
+          64
+        ],
+        [
+          12,
+          3
+        ]
+      ],
+      "native_sha256": "7605e6d270b71081aab09bb89b6795e44b984edde7c3e543ffa7b92fe57a86b1"
+    },
+    {
+      "name": "load-error",
+      "fields": [
+        [
+          6,
+          9
+        ],
+        [
+          5,
+          -8
+        ]
+      ],
+      "native_sha256": "221a0917ccf47c69f9406cb5bb8e3a5c7ee8f0d55ad33d2813b6300caf9c4ee9"
+    },
+    {
+      "name": "settings-error",
+      "fields": [
+        [
+          0,
+          1
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          5,
+          -8
+        ]
+      ],
+      "native_sha256": "8d570e6ce0b1af21055a1fc203de99361804dfee253af16b9c26e0c227b752d5"
+    },
+    {
+      "name": "fade-handles",
+      "fields": [
+        [
+          13,
+          50
+        ],
+        [
+          22,
+          1
+        ],
+        [
+          25,
+          192000
+        ]
+      ],
+      "native_sha256": "16cef9232021226a5dc5037a6c8287484d839482c5567ea774d91bae3c4d7203"
+    },
+    {
+      "name": "empty",
+      "fields": [
+        [
+          21,
+          1
+        ]
+      ],
+      "native_sha256": "1885bf3d49d4cf259518e5500f393510fa30dbb1bb4eb8bcd84d50813a52d5be"
+    },
+    {
+      "name": "settings-large",
+      "fields": [
+        [
+          0,
+          1
+        ],
+        [
+          24,
+          999999
+        ],
+        [
+          25,
+          3168000
+        ],
+        [
+          13,
+          50
+        ],
+        [
+          26,
+          127
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "native_sha256": "929ccd611cec329169ad08bcd37a3e5e69ee1ec000f90fc0a624eda7eb32a73e"
+    },
+    {
+      "name": "info-chop",
+      "fields": [
+        [
+          0,
+          2
+        ]
+      ],
+      "native_sha256": "2ae9534dee4c0adcaf11973d0fbf3cea46e412028404338034c935fd7bf70d9a"
+    },
+    {
+      "name": "info-loop",
+      "fields": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "native_sha256": "f57966ca8defcb1111ad8e46f214c7b847fe627aaa84f083cd5449f98334ef7a"
+    },
+    {
+      "name": "info-save-all",
+      "fields": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "native_sha256": "2e68981af8405fd330397c3b2d946628a08294275a45f67670efaa04d9ffb12a"
+    },
+    {
+      "name": "info-all-pool",
+      "fields": [
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "native_sha256": "6be630ee2fe2638022b36e04554229c29680642cd86ae88db45594d1b3b0c474"
+    },
+    {
+      "name": "info-pending",
+      "fields": [
+        [
+          0,
+          2
+        ],
+        [
+          9,
+          1
+        ]
+      ],
+      "native_sha256": "cd1203aa8d3d555f22887b8bfc75e782e5faf04d625fb09acee89f0af7500ff1"
+    },
+    {
+      "name": "info-error",
+      "fields": [
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          -7
+        ]
+      ],
+      "native_sha256": "1f7d3fb8ee43d73657dcd01ffc650a42f57a37b0efb3ff4274e91d9a499dadc6"
+    },
+    {
+      "name": "info-busy",
+      "fields": [
+        [
+          0,
+          2
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      "native_sha256": "2dcb6b5f062ab2bfd0b65f0877c765664e4d1279d6b97976e710ca834816f4c7"
+    }
+  ]
+}

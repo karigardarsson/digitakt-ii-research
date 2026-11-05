@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+  "integrity": {
+    "file_sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+    "file_size": 1881120,
+    "container_size": 1484208,
+    "message_count": 14696,
+    "content_checksum": "0xd5bc2408",
+    "hmac_sha256": "e5e31bd86df5e0c517c584420d8f28a384f5bc666ff0a00209fb201313702dbb",
+    "packet_checksums": "14696/14696",
+    "post_container_padding": 80
+  },
+  "bootstrap": {
+    "2": {
+      "stored_size": 16136,
+      "plain_size": 30302,
+      "plain_sha256": "79667563ab7d8da070f461fbaa888207fe7a457748e538386cbd172239bf8d43",
+      "result": "PASS"
+    },
+    "3": {
+      "stored_size": 1146742,
+      "plain_size": 3317924,
+      "plain_sha256": "927f3b7d1615ba978bad53d62842ef9e49616ee5b61f2e471068bbad7ce9c00d",
+      "result": "PASS"
+    },
+    "7": {
+      "stored_size": 184902,
+      "plain_size": 328364,
+      "plain_sha256": "cadeda43fc65a76d81edcabc829338b80b30246ebb3f25b6de81ff6f973d85ad",
+      "result": "PASS"
+    },
+    "8": {
+      "stored_size": 103416,
+      "plain_size": 159948,
+      "plain_sha256": "6943b2f27773f40f1e7857ea6fa7a121269e930bd403098e6b6c00002327dc20",
+      "result": "PASS"
+    }
+  },
+  "MAIN_rollback_to_approved_exact": true,
+  "DSP_reconstruction_from_stock_plus_custom_assets_exact": true,
+  "all_sections_except_MAIN_and_DSP_stored_and_plain_exact": true,
+  "seven_CF_modules": true,
+  "original_six_modules_and_38_hooks_exact": true
+}

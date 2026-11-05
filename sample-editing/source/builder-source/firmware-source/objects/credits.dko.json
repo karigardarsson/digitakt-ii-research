@@ -1,0 +1,588 @@
+{
+  "arch": "cf-mcf54418",
+  "format": "dko-prototype-1",
+  "source_sha256": "d8eb316ec42b4493b0e3685f65849a5cc8ba7ca19ac7707713e98853abdbd24a",
+  "sources": [
+    "credits.c",
+    "hook.s"
+  ],
+  "toolchain": {
+    "gcc": "m68k-elf-gcc (GCC) 16.2.0",
+    "as": "GNU assembler (GNU Binutils) 2.47.20260726",
+    "ld": "GNU ld (GNU Binutils) 2.47.20260726",
+    "cflags": "-mcpu=54418 -Os -ffreestanding -fno-builtin -nostdlib -fno-pic -fno-pie -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-stack-protector -Wall -Wextra -Werror"
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "kind": "text",
+      "align": 4,
+      "size": 44,
+      "hex": "2f0a4eb900000000588f4cef7c7c00084fef00704e75206f000c2f2f00082f2f00084eb94011a0ba508f4e75"
+    },
+    {
+      "name": ".text.manager",
+      "kind": "text",
+      "align": 2,
+      "size": 28,
+      "hex": "206f00047002226f0008b0af000c6608209121690004000442804e75"
+    },
+    {
+      "name": ".rodata.credits_draw.str1.1",
+      "kind": "rodata",
+      "align": 1,
+      "size": 48,
+      "hex": "43524544495453202f2041424f55542025642f330025730055502f444f574e3a205041474520204e4f3a204241434b00"
+    },
+    {
+      "name": ".text.credits_draw",
+      "kind": "text",
+      "align": 2,
+      "size": 198,
+      "hex": "4feffff048d7041c206f0014262f00182268ffc84868ffc8206900244e90588f24007002b0826402428242a7782e4878003f4878007f42a742a72f034eb90000000045f900000000204248680001487900000000c4fc001442a748780038487800022f3c44d2e70c2f034e920682000000004fef003420422f1848790000000042a72f04487800022f3c44d2e70c2f03240851844e924fef001c7006b08466d648790000000042a748780002487800022f3c44d2e70c2f034e924cef041c00184fef00284e75"
+    },
+    {
+      "name": ".text.add",
+      "kind": "text",
+      "align": 2,
+      "size": 132,
+      "hex": "4e56ffdc2f024878001042a7240e0682ffffffe02f024eb90000000042aefff42d6e0014fff04fef000c4aae00106750203c00000000487800542d40fff82d6e0010fffc4eb9000000002f02487900000000486efff02f2e000c2f002d40ffdc4eb9000000002f2effdc2f2e00084eb900000000242effd84fef00204e5e4e75428060b2"
+    },
+    {
+      "name": ".rodata.credits_open.str1.1",
+      "kind": "rodata",
+      "align": 1,
+      "size": 22,
+      "hex": "00446967694b69744372656469747300310032003300"
+    },
+    {
+      "name": ".text.credits_open",
+      "kind": "text",
+      "align": 2,
+      "size": 270,
+      "hex": "4e56ffec206e00082f0a2f0245eefff42410487801fc4eb900000000486efff34879000000002f0a42aefff42d40ffec42001d40fff34eb9000000004878000142a72f0a487800014879000000002f2effec4eb9000000004fef00242e8a4eb900000000588f226effecd3fcbfde241c207c4021dd90239088005888b1fc4021dde066f2206effec43f90000000045f900000000214901c443e801b42149003842a742a74879000000002f084e9242a742a74879000000002f2effec4e924fef001c429742a74879000000002f2effec4e9245eefff82f0a206effec486800382f024eb9000000002f0a2f024eb9000000004fef0024486efffc4eb900000000242effe4588f246effe84e5e4e75"
+    },
+    {
+      "name": ".rodata.credits_append.str1.1",
+      "kind": "rodata",
+      "align": 1,
+      "size": 16,
+      "hex": "43524544495453202f2041424f555400"
+    },
+    {
+      "name": ".text.credits_append",
+      "kind": "text",
+      "align": 2,
+      "size": 32,
+      "hex": "202f00042f004879000000004879000000002f004eb9000000004fef00104e75"
+    },
+    {
+      "name": ".rodata.str1.1",
+      "kind": "rodata",
+      "align": 1,
+      "size": 289,
+      "hex": "4454322053414d504c452045444954494e47004d6f6469666965643b20646572697665642066726f6d00646967696b697420627920456d2044202d0068747470733a2f2f6769746875622e636f6d2f00456c656b4c6162732f646967696b697400646967696b697420284329203230323620456d2044004147504c2d332e302d6f722d6c61746572004e6f2077617272616e74792e00596f75206d617920636f6e76657920756e64657200746865204147504c3b20736565204c4943454e53452e00536f75726365202b204c4943454e53453a00696e636c7564656420696e207061636b6167652e004f726967696e616c3a20736565207061676520312e004e6f7420656e646f7273656420627920456d2044006f7220456c656b74726f6e2e00"
+    },
+    {
+      "name": ".rodata.pages",
+      "kind": "rodata",
+      "align": 2,
+      "size": 60,
+      "hex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": ".rodata.blank",
+      "kind": "rodata",
+      "align": 2,
+      "size": 28,
+      "hex": "00000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "name": ".rodata.credits_origin",
+      "kind": "rodata",
+      "align": 1,
+      "size": 77,
+      "hex": "4d6f646966696564206669726d7761726520646572697665642066726f6d20646967696b6974202d2068747470733a2f2f6769746875622e636f6d2f456c656b4c6162732f646967696b697400"
+    },
+    {
+      "name": ".rodata.credits_attribution",
+      "kind": "rodata",
+      "align": 1,
+      "size": 54,
+      "hex": "646967696b697420627920456d2044202d2068747470733a2f2f6769746875622e636f6d2f456c656b4c6162732f646967696b697400"
+    }
+  ],
+  "symbols": [
+    {
+      "name": "manager",
+      "section": ".text.manager",
+      "value": 0,
+      "global": false,
+      "func": true
+    },
+    {
+      "name": "pages",
+      "section": ".rodata.pages",
+      "value": 0,
+      "global": false,
+      "func": false
+    },
+    {
+      "name": "add",
+      "section": ".text.add",
+      "value": 0,
+      "global": false,
+      "func": true
+    },
+    {
+      "name": "blank",
+      "section": ".rodata.blank",
+      "value": 0,
+      "global": false,
+      "func": false
+    },
+    {
+      "name": "credits_origin",
+      "section": ".rodata.credits_origin",
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "alloc",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "menu_append",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "credits_attribution",
+      "section": ".rodata.credits_attribution",
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "str_ctor",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "menu_show",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "credits_append",
+      "section": ".text.credits_append",
+      "value": 0,
+      "global": true,
+      "func": true
+    },
+    {
+      "name": "pair_drop",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "fill",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "text",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "menu_ctor",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "memset",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "adopt",
+      "section": ".text",
+      "value": 22,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "credits_open",
+      "section": ".text.credits_open",
+      "value": 0,
+      "global": true,
+      "func": true
+    },
+    {
+      "name": "credits_draw",
+      "section": ".text.credits_draw",
+      "value": 0,
+      "global": true,
+      "func": true
+    },
+    {
+      "name": "item_ctor",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "credits_ctor_tail",
+      "section": ".text",
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "str_dtor",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    }
+  ],
+  "relocs": [
+    {
+      "in": ".text",
+      "offset": 4,
+      "type": "32",
+      "to_symbol": "credits_append",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_draw",
+      "offset": 62,
+      "type": "32",
+      "to_symbol": "fill",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_draw",
+      "offset": 68,
+      "type": "32",
+      "to_symbol": "text",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_draw",
+      "offset": 80,
+      "type": "32",
+      "to_section": ".rodata.credits_draw.str1.1",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_draw",
+      "offset": 110,
+      "type": "32",
+      "to_section": ".rodata.pages",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_draw",
+      "offset": 124,
+      "type": "32",
+      "to_section": ".rodata.credits_draw.str1.1",
+      "addend": 21
+    },
+    {
+      "in": ".text.credits_draw",
+      "offset": 162,
+      "type": "32",
+      "to_section": ".rodata.credits_draw.str1.1",
+      "addend": 24
+    },
+    {
+      "in": ".text.add",
+      "offset": 24,
+      "type": "32",
+      "to_symbol": "memset",
+      "addend": 0
+    },
+    {
+      "in": ".text.add",
+      "offset": 50,
+      "type": "32",
+      "to_section": ".text.manager",
+      "addend": 0
+    },
+    {
+      "in": ".text.add",
+      "offset": 70,
+      "type": "32",
+      "to_symbol": "alloc",
+      "addend": 0
+    },
+    {
+      "in": ".text.add",
+      "offset": 78,
+      "type": "32",
+      "to_section": ".rodata.blank",
+      "addend": 0
+    },
+    {
+      "in": ".text.add",
+      "offset": 98,
+      "type": "32",
+      "to_symbol": "item_ctor",
+      "addend": 0
+    },
+    {
+      "in": ".text.add",
+      "offset": 112,
+      "type": "32",
+      "to_symbol": "menu_append",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 24,
+      "type": "32",
+      "to_symbol": "alloc",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 34,
+      "type": "32",
+      "to_section": ".rodata.credits_open.str1.1",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 56,
+      "type": "32",
+      "to_symbol": "str_ctor",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 74,
+      "type": "32",
+      "to_section": ".rodata.credits_open.str1.1",
+      "addend": 1
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 84,
+      "type": "32",
+      "to_symbol": "menu_ctor",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 96,
+      "type": "32",
+      "to_symbol": "str_dtor",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 138,
+      "type": "32",
+      "to_section": ".text.credits_draw",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 144,
+      "type": "32",
+      "to_section": ".text.add",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 166,
+      "type": "32",
+      "to_section": ".rodata.credits_open.str1.1",
+      "addend": 16
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 180,
+      "type": "32",
+      "to_section": ".rodata.credits_open.str1.1",
+      "addend": 18
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 200,
+      "type": "32",
+      "to_section": ".rodata.credits_open.str1.1",
+      "addend": 20
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 228,
+      "type": "32",
+      "to_symbol": "adopt",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 238,
+      "type": "32",
+      "to_symbol": "menu_show",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_open",
+      "offset": 252,
+      "type": "32",
+      "to_symbol": "pair_drop",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_append",
+      "offset": 8,
+      "type": "32",
+      "to_section": ".text.credits_open",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_append",
+      "offset": 14,
+      "type": "32",
+      "to_section": ".rodata.credits_append.str1.1",
+      "addend": 0
+    },
+    {
+      "in": ".text.credits_append",
+      "offset": 22,
+      "type": "32",
+      "to_section": ".text.add",
+      "addend": 0
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 0,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 0
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 4,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 19
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 8,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 42
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 12,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 60
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 16,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 80
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 20,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 97
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 24,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 119
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 28,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 137
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 32,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 150
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 36,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 171
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 40,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 194
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 44,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 212
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 48,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 233
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 52,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 255
+    },
+    {
+      "in": ".rodata.pages",
+      "offset": 56,
+      "type": "32",
+      "to_section": ".rodata.str1.1",
+      "addend": 276
+    }
+  ]
+}

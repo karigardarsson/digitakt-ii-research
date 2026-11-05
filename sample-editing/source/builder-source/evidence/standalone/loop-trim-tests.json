@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "main_sha256": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+  "manual_bounds": [
+    96,
+    191904
+  ],
+  "native_LOOP_Save_As_byte_exact": true,
+  "original_preserved": true,
+  "contexts_retired": true
+}

@@ -1,0 +1,375 @@
+{
+  "format": "dt2-sample-editing-cfade-1",
+  "device": "Digitakt II",
+  "os": "1.17",
+  "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "stock_main_bytes": 3275616,
+  "stock_main_sha256": "a1e7b657b705eba1a19d81c33c1e11ba9c409816447ad74005d7bbf36da6d964",
+  "output_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "output_bytes": 1882144,
+  "main_bytes": 3319780,
+  "main_sha256": "a6d58c284ed7d8e7b74124b94dfe19b672671389371bb11c45b13864cffe6b5f",
+  "admitted_range": [
+    1206431744,
+    1207828480
+  ],
+  "patches": [
+    {
+      "address": 1076959172,
+      "bytes": 54,
+      "before_sha256": "ea659cdc838619b3767c057fdf8e6d99fde2680c5d8517eb06761c0878d40c40",
+      "after": "41f94031ff6020185280671c538022582218e488670622d8538066fae48967e64299538166fa60de4eb94000045c4eb9400004b24e75",
+      "owner": "loader"
+    },
+    {
+      "address": 1073743166,
+      "bytes": 8,
+      "before_sha256": "dbd7ee3ac848bc629a889c3a534a8b23d8bb88fb05c5dd9f8f825696a3c6b633",
+      "after": "4eb9403117c44e71",
+      "owner": "loader"
+    },
+    {
+      "address": 1074833022,
+      "bytes": 6,
+      "before_sha256": "fc0dfc7459a4c4d2eb90250653e76fbf612289f9ab4bec8582ae702644528e29",
+      "after": "4ef947ed0000",
+      "owner": "required attribution"
+    },
+    {
+      "address": 1073875296,
+      "bytes": 8,
+      "before_sha256": "57ce6a873a72d55110bfba4569069ecc773810ea4134eb9191e9c6c1ccaa0714",
+      "after": "4ef947ee44a84e71",
+      "owner": "SampleLAB"
+    },
+    {
+      "address": 1073884270,
+      "bytes": 8,
+      "before_sha256": "f6c8a4d0252518c209cd799e2db730173e1e732e37ff07475c070ce46cebf897",
+      "after": "4ef947ee4bfc4e71",
+      "owner": "SampleLAB"
+    },
+    {
+      "address": 1073880544,
+      "bytes": 8,
+      "before_sha256": "0a19a633070732de69815e030ca0d25aaa0823017b5e957942c8a8835582aab1",
+      "after": "4ef947ee51ec4e71",
+      "owner": "SampleLAB"
+    },
+    {
+      "address": 1073877434,
+      "bytes": 8,
+      "before_sha256": "b409b975f086c114f9b8f31557c08a1725cda24d95dcf9561142e189907519c1",
+      "after": "4ef947ee43f44e71",
+      "owner": "SampleLAB"
+    },
+    {
+      "address": 1075429206,
+      "bytes": 8,
+      "before_sha256": "44e87e464ee6e13351bf86d5de8c0b84ac96caae5eea4b55cee445c1cbf50bf7",
+      "after": "4ef947ee43d84e71",
+      "owner": "SampleLAB"
+    },
+    {
+      "address": 1074059744,
+      "bytes": 8,
+      "before_sha256": "e69bd2d9766bc1f0955732cd73345b17b906cad93a190a171b216f281a6ba74e",
+      "after": "4ef947ee43564e71",
+      "owner": "SampleLAB"
+    },
+    {
+      "address": 1073847328,
+      "bytes": 4,
+      "before_sha256": "0617e8880750ca4a5fac0ba264a9d41fe0ae579fddcb1a344e380db5ac832399",
+      "after": "47f81314",
+      "owner": "SmartSlice"
+    },
+    {
+      "address": 1073847428,
+      "bytes": 4,
+      "before_sha256": "2f81b9826b64ef9948ffa0f979c0c9082ffdfe36ffd0121dc7e947e111ce25ea",
+      "after": "47f81330",
+      "owner": "SmartSlice"
+    },
+    {
+      "address": 1074133646,
+      "bytes": 4,
+      "before_sha256": "ad4d2c4c68919d2fa7f15c21b0b865b4c471e55843e95ca7d5551eede71dbf67",
+      "after": "47f80492",
+      "owner": "SmartSlice"
+    },
+    {
+      "address": 1073846182,
+      "bytes": 4,
+      "before_sha256": "1b64d2b5b33fac2e2c8585a946af0343da513ce0db434996e83243b3adface92",
+      "after": "47f81330",
+      "owner": "SmartSlice"
+    },
+    {
+      "address": 1073847442,
+      "bytes": 2,
+      "before_sha256": "fcf0a6c700dd13e274b6fba8deea8dd9b26e4eedde3495717cac8408c9c5177f",
+      "after": "0001",
+      "owner": "SmartSlice"
+    },
+    {
+      "address": 1073840638,
+      "bytes": 6,
+      "before_sha256": "8fb27740c924a50f89ad6207d6c846e6f7590722d490f6c5c4b9ec233a592103",
+      "after": "4ef947fd0000",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1073841386,
+      "bytes": 6,
+      "before_sha256": "8fb27740c924a50f89ad6207d6c846e6f7590722d490f6c5c4b9ec233a592103",
+      "after": "4ef947fd002c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1073836138,
+      "bytes": 6,
+      "before_sha256": "f948461a899701af89caba5af8957ae2f109a0becda92d3b936ca98b67dab550",
+      "after": "4eb947fd0058",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1073836152,
+      "bytes": 6,
+      "before_sha256": "3ef659065064f9e524d09aa0ac958f4742dcd3404636c90fb64769ba452ff8db",
+      "after": "4eb947fd005e",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1073836124,
+      "bytes": 6,
+      "before_sha256": "c6507fc6418e8da55ebcbf40da88c35c59d195250bbaa999d68f810abc7e8294",
+      "after": "4eb947fd0064",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074851460,
+      "bytes": 6,
+      "before_sha256": "cff88b79c3b8a080b5dae0a96a6b379d328dd9e0d4868ea9e6fdaf21533fa61e",
+      "after": "4eb947fd007c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074852706,
+      "bytes": 6,
+      "before_sha256": "cff88b79c3b8a080b5dae0a96a6b379d328dd9e0d4868ea9e6fdaf21533fa61e",
+      "after": "4eb947fd007c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074853794,
+      "bytes": 6,
+      "before_sha256": "cff88b79c3b8a080b5dae0a96a6b379d328dd9e0d4868ea9e6fdaf21533fa61e",
+      "after": "4eb947fd007c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074851876,
+      "bytes": 6,
+      "before_sha256": "5bfaf1fa54df16eea2c83d53e5f6d2d3724da9322d74df1730bb1387ed84094f",
+      "after": "49f947fd16da",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074851960,
+      "bytes": 6,
+      "before_sha256": "1ebd85d228db0c5a224db03eeb1712a5ee3bd57ce0588e48f9dca68faaa21493",
+      "after": "4eb947fd1714",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074851988,
+      "bytes": 6,
+      "before_sha256": "ece4c7323903e149f43e5045e21c6fef4922610e4e44406adfaf4e8fb71f2d0e",
+      "after": "4eb947fd174c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074852082,
+      "bytes": 6,
+      "before_sha256": "1ebd85d228db0c5a224db03eeb1712a5ee3bd57ce0588e48f9dca68faaa21493",
+      "after": "4eb947fd1714",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074852110,
+      "bytes": 6,
+      "before_sha256": "ece4c7323903e149f43e5045e21c6fef4922610e4e44406adfaf4e8fb71f2d0e",
+      "after": "4eb947fd174c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074852152,
+      "bytes": 6,
+      "before_sha256": "d99bb727cebffeedaaba3a0e74af3a2ecb2d0a9d285932bdbfc31c471957a164",
+      "after": "4bf947fd1714",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074852278,
+      "bytes": 6,
+      "before_sha256": "1ebd85d228db0c5a224db03eeb1712a5ee3bd57ce0588e48f9dca68faaa21493",
+      "after": "4eb947fd1714",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074853132,
+      "bytes": 6,
+      "before_sha256": "8c7e87704895852d22fbce192f876683926d62565478bd0df8a126154c4a50ab",
+      "after": "47f947fd16da",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074853138,
+      "bytes": 6,
+      "before_sha256": "f955f385c067af9b800094ff94144c42280796836a178d1f1e6f7fd9d9ed46f4",
+      "after": "49f947fd1780",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074853364,
+      "bytes": 6,
+      "before_sha256": "1ebd85d228db0c5a224db03eeb1712a5ee3bd57ce0588e48f9dca68faaa21493",
+      "after": "4eb947fd1714",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074854296,
+      "bytes": 6,
+      "before_sha256": "696f4d22cf2810629c153156cfb583ed5daf3d6a6195a06abcf119b661808ab7",
+      "after": "4eb947fd1780",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1074854356,
+      "bytes": 6,
+      "before_sha256": "1ebd85d228db0c5a224db03eeb1712a5ee3bd57ce0588e48f9dca68faaa21493",
+      "after": "4eb947fd1714",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1075764420,
+      "bytes": 4,
+      "before_sha256": "1dbe80a763ce2f8eac17a19ec8bd2ba5cba5c2fa6b8539bec9a3a080b7fca257",
+      "after": "47fd05c8",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1075764408,
+      "bytes": 4,
+      "before_sha256": "95bc39d032b1e188a46979126daf78fc62d17eb8ec6e0e614abc3a41bcd79002",
+      "after": "47fd062c",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1073835852,
+      "bytes": 6,
+      "before_sha256": "0ddbaf57ed2983be9c84807d23af44d64abcd2864210c7734181d991ec7a53f4",
+      "after": "4eb947fd0088",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1073835906,
+      "bytes": 6,
+      "before_sha256": "2dce663f4c98526fc57bf9061b7415774de630506a32e690c075d93818d9df66",
+      "after": "4eb947fd009a",
+      "owner": "Universal Zoom"
+    },
+    {
+      "address": 1075596772,
+      "bytes": 6,
+      "before_sha256": "d932a68dc2ad8dc77f6e46674f43c3f306eb7e1bbc770618a2bb56738d615cc6",
+      "after": "4eb947fa0000",
+      "owner": "Native SLICE CFADE initializer"
+    }
+  ],
+  "modules": [
+    {
+      "name": "lab",
+      "file": "lab.bin",
+      "bytes": 28816,
+      "base": 1206779904,
+      "bss": 144,
+      "sha256": "8feefb00f1ad1b8f29dce1255fceb3c184e36018663c554b6dd811910ae918e5"
+    },
+    {
+      "name": "smart",
+      "file": "smart.bin",
+      "bytes": 4992,
+      "base": 1207435264,
+      "bss": 20,
+      "sha256": "caa34946be5f36ab9a4b76cb3c0673dc8d833e4d6ab616c1afc7c17d1bcde141"
+    },
+    {
+      "name": "background",
+      "file": "background.bin",
+      "bytes": 1172,
+      "base": 1207631872,
+      "bss": 0,
+      "sha256": "f9d4af825956e8e5675c7eafb62bee4d5764bba6350946068092609713cfe22f"
+    },
+    {
+      "name": "overflow",
+      "file": "overflow.bin",
+      "bytes": 1280,
+      "base": 1207635968,
+      "bss": 0,
+      "sha256": "35d58282eb09b0c2deb32e5ae5dd0b595974ec954565e1230259a71a8d351d21"
+    },
+    {
+      "name": "zoom",
+      "file": "zoom.bin",
+      "bytes": 6496,
+      "base": 1207762944,
+      "bss": 2152,
+      "sha256": "bb4902e1b5c00e0885957e518e122d8221f5a69a33716f73e8e252a685db2275"
+    },
+    {
+      "name": "credits",
+      "file": "credits.bin",
+      "bytes": 1300,
+      "base": 1206714368,
+      "bss": 0,
+      "sha256": "c0395763d537fdedb186cf7e5c720bfbd7ae3f6cde18ef514b001f79219cd2c9"
+    },
+    {
+      "name": "cf-init",
+      "file": "cf-init.bin",
+      "base": 1207566336,
+      "bss": 0,
+      "bytes": 20,
+      "sha256": "40395e101cf11d2098391db6c406e014d4dc82a63d34514699774b4dff6d9f94"
+    }
+  ],
+  "sections": {
+    "section_2_bootstrap.bin": {
+      "stock_sha256": "79667563ab7d8da070f461fbaa888207fe7a457748e538386cbd172239bf8d43",
+      "output_sha256": "79667563ab7d8da070f461fbaa888207fe7a457748e538386cbd172239bf8d43"
+    },
+    "section_3_MAIN_OS.bin": {
+      "stock_sha256": "a1e7b657b705eba1a19d81c33c1e11ba9c409816447ad74005d7bbf36da6d964",
+      "output_sha256": "a6d58c284ed7d8e7b74124b94dfe19b672671389371bb11c45b13864cffe6b5f"
+    },
+    "section_4_updater.raw": {
+      "stock_sha256": "3ffb526a37e9963bf1d15aa166a1ef22b0a338aa499a386b5fb5fb1abf5fd919",
+      "output_sha256": "3ffb526a37e9963bf1d15aa166a1ef22b0a338aa499a386b5fb5fb1abf5fd919"
+    },
+    "section_5_meta.raw": {
+      "stock_sha256": "5b48aee6b4065f913eee213fdb2a2536a119951618c065b776eec3777843c0e1",
+      "output_sha256": "5b48aee6b4065f913eee213fdb2a2536a119951618c065b776eec3777843c0e1"
+    },
+    "section_7_blob.bin": {
+      "stock_sha256": "0f514a12a2255f5c081e292c47f1f29462003177658da4bbae0a22fd737fffa2",
+      "output_sha256": "cadeda43fc65a76d81edcabc829338b80b30246ebb3f25b6de81ff6f973d85ad"
+    },
+    "section_8__.bin": {
+      "stock_sha256": "6943b2f27773f40f1e7857ea6fa7a121269e930bd403098e6b6c00002327dc20",
+      "output_sha256": "6943b2f27773f40f1e7857ea6fa7a121269e930bd403098e6b6c00002327dc20"
+    }
+  }
+}

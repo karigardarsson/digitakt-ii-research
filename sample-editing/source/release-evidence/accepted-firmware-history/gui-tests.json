@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "native_Tk_geometry": [
+    760,
+    560
+  ],
+  "explanatory_font_points": 10,
+  "ready_message": true,
+  "current_candidate_warning": true,
+  "accepted_text_branch_removes_warning": true,
+  "acceptance_flag_remains_false": true,
+  "dialog_options": {
+    "title": "Save new Sample Editing firmware",
+    "defaultextension": ".syx",
+    "initialfile": "DT2_OS117_SAMPLE_EDITING_RELEASE_CANDIDATE.syx",
+    "filetypes": [
+      [
+        "Firmware",
+        "*.syx"
+      ]
+    ]
+  },
+  "stock_selection_default": "DT2_OS117_SAMPLE_EDITING_RELEASE_CANDIDATE.syx",
+  "layout_bounds": [
+    {
+      "widget": "TLabel",
+      "y": 20,
+      "height": 36
+    },
+    {
+      "widget": "TLabel",
+      "y": 61,
+      "height": 25
+    },
+    {
+      "widget": "TLabel",
+      "y": 98,
+      "height": 55
+    },
+    {
+      "widget": "TLabel",
+      "y": 165,
+      "height": 19
+    },
+    {
+      "widget": "TFrame",
+      "y": 187,
+      "height": 25
+    },
+    {
+      "widget": "TLabel",
+      "y": 224,
+      "height": 19
+    },
+    {
+      "widget": "TFrame",
+      "y": 246,
+      "height": 25
+    },
+    {
+      "widget": "TButton",
+      "y": 285,
+      "height": 25
+    },
+    {
+      "widget": "Text",
+      "y": 324,
+      "height": 155
+    },
+    {
+      "widget": "TLabel",
+      "y": 491,
+      "height": 49
+    }
+  ],
+  "attribution_preserved": true,
+  "limitation": "Programmatic native Tk widget/layout checks; final frozen GUI not manually inspected, DPI/Windows variants not newly qualified."
+}

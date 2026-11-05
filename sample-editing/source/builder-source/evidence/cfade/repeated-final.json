@@ -1,0 +1,152 @@
+{
+  "status": "PASS",
+  "image_sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+  "cases": [
+    {
+      "name": "silence",
+      "frames": 48000,
+      "channels": 1,
+      "generated_hits": 0,
+      "metadata_before": [
+        48000,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "last_smart_status": 4294967290,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "last_smart_status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "last_smart_status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "last_smart_status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "last_smart_status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "last_smart_status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short1",
+      "frames": 1,
+      "channels": 1,
+      "generated_hits": 1,
+      "metadata_before": [
+        1,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "last_smart_status": 4294967290,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "last_smart_status": 4294967295,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "short63",
+      "frames": 63,
+      "channels": 2,
+      "generated_hits": 1,
+      "metadata_before": [
+        126,
+        1
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "last_smart_status": 1,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "last_smart_status": 4294967295,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    },
+    {
+      "name": "overflow96",
+      "frames": 576000,
+      "channels": 1,
+      "generated_hits": 96,
+      "metadata_before": [
+        576000,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "last_smart_status": 64,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 64,
+          "last_smart_status": 64,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    }
+  ],
+  "stress_cycles": 0,
+  "evidence": "Native file export/reference/SMART/fixed-grid writer and actual non-null popup parent, UART encoder/NO. CF-only metadata completion seam explicitly recorded; no ADC/listening/hardware proof."
+}

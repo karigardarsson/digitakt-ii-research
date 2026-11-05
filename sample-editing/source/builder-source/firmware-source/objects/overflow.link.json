@@ -1,0 +1,61 @@
+{
+  "name": "overflow",
+  "base": 1207635968,
+  "bytes": 1280,
+  "bss": 0,
+  "symbols": {
+    "smart_dense": 1207635968,
+    "smart_detect": 1207637110,
+    "memset": 1075012560,
+    "sl_detect": 1207631872
+  },
+  "text_ranges": [
+    [
+      1207635968,
+      1207637110
+    ],
+    [
+      1207637110,
+      1207637248
+    ]
+  ],
+  "ISA": {
+    "link": 1,
+    "movem_store": 2,
+    "move": 111,
+    "clr": 23,
+    "pea": 5,
+    "lea": 18,
+    "movea": 25,
+    "jsr": 5,
+    "divu_l": 9,
+    "muls_l": 9,
+    "suba": 10,
+    "cmpa_l": 7,
+    "bcc": 49,
+    "addq": 20,
+    "moveq": 10,
+    "add_to_d": 15,
+    "cmp": 28,
+    "and_to_d": 1,
+    "lsr_i": 8,
+    "lsl_r": 1,
+    "subq": 2,
+    "tst": 8,
+    "sub_to_d": 9,
+    "lsl_i": 7,
+    "movem_load": 3,
+    "unlk": 1,
+    "rts": 2,
+    "adda": 7,
+    "bra": 21,
+    "neg": 4,
+    "mvz": 6,
+    "cmpi": 1,
+    "addi": 1,
+    "asr_i": 1,
+    "add_to_ea": 1,
+    "jmp": 1
+  },
+  "sha256": "35d58282eb09b0c2deb32e5ae5dd0b595974ec954565e1230259a71a8d351d21"
+}

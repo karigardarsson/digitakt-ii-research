@@ -1,0 +1,145 @@
+{
+  "arch": "sharc+",
+  "parcel_order": "selache-be",
+  "source_sha256": "c12cca745a34f12560ee07063923728564cbae2d608cfe427ca8123062ee8bcc",
+  "toolchain": {
+    "selache_rev": "2b26d3b75c53063575bc5c820fa0d38879335187",
+    "selas_sha256": "4eec66351a9c2b9a03d94a912b739e4c9724cedb6b48ece0e4a5a94e4dfcc1f8",
+    "seldump_sha256": "22b46253f1cb5cc74486e0fc829235f89414f3fa9dcd61ce668290a77359bdae"
+  },
+  "section": "9d08007bc2240f0100000000c1210f810000c3210602000000000f813b00c3210622000000000f8000000f8101d8c321060200000000c121c500063e000000000f83ffff01a002030f81fffc018401010f0300000000013e00001113703e883f91510f83000101840323023e000004330182233001a001130f030000ffffcc130f10000000009193919cc233060000000000c33106200000000070fe0e3fc2340f850004013e00001335703f88bf9c080979083f283f063e000000001587fffffffe063e000000009c08007b063e000000000f81fffe01840101023e000001110f0200000000013e00001112703e8a3f99510f82000101840202023e000004220182222001a000120f020000ffff0a3e04000000cc0200010f81fffc018401010f0200000000013e00001112703e8a3f99510f82000301840202023e000003220182222001a000120f8200ff0a3e04000000cc0200010f81fffc018401010f0200000000013e00001112703e8a3f99510f82000301840202023e000003220182222001a000120f8200ff0a3e04000000cc020001",
+  "symbols": {
+    "_di_stock": {
+      "parcel": 100,
+      "global": false
+    },
+    "_di_voice": {
+      "parcel": 32,
+      "global": false
+    },
+    "_di_div": {
+      "parcel": 23,
+      "global": false
+    },
+    "_di_scan": {
+      "parcel": 67,
+      "global": false
+    },
+    "_di_entry": {
+      "parcel": 0,
+      "global": true
+    },
+    "_di_return_work": {
+      "parcel": 91,
+      "global": true
+    },
+    "_di_return_out": {
+      "parcel": 94,
+      "global": true
+    },
+    "_di_frame_hw": {
+      "parcel": 105,
+      "global": true
+    },
+    "_di_trig": {
+      "parcel": 140,
+      "global": true
+    },
+    "_di_released": {
+      "parcel": 171,
+      "global": true
+    }
+  },
+  "relocs": [
+    {
+      "parcel": 3,
+      "rtype": 12,
+      "symbol": "_fw_records",
+      "addend": 0
+    },
+    {
+      "parcel": 10,
+      "rtype": 11,
+      "symbol": "_di_stock",
+      "addend": 0
+    },
+    {
+      "parcel": 16,
+      "rtype": 11,
+      "symbol": "_di_stock",
+      "addend": 0
+    },
+    {
+      "parcel": 24,
+      "rtype": 11,
+      "symbol": "_di_voice",
+      "addend": 0
+    },
+    {
+      "parcel": 29,
+      "rtype": 11,
+      "symbol": "_di_div",
+      "addend": 0
+    },
+    {
+      "parcel": 40,
+      "rtype": 12,
+      "symbol": "_fw_type_cache",
+      "addend": 0
+    },
+    {
+      "parcel": 64,
+      "rtype": 12,
+      "symbol": "_di_table",
+      "addend": 0
+    },
+    {
+      "parcel": 70,
+      "rtype": 11,
+      "symbol": "_di_stock",
+      "addend": 0
+    },
+    {
+      "parcel": 74,
+      "rtype": 11,
+      "symbol": "_di_scan",
+      "addend": 0
+    },
+    {
+      "parcel": 91,
+      "rtype": 11,
+      "symbol": "_fw_decimate",
+      "addend": 0
+    },
+    {
+      "parcel": 97,
+      "rtype": 11,
+      "symbol": "_fw_after_decimate",
+      "addend": 0
+    },
+    {
+      "parcel": 102,
+      "rtype": 11,
+      "symbol": "_fw_stock",
+      "addend": 0
+    },
+    {
+      "parcel": 112,
+      "rtype": 12,
+      "symbol": "_fw_frame",
+      "addend": 0
+    },
+    {
+      "parcel": 144,
+      "rtype": 12,
+      "symbol": "_fw_trig_latch",
+      "addend": 0
+    },
+    {
+      "parcel": 175,
+      "rtype": 12,
+      "symbol": "_fw_release_latch",
+      "addend": 0
+    }
+  ]
+}

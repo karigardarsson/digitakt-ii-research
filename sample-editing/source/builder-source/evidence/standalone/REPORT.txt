@@ -1,0 +1,97 @@
+STANDALONE SAMPLE EDITING — ENGINEERING REPORT — 2026-11-03
+
+RESULT
+One stock-based OS1.17 hardware-test composition contains all three requested
+systems, with the existing native Credits/About attribution menu. Final image:
+d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93.
+
+USER HARDWARE EVIDENCE (ANCESTRY, NOT THIS IMAGE)
+Universal Zoom native-init175c3ecc: waveform visibility through64x,1x/2x.
+SmartSlice71658c49: actual SMART16/16 on the user's instrument. CFADE audio
+was part of that ancestor but is intentionally absent from this package.
+SampleLAB34643cb7: CHOP, ALL POOL, Project SAVE/RELOAD and Recording/
+NORMALIZING. Subsequent hardware feedback confirms continued editing use;
+the later +Drive LOAD, source names, undo and Zoom UX refinements have bounded
+offline evidence, not a transferred physical-success claim.
+Known-good originals remain unchanged; full paths/hashes are in MANIFEST.json.
+
+CURRENT SOURCE / GAP / MINIMAL CHANGE
+The completed source versions were descendants of All-in-One. Hiding synth
+rows would retain unrelated machine/parameter/codec ownership. Instead start
+from exact stock26c22f66 and install only the existing Lab, SMART, background,
+overflow and Zoom code, plus the required native credit menu.
+Lab and SMART recompile with GCC16.2.0 to the exact installed donor bytes,
+including their different detector redirects. Established GCC15 detector
+objects relink exactly; their generated C is retained. No detector retuning.
+Zoom reuses selected-fit/V3 code; its only stock adaptation selects G for
+manual SLICE6 even though stock has no added CFADE descriptor on C. The
+hardware-working acquisition7->8, private copy, locks, renderers and native
+360-column2x cache are retained. No old DV runtime allocation is needed:
+the later Zoom module owns its static state, and the old V11 init shim is
+not installed. Stock waveform factory ownership/cache lifetime is retained.
+Credits reuse the qualified native menu/controller path, changing its title.
+
+OWNERSHIP / INTEGRITY
+Six loader-owned CF modules:41988 code/data bytes, no added DSP code/state.
+38 disjoint bounded MAIN writes, including the existing minimal reset loader.
+All destinations fit the source-derived expansion interval47e8b000..47fe0000,
+above heap/DMA owners and below the reserved128KiB stack interval.
+Restoring the listed writes and removing the appended records reconstructs
+stock MAIN exactly. Every other stored/plain section, including DSP, is exact
+stock. All codec/version/persistence paths therefore remain stock bytes.
+No extra synth engines, machine registry, relocated parameter tables or AIO
+Sound extensions are installed. Shared Zoom/Lab/SMART state remains separate.
+Source/hash/container/bootstrap/SHARC and actual packaged loader readback pass.
+
+OFFLINE / NATIVE EMULATOR EVIDENCE
+- Real native +Drive browser -> owned PCM -> same Lab -> Smart Chop -> preview
+  route -> source-derived Save As -> Pool; saved PCM reopens exactly and the
+  original is unchanged. Browser cancel retains the source and does not Pool it.
+- Installed SMART callback reads a native file and produces16 stock SLICE rows
+  from the16-kick fixture. Actual installed modules are used, not replacement
+  test detector code. The frozen regression/overflow code remains exact.
+- RECORD/LOAD-equivalent PCM and regions, manual trim/LOOP Save As, source
+  preservation, partial-read failure, reload, cancel and context cleanup pass.
+- A fit, E-push no-op, E/F editing, one-level Smart Chop undo, exhausted undo,
+  reanalysis, save PCM and F SETTINGS undo/return pass.
+- ALL POOL creates8 files in8 distinct slots. Native existing-Project SAVE,
+  fresh runtime boot and Project LOAD reproduce the entire Pool exactly.
+  A second fresh runtime using unmodified stock OS1.17 loads the mod-saved
+  Project and reproduces the entire Pool exactly: offline rollback PASS.
+-60 deep renders across six stock sample machines and mono/stereo, plus exact
+  prior1x/2x waveform/navigator pixels. Gesture, pending-frame retention,
+  selected-region fit, RPC preparation guards and worker lifetime checks are
+  bound by the final manifest to their executed MAIN/image identities.
+- Native Credits menu keeps all four stock items byte-exact, opens via YES,
+  draws three pages, returns via NO and completes repeated cleanup cycles.
+
+The pre-attribution test image36404579 and its original report identities are
+retained privately. A checked byte-for-byte rollback proves the final image
+only adds the isolated Credits module and System-constructor tail. No old test
+hash is relabelled. Final-image boot/browser/SMART and Zoom/menu checks provide
+fresh coverage; unchanged workflow evidence is reused only by exact identity.
+
+TEST BOUNDARIES / RELEASE GATES
+Native CF tests use disposable cards, supplied PCM and explicit queue/DSPI
+peer fixtures where physical services are unavailable. They are not listening,
+ADC, electrical bus, realtime silicon or full-device boot proof. The exact
+standalone composition is HARDWARE UNTESTED. Physical controls, long-session
+stability, concurrent playback, media/power-cycle and stock rollback remain
+for user acceptance. The source cap/preview limits are unchanged (README).
+The earlier code-mismatch check exposed distinct Lab vs SMART detector jump
+targets and was corrected before packaging. Other failed intermediate checks
+were test-path, buffer-overlap or expected-status/centered-pan assumptions;
+no speculative firmware repair was made for those fixture mistakes.
+
+Public release additionally needs a stock-input patch/builder distribution
+and its complete corresponding source/package audit; this handoff contains
+the private test firmware plus the current source/evidence, not a public OS
+download or turnkey builder. Original LICENSE/NOTICE and on-device attribution
+are preserved. No flash, hardware operation, public upload, agent or publication.
+
+REUSABLE VALUE
+Stock-only integration inventory, source-to-installed-code equality checks,
+stock SLICE G-selection adaptation, loader/ownership and format rollback proof
+are isolated here from all AIO and private synth experiments. They are useful
+contribution candidates for the sample-tools code after provenance/license
+review and Kári's explicit publication authorization.

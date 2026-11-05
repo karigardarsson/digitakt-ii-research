@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "font": "0x44d2e6f4",
+  "columns": [
+    2,
+    34,
+    66,
+    98
+  ],
+  "rows": [
+    {
+      "text": "A:SEL",
+      "width": 17,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "B:COUNT",
+      "width": 25,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "C:FADE",
+      "width": 21,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "D:MODE",
+      "width": 21,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "E:START",
+      "width": 25,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "F:BPM",
+      "width": 17,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "G:ZOOM",
+      "width": 21,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "H:MENU",
+      "width": 21,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "H:APLY",
+      "width": 21,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "SAVEALL",
+      "width": 27,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "ALLPOOL",
+      "width": 27,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "999999f",
+      "width": 26,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "64/64",
+      "width": 19,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "S127",
+      "width": 15,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "50ms",
+      "width": 15,
+      "height": 5,
+      "available": 30
+    },
+    {
+      "text": "COUNT 64/64 FILL Y:DO",
+      "width": 78,
+      "height": 5,
+      "available": 94
+    },
+    {
+      "text": "EVEN 64/64 FILL Y:DO",
+      "width": 74,
+      "height": 5,
+      "available": 94
+    },
+    {
+      "text": "MODE: TURN D IN SETTINGS",
+      "width": 89,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "COUNT: NEED MORE HITS",
+      "width": 78,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "FADE 50ms: EDGE BLEND",
+      "width": 78,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "SAVE 63/64 NO:CANCEL",
+      "width": 75,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "POOLED 64/64 NO:BACK",
+      "width": 75,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "READ RECORDING...",
+      "width": 60,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "NOT ENOUGH MEMORY",
+      "width": 65,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "CHECK RANGE / CARD",
+      "width": 68,
+      "height": 5,
+      "available": 126
+    },
+    {
+      "text": "PUSH D:SOURCE F:UNDO",
+      "width": 73,
+      "height": 5,
+      "available": 126
+    }
+  ]
+}

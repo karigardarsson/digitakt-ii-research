@@ -1,0 +1,5 @@
+# GitHub preparation
+
+The accepted firmware remains `880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06`. The private local release ZIP is preserved. This public package adds README/HOW-TO GIF integration and build instructions, redacts workstation paths in historical JSON evidence to WORKSPACE/, and corrects the builder JSON hardware_tested field to reflect Kári's acceptance. No firmware, DSP, algorithm, controls, parameter bounds or persistent formats changed. Original historical statuses/hashes are retained; path-redacted reports are not represented as byte-identical originals. Current active inventories are regenerated.
+
+All seven custom CF modules and DSP components retain their existing sources/licenses. No proprietary Elektron firmware, sample audio, device keys, emulator state, private photographs, restricted DSP compiler or unrelated synth engine is included. The stock file is supplied by the user. This directory is licensed under its LICENSE/NOTICE; the repository root MIT license does not replace DigiKit AGPL obligations.

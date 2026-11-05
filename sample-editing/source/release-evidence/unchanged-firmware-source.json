@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "builder_core_exact": true,
+  "firmware_source_assets_and_encoder_exact": true,
+  "only_GUI_flag_changed": true,
+  "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06"
+}

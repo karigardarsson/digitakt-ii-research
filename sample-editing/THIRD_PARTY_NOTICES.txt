@@ -1,0 +1,24 @@
+THIRD-PARTY NOTICES — 2026-11-05
+
+Modified DigiKit-derived builder/linker and retained firmware components:
+AGPL-3.0-or-later with original attribution terms; LICENSE and NOTICE unchanged.
+Original custom feature sources and compiler/link records accompany this pack.
+No unrelated AIO synth, Plaits speech/bank data or private FUS2 code included.
+
+elektron-firmware-tool: MIT; mischa85; pinned commit
+a5bce9a6af644386d900924082993a805e812874. Complete C source and provenance are
+under source/builder-source/vendor/elektron-firmware-tool. HMAC material is derived from the user's firmware at runtime;
+no keys or Elektron firmware ship in the builder. Source upstream:
+https://github.com/mischa85/elektron-firmware-tool
+
+Python 3.12.10: PSF and contained terms; Python-Python312-LICENSE.txt.
+Tcl/Tk 8.6: respective licenses retained. zlib 1.3.1 and OpenSSL 3.0.16
+runtime notices retained. PyInstaller 6.16.0: GPL with its bootloader exception,
+full COPYING retained. These packages retain their individual licenses.
+Runtime/source upstreams: https://www.python.org/downloads/source/
+https://www.tcl.tk/software/tcltk/ https://github.com/pyinstaller/pyinstaller
+
+This package contains no complete Elektron firmware or stock section. The
+patch includes only the approved custom modules and bounded interoperability
+hook bytes; stock preconditions are SHA-256 hashes. No rights to Elektron
+software or trademarks are granted by these source/tool licenses.

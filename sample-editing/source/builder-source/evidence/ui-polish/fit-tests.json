@@ -1,0 +1,403 @@
+{
+  "status": "PASS",
+  "main_sha256": "262090e830145abb3fc11ad0a25e6872bed93c9d062e87d4725dd0126a2d765e",
+  "cases": [
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        16,
+        0,
+        0
+      ],
+      "valid": true,
+      "level": 3,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        16,
+        7,
+        0
+      ],
+      "valid": true,
+      "level": 3,
+      "pan": 26624,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        16,
+        15,
+        0
+      ],
+      "valid": true,
+      "level": 3,
+      "pan": 57344,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        16,
+        3,
+        2
+      ],
+      "valid": true,
+      "level": 2,
+      "pan": 10240,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        16,
+        0,
+        15
+      ],
+      "valid": true,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        0,
+        0,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 1,
+      "bounds": [
+        16,
+        16,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        16,
+        0,
+        0
+      ],
+      "valid": true,
+      "level": 3,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        16,
+        7,
+        0
+      ],
+      "valid": true,
+      "level": 3,
+      "pan": 26624,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        16,
+        15,
+        0
+      ],
+      "valid": true,
+      "level": 3,
+      "pan": 57344,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        16,
+        3,
+        2
+      ],
+      "valid": true,
+      "level": 2,
+      "pan": 10240,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        16,
+        0,
+        15
+      ],
+      "valid": true,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        0,
+        0,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 4,
+      "channels": 2,
+      "bounds": [
+        16,
+        16,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        0,
+        64,
+        0
+      ],
+      "valid": true,
+      "level": 6,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        2048,
+        4096,
+        0
+      ],
+      "valid": true,
+      "level": 2,
+      "pan": 8192,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        12000,
+        12288,
+        0
+      ],
+      "valid": true,
+      "level": 5,
+      "pan": 63488,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        0,
+        12288,
+        0
+      ],
+      "valid": true,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        4000,
+        4001,
+        0
+      ],
+      "valid": true,
+      "level": 6,
+      "pan": 20824,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        3000,
+        3000,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "bounds": [
+        10000,
+        15000,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "native_Sound_binding": true,
+      "selected": 1,
+      "count": 16,
+      "start": 0,
+      "end": 512,
+      "level": 4,
+      "pan": 0
+    },
+    {
+      "type": 6,
+      "native_Sound_binding": true,
+      "selected": 8,
+      "count": 16,
+      "start": 3584,
+      "end": 4096,
+      "level": 4,
+      "pan": 18432
+    },
+    {
+      "type": 6,
+      "native_Sound_binding": true,
+      "selected": 8,
+      "count": 8,
+      "start": 7168,
+      "end": 8192,
+      "level": 3,
+      "pan": 36864
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        0,
+        64,
+        0
+      ],
+      "valid": true,
+      "level": 6,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        2048,
+        4096,
+        0
+      ],
+      "valid": true,
+      "level": 2,
+      "pan": 8192,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        12000,
+        12288,
+        0
+      ],
+      "valid": true,
+      "level": 5,
+      "pan": 63488,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        0,
+        12288,
+        0
+      ],
+      "valid": true,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        4000,
+        4001,
+        0
+      ],
+      "valid": true,
+      "level": 6,
+      "pan": 20824,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        3000,
+        3000,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "bounds": [
+        10000,
+        15000,
+        0
+      ],
+      "valid": false,
+      "level": 0,
+      "pan": 0,
+      "repeat_release_stable": true
+    }
+  ],
+  "lifecycle": [],
+  "baseline_1x_2x_pixels_exact": false,
+  "evidence": "Native ColdFire UI/metadata/callback/RPC/parser/render execution; DSPI1 peer and queue delivery are fixture seams, not physical validation"
+}

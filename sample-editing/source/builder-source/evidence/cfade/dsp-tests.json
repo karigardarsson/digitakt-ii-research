@@ -1,0 +1,193 @@
+{
+  "status": "PASS",
+  "dsp_sha256": "cadeda43fc65a76d81edcabc829338b80b30246ebb3f25b6de81ff6f973d85ad",
+  "cases": [
+    {
+      "test": "OFF",
+      "type": 0,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 0,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 1,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 1,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 2,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 2,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 3,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 3,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 4,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 4,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 5,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 5,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 6,
+      "voice": 0,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "OFF",
+      "type": 6,
+      "voice": 31,
+      "PCM_and_state_exact": true
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 0,
+      "note": 60,
+      "length": 1024,
+      "reverse": 0,
+      "loop": 1,
+      "control": 16384
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 1,
+      "note": 72,
+      "length": 64,
+      "reverse": 1,
+      "loop": 1,
+      "control": 256
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 31,
+      "note": 84,
+      "length": 16,
+      "reverse": 0,
+      "loop": 1,
+      "control": 32512
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 0,
+      "note": 60,
+      "length": 512,
+      "reverse": 0,
+      "loop": 0,
+      "control": 32512
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 0,
+      "note": 60,
+      "length": 1,
+      "reverse": 0,
+      "loop": 1,
+      "control": 32512
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 0,
+      "note": 60,
+      "length": 2,
+      "reverse": 0,
+      "loop": 1,
+      "control": 32512
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 0,
+      "note": 60,
+      "length": 3,
+      "reverse": 0,
+      "loop": 1,
+      "control": 32512
+    },
+    {
+      "test": "existing_CFADE_exact",
+      "voice": 2,
+      "note": 60,
+      "length": 1024,
+      "reverse": 0,
+      "loop": 1,
+      "control": 256
+    },
+    {
+      "test": "type_parameter_switch_and_retrigger",
+      "exact": true
+    },
+    {
+      "test": "actual_native_loader_ABA",
+      "generation": 4,
+      "private_head_reseeded_for_new_generation": true
+    },
+    {
+      "test": "odd_epoch",
+      "stock_fallback": true
+    },
+    {
+      "test": "modeled_loader_interrupt_during_render",
+      "mixed_generation_rejected": true,
+      "silicon_timing": false
+    },
+    {
+      "test": "registers_and_circular_stack",
+      "private_stack_span": 416
+    },
+    {
+      "test": "32_voices",
+      "sum_instructions": 655472,
+      "max_one_voice": 20564,
+      "hardware_timing": false
+    }
+  ],
+  "boundary_jump_reduction_db": -10.864041300513705,
+  "unchanged_primary_timing": true,
+  "evidence": "Concrete native SHARC interpreter, supplied PCM, approximate reciprocal model. No hardware playback/deadline claim."
+}

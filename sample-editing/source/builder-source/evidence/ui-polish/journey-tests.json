@@ -1,0 +1,160 @@
+{
+  "status": "PASS",
+  "main_sha256": "262090e830145abb3fc11ad0a25e6872bed93c9d062e87d4725dd0126a2d765e",
+  "source_file": "percussion-original.wav",
+  "source_sha256": "d5b1a7d51448b78d14d1e8990b06afc836ee97996e36a759eeedc8d1732f4ecd",
+  "states": [
+    [
+      2,
+      0,
+      1,
+      1163107392,
+      192000,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1157340272,
+      0
+    ],
+    [
+      2,
+      0,
+      1,
+      1163107392,
+      192000,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1157340272,
+      0
+    ],
+    [
+      2,
+      0,
+      1,
+      1163107392,
+      192000,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1157340272,
+      0
+    ],
+    [
+      2,
+      0,
+      1,
+      1163107392,
+      192000,
+      2,
+      8,
+      0,
+      15696,
+      5,
+      0,
+      0,
+      2,
+      0,
+      1157340272,
+      0
+    ],
+    [
+      4,
+      0,
+      1,
+      1163107392,
+      192000,
+      2,
+      8,
+      0,
+      15696,
+      5,
+      0,
+      1,
+      2,
+      0,
+      1157340272,
+      0
+    ],
+    [
+      5,
+      0,
+      1,
+      1163107392,
+      192000,
+      2,
+      8,
+      0,
+      15696,
+      5,
+      0,
+      1,
+      2,
+      0,
+      1157340272,
+      0
+    ]
+  ],
+  "regions": [
+    [
+      4704,
+      20400
+    ],
+    [
+      28704,
+      44448
+    ],
+    [
+      52704,
+      68544
+    ],
+    [
+      76704,
+      92448
+    ],
+    [
+      100704,
+      116400
+    ],
+    [
+      124704,
+      140400
+    ],
+    [
+      148704,
+      164448
+    ],
+    [
+      172704,
+      192000
+    ]
+  ],
+  "LOAD_PCM_exact": true,
+  "LOAD_does_not_assign_Pool": true,
+  "no_closing_YES_autoplay": true,
+  "source_menu_cancel_preserves_editor": true,
+  "Smart_Chop": true,
+  "Save_As_and_Pool": true,
+  "saved_result_reopened_by_LOAD_reader": true,
+  "original_readback_exact": true,
+  "contexts_retired": true,
+  "evidence": "Native UI/queue/browser/file/read/edit/preview/save/Pool; physical audio and device Project persistence remain untested."
+}

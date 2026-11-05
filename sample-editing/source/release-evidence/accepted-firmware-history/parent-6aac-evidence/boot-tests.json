@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "image_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+  "module_count": 7,
+  "hook_count": 39,
+  "production_code_pokes": 0,
+  "documented_mutable_data": [],
+  "evidence": "Actual packaged reset-loader and native main-panel diagnostic; not full device/FS/audio boot qualification."
+}

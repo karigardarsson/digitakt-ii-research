@@ -1,0 +1,105 @@
+{
+  "status": "OFFLINE_VALIDATED_HARDWARE_TEST_CANDIDATE",
+  "date": "2026-11-03",
+  "firmware": "WORKSPACE/DT2_SAMPLE_EDITING_OS117/HARDWARE_TEST/DT2_OS117_SAMPLE_EDITING.syx",
+  "sha256": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+  "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "contents": [
+    "Universal Zoom1x..64x, native C/G control, pending-view retention, selected-slice fit",
+    "Actual native SmartSlice SMART grid on stock SLICE6, guarded file ownership/background filter/overflow recovery",
+    "SampleLAB CHOP/LOOP, RECORD and LOAD FROM +DRIVE, waveform/fit/zoom/pan, AUTO/COUNT1..64/EVEN, boundary edits/undo, fades, PLAY/SAVE/POOL/SAVE ALL/ALL POOL, source-derived create-only names",
+    "Native System Credits/About required attribution"
+  ],
+  "extra_synth_engines": false,
+  "DSP_exact_stock": true,
+  "all_non_MAIN_sections_exact_stock": true,
+  "CF_code_data_bytes": 41988,
+  "static_BSS_reserved": 2316,
+  "persistent_formats": "No Sound/Kit/Pattern/Project codec, version, serializer or layout changes; stock native SLICE grid and sample references only. UI/edit/undo state is volatile; exported samples use stock native files.",
+  "stock_rollback": "Source-proven format compatibility and native save/fresh LOAD demonstrated; physical rollback/power-cycle untested. This does not make Projects containing unrelated AIO machines stock-compatible.",
+  "evidence": {
+    "boot-tests.json": {
+      "sha256": "35cc55e16b01ca794a7095d8928ba006e4956b3ddeb0cf1746438c2721a33a73",
+      "original_binding": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+      "reuse_basis": null
+    },
+    "journey-tests.json": {
+      "sha256": "110873719b13cec8c3352e929058cd1809a59f4a282c37add91e22bc811fe1cd",
+      "original_binding": "67bb6233efbf8aa7159721141643f5725abbbf392617a1445ad3b8a60f4724aa",
+      "reuse_basis": null
+    },
+    "smart-tests.json": {
+      "sha256": "c924fc52be5bfae6d3571e8f14c0d47b1214f851440298a0b4a15a548bb7f656",
+      "original_binding": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+      "reuse_basis": null
+    },
+    "record-tests.json": {
+      "sha256": "d8763952caa595fea96f75dca1dfac89e63c723f2ba8875905eb229052ee3ca6",
+      "original_binding": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+      "reuse_basis": "Exact equality of all five editor modules and every preexisting MAIN byte/hook; only isolated Credits menu and one System constructor tail added."
+    },
+    "loop-trim-tests.json": {
+      "sha256": "a934ec5893f381bf88594d0ff82b23ac04425612d023235861260eab353ac3fd",
+      "original_binding": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+      "reuse_basis": "Exact equality of all five editor modules and every preexisting MAIN byte/hook; only isolated Credits menu and one System constructor tail added."
+    },
+    "failure-tests.json": {
+      "sha256": "b8dcf00f2785ea5d891ce89275daf21d3e58a232ba9f8f8b979abb9543d2509b",
+      "original_binding": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+      "reuse_basis": "Exact equality of all five editor modules and every preexisting MAIN byte/hook; only isolated Credits menu and one System constructor tail added."
+    },
+    "qol-tests.json": {
+      "sha256": "7f6b30306c7104e84ff22bcf0e637c69f8cb30f0c50e351a21e374df9c703a65",
+      "original_binding": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+      "reuse_basis": "Exact equality of all five editor modules and every preexisting MAIN byte/hook; only isolated Credits menu and one System constructor tail added."
+    },
+    "project-tests.json": {
+      "sha256": "eefeffece27ec96cb847987939827d3edcc1d8c06de4cf8b482870b9d30e9694",
+      "original_binding": "36404579581ab7911fe2b709ca7d2b92f0b4a5eb9e746ea274d421d21d1a91c5",
+      "reuse_basis": "Exact equality of all five editor modules and every preexisting MAIN byte/hook; only isolated Credits menu and one System constructor tail added."
+    },
+    "deep-matrix-tests.json": {
+      "sha256": "8c2930e5e022a0f11aa6b9ee5abebb093b7f5c03d4b708e7167502dd6285b560",
+      "original_binding": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+      "reuse_basis": "Exact equality of all five editor modules and every preexisting MAIN byte/hook; only isolated Credits menu and one System constructor tail added."
+    },
+    "ux-tests.json": {
+      "sha256": "06063fe98d1814291391364a422116e5adb2a3d77c71abc1764a0e79c6cdb05c",
+      "original_binding": "67bb6233efbf8aa7159721141643f5725abbbf392617a1445ad3b8a60f4724aa",
+      "reuse_basis": null
+    },
+    "fit-tests.json": {
+      "sha256": "8880bb85905f4bf8ec8a28bd122ba343d602172719677b0b09bbd30f1feddb0f",
+      "original_binding": "67bb6233efbf8aa7159721141643f5725abbbf392617a1445ad3b8a60f4724aa",
+      "reuse_basis": null
+    },
+    "detail-tests.json": {
+      "sha256": "12b263b810a21ecd071371d39727878f4db69ff2f39231d6fddc6ecc46089936",
+      "original_binding": "67bb6233efbf8aa7159721141643f5725abbbf392617a1445ad3b8a60f4724aa",
+      "reuse_basis": null
+    },
+    "credits-tests/credits-final-test.json": {
+      "sha256": "e8c0958053c4db8f3717435ba39ff52dd2a8367b74f0398ab36c3b65a42a5a7a",
+      "original_binding": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93"
+    },
+    "rollback-tests.json": {
+      "sha256": "ce7aa5bbf599eada1bb56f2c96faf30553b56f000a093161ce9f802e7f359a34",
+      "original_binding": "36404579581ab7911fe2b709ca7d2b92f0b4a5eb9e746ea274d421d21d1a91c5",
+      "reuse_basis": "Unmodified stock OS1.17 loads the exact same mod-saved Project tested above; all editor/storage code and non-MAIN sections are exact across the isolated credit addition."
+    }
+  },
+  "preserved_baselines": {
+    "DT2_ALL_IN_ONE_UNIVERSAL_ZOOM_NATIVE_INIT/FLASH_THIS/DT2_OS117_ALL_IN_ONE_UNIVERSAL_ZOOM_NATIVE_INIT.syx": "175c3eccd38572c737db669129f9c0fda23d67428a238c374231a3149c077c53",
+    "DT2_SAMPLE_LAB_POOL_REC_REPAIR/FLASH_THIS/DT2_OS117_ALL_IN_ONE_SAMPLE_LAB_POOL_REC_REPAIR.syx": "34643cb752e9754e011d9b240bdb244d4dd136ea5c5df42c6fa5fb6cb334fdf8",
+    "DT2_ALL_IN_ONE_UNIVERSAL_ZOOM_V3/FLASH_THIS/DT2_OS117_ALL_IN_ONE_UNIVERSAL_ZOOM_V3.syx": "d01fc86c818ca1fdbfff586c2c6c66899fc0be0011d656cc7a290ae54db14b6a",
+    ".digikit-work/dv-offline-v1/out/smart-uno-combined-20261030-v2/internal/DT2_OS117_ALL_IN_ONE_SMART_SLICE_CROSSFADE.syx": "71658c49ce7357f16e8c1f63bf9ef3c9b0a4b8edc5e1f8aa090caba1c7170105"
+  },
+  "hardware_status": "Feature ancestry has USER HARDWARE evidence; this exact standalone composition has none.",
+  "remaining": [
+    "Physical boot and all encoder/gesture/navigation feel",
+    "ADC/normalization/listening, boundaries and click quality on actual material",
+    "Real +Drive and Project power-cycle/stock rollback acceptance",
+    "Concurrent playback, long-session stability and silicon deadlines"
+  ],
+  "no_flash_or_publication": true
+}

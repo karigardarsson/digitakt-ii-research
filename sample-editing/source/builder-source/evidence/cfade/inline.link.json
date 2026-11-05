@@ -1,0 +1,28 @@
+{
+  "pc": 12113376,
+  "externs": {
+    "_di_table": 537853824,
+    "_fw_records": 2364108,
+    "_fw_type_cache": 2447728,
+    "_fw_frame": 2447580,
+    "_fw_trig_latch": 2420940,
+    "_fw_release_latch": 2420972,
+    "_fw_decimate": 1856074,
+    "_fw_after_decimate": 1856100,
+    "_fw_stock": 12113604
+  },
+  "symbols": {
+    "_di_stock": 12113476,
+    "_di_voice": 12113408,
+    "_di_div": 12113399,
+    "_di_scan": 12113443,
+    "_di_entry": 12113376,
+    "_di_return_work": 12113467,
+    "_di_return_out": 12113470,
+    "_di_frame_hw": 12113481,
+    "_di_trig": 12113516,
+    "_di_released": 12113547
+  },
+  "bytes": 404,
+  "sha256": "9610e575f02c59a76bd59f1d671397215cd803925f2b33f69192bfa5ea52385f"
+}

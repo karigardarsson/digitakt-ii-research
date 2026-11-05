@@ -1,0 +1,83 @@
+{
+  "arch": "cf-mcf54418",
+  "format": "dko-prototype-1",
+  "source_sha256": "06dba07346e2b127e2f6fc3a63c0ce6a55057f734c7d3d0e5736410620ebb920",
+  "sources": [
+    "smart-detector.c"
+  ],
+  "toolchain": {
+    "gcc": "m68k-linux-gnu-gcc-15 (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "as": "GNU assembler (GNU Binutils for Ubuntu) 2.46",
+    "ld": "GNU ld (GNU Binutils for Ubuntu) 2.46",
+    "cflags": "-mcpu=54418 -Os -ffreestanding -fno-builtin -nostdlib -fno-pic -fno-pie -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-stack-protector -Wall -Wextra -Werror -BWORKSPACE/.digikit-work/dv-offline-v1/out/smartslice-silence-20261030/tools/root/usr/lib/gcc-cross/m68k-linux-gnu/15 -BWORKSPACE/.digikit-work/dv-offline-v1/out/smartslice-silence-20261030/tools/bin/"
+  },
+  "sections": [
+    {
+      "name": ".text.smart_dense",
+      "kind": "text",
+      "align": 2,
+      "size": 1142,
+      "hex": "4e56f95848d73cfc243c000001002f0242a7486ef9c045f9000000002a6e000c4e922f0242a7486efac04e922f02243c000003e842a7486efbc04e924fef0024222e001441ee001c4c421001202e00144c1008002d41f9844878034042a7486efcc022004c4210014282260d2d41f9b04e92282ef9842a2e00104fef000c91c84c05480093c92d44f99c4284b3cd650000c85888220876054c43100143eefcc0428020414281d091b0886500013c700fc081e8895280e3a8280053842d44f98853804a8066000138707f90ae0018e48858804c0208002200e489ea882d41f9904a80660676082d43f990203c0000009f97cb90ae0018282e00142a3c000001f442aef9982d6e0024f994e58842aef98c99cc91c82d40f9a04c45400442802d44f9b4b08d650000e6222e002491c8428047eefbc0e58949eef9c0b1c1660003044a806700032c206e0028208042804cee3cfcf9584e5e4e75246ef984d5c92d4af98cb6aef984641e2a032d4df98824444280b3eef9886440266e00084287428649f3aa0060222a2ef9842d6ef98cf98860dc321c6a02448173c1b28263022401b28763022e015286bcae001066e4d5ee0010d087528960ba4c45000042817a0fba80651ee989d8aef99c96aef9845288d28043f61c0052a9fcc0226ef98c6000feace288528160d6588952810c81000000d06600feb242aef9886000fecc2002ec88b0aef9886400fec060ea246ef984d5c0260d96802d4af9a8b6aef984641c2e0d2a2ef9982c004282be866338226e0008428445f15a0093c9601a262ef9842e2ef9a860dc321a6a02448173c1b284630228015289b3ee001066eadaae0010d484528660c4e18ad1eef9902c024c436006bc886378240ce08a222ef9a0262ef9a04c012800222ef990d28cd282240c75824c032800e08ad282bc816350b0aef9b4636c90aef9b44aaef98c670a2200928bb2aef9b065364aaef988670000d87beef98a222ef984780ce98d4c041800d2802d41f9bc2d45f9b82a2e001022004c005800b28d6406b2aef9bc65262006908c6a0606800000000fe880262ef99c2046d9c0202ef9a8d7aef9986000fe1442806094280d9881b8aef9846532282ef984226ef984d3c12d49f9a42e0542832d41f980242ef9a4b4aef9806342226e000891c843f17a002d49f9ac93c9601e2d4df9a460d6246ef9ac54aef9ac341a6a02448275c2b489630222425288b1ee001066e2deae0010d68952aef98060b44c443003b6aef9b8640cdaaef99cd2aef9846000ff50220d928052aef98cb2aef9b065000098242e0024260d78644c0028004c432002222e00144c4410012041d1c0bbc86402204d282e00102a0093c94c004800ba88642a266e0008428345f34a006010321a6a02448173c1b289630222415283b6ae001066ead8ae0010528560d2222e0024b2aef99466042d42f9942202e58941f618004aa8fbc0670cb4aef9946718b3e8fac0631241f6180074012140f9c02149fac02142fbc026406000feae4ab0b80067222400e78a2270c800246e002025892800258d28044a806708246e0020258928fc528058886000fccc70fa6000fcda"
+    },
+    {
+      "name": ".text.smart_detect",
+      "kind": "text",
+      "align": 2,
+      "size": 138,
+      "hex": "4fefffdc48d71cfc286f0048266f0044242f0028262f002c282f00302a2f00342c2f00382e2f003c246f00402f0c2f0b2f0a2f072f062f052f042f032f024eb9000000004fef002472fab28066322f4c00482f4b00442f4a00402f47003c2f4600382f4500342f4400302f43002c2f4200284cd71cfc4fef00244ef9000000004cd71cfc4fef00244e75"
+    }
+  ],
+  "symbols": [
+    {
+      "name": "smart_dense",
+      "section": ".text.smart_dense",
+      "value": 0,
+      "global": false,
+      "func": true
+    },
+    {
+      "name": "memset",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    },
+    {
+      "name": "smart_detect",
+      "section": ".text.smart_detect",
+      "value": 0,
+      "global": true,
+      "func": true
+    },
+    {
+      "name": "sl_detect",
+      "section": null,
+      "value": 0,
+      "global": true,
+      "func": false
+    }
+  ],
+  "relocs": [
+    {
+      "in": ".text.smart_dense",
+      "offset": 24,
+      "type": "32",
+      "to_symbol": "memset",
+      "addend": 0
+    },
+    {
+      "in": ".text.smart_detect",
+      "offset": 64,
+      "type": "32",
+      "to_symbol": "sl_detect",
+      "addend": 0
+    },
+    {
+      "in": ".text.smart_detect",
+      "offset": 124,
+      "type": "32",
+      "to_section": ".text.smart_dense",
+      "addend": 0
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "main_sha256": "262090e830145abb3fc11ad0a25e6872bed93c9d062e87d4725dd0126a2d765e",
+  "record_capture_and_original_save": true,
+  "LOAD_RECORD_PCM_and_regions_exact": true,
+  "regions": [
+    [
+      4704,
+      20400
+    ],
+    [
+      28704,
+      44448
+    ],
+    [
+      52704,
+      68544
+    ],
+    [
+      76704,
+      92448
+    ],
+    [
+      100704,
+      116400
+    ],
+    [
+      124704,
+      140400
+    ],
+    [
+      148704,
+      164448
+    ],
+    [
+      172704,
+      192000
+    ]
+  ],
+  "contexts_retired": true,
+  "evidence": "Native recorder adapter fed identical supplied raw PCM; no ADC/hardware claim."
+}

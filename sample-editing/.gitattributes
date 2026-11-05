@@ -1,0 +1,10 @@
+* -text whitespace=cr-at-eol
+*.bin binary
+*.exe binary
+*.zip binary
+*.png binary
+*.gif binary
+# Preserve upstream license whitespace verbatim.
+licenses/** -whitespace
+source/builder-source/licenses/** -whitespace
+source/builder-source/firmware-source/cfade/lifecycle.s whitespace=cr-at-eol,-blank-at-eof

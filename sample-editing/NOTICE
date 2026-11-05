@@ -1,0 +1,26 @@
+digikit
+Copyright (C) 2026 Em D
+https://github.com/ElekLabs/digikit
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General
+Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option)
+any later version. See LICENSE.
+
+Additional terms under section 7 of the GNU Affero General Public License version 3:
+
+1. Attribution (section 7(b)). You must preserve this NOTICE file and the attribution "digikit by Em D -
+   https://github.com/ElekLabs/digikit" in all copies and modified versions of the Program. Any interactive user
+   interface of a covered work must display that attribution in its About, credits or footer area as part of the
+   Appropriate Legal Notices.
+2. Origin (section 7(c)). You may not misrepresent the origin of the Program. Modified versions must be marked as
+   changed in reasonable ways, must not be presented as the original digikit, and must state that they are derived
+   from digikit with a link to https://github.com/ElekLabs/digikit.
+3. Names (section 7(e)). This licence grants no right to use the name "digikit" or any digikit logo, except as needed
+   to comply with terms 1 and 2 and to describe the origin of a work truthfully.
+
+digikit is not affiliated with or endorsed by Elektron. Digitakt, Digitone and Syntakt are trademarks of Elektron
+Music Machines. This licence covers the code in this repository only and gives no rights to Elektron software or
+firmware.
+
+Third-party material: tools/coldfire/ghidra/ColdfireEMAC contains files from Ghidra under the Apache License 2.0 (see the
+LICENSE.txt in that directory).

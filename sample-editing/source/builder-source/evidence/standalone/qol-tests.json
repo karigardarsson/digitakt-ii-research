@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "main_sha256": "6f94d7fdb3888a1612d80e2dc6baf5d8da069594a485df0f81f8420002b1c53a",
+  "initial_count": 1,
+  "chopped_count": 8,
+  "undo_exact": true,
+  "undo_exhausted_noop": true,
+  "reanalyze_exact": true,
+  "E_push_noop": true,
+  "E_F_boundary_rotations_preserved": true,
+  "F_SETTINGS_undo_exact_and_exits_settings": true,
+  "A_fit": true,
+  "edited_selected_save_PCM_exact": true,
+  "source_PCM_and_file_unchanged": true,
+  "contexts_retired": true
+}

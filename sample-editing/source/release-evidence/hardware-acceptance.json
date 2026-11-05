@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-05",
+  "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "status": "USER_HARDWARE_ACCEPTED",
+  "reported_by": "Kári",
+  "report": "H is now good and hardware testing passes. GO to remove the builder acceptance warning and finish the final release ZIP. Keep firmware unchanged. Do not flash or publish.",
+  "independently_observed_by_agent": false
+}

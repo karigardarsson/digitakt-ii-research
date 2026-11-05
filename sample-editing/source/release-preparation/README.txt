@@ -1,0 +1,1 @@
+Finalization scripts require original checkout paths and user-owned stock. No firmware is supplied. End-user EXE and portable builder source are independent of the workspace. Historical native proof remains under release-evidence.

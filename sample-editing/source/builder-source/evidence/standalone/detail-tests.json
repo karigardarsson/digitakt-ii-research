@@ -1,0 +1,154 @@
+{
+  "status": "PASS",
+  "main_sha256": "67bb6233efbf8aa7159721141643f5725abbbf392617a1445ad3b8a60f4724aa",
+  "cases": [
+    {
+      "type": 6,
+      "channels": 1,
+      "zoom": 4,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "79ed2fbffae7d3dbaaca8682675f337ac960e6140edc2a939f1caa383532372a"
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "zoom": 8,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "5d76b38559dc0e9b962505b9cf22993ab5ee1c4feb2dd9ed35ea1427b07eed51"
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "zoom": 16,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "918081a21376540ca4c0860068a0a5e3b72743218c391e105831a9664ffcaa24"
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "zoom": 32,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "3bdfa3c44c534c7ff998c3ebd39498ef3cb1bf6e077f0871c457580c0d7af19e"
+    },
+    {
+      "type": 6,
+      "channels": 1,
+      "zoom": 64,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "5f67d23c0c60d7cf0aa5a08d2c8f073c6b5e75e440842bc34e4ecc5323fede7b"
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "zoom": 4,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "a204e080948d6b36689e30fa050308f8df47dc3ed92ea7c9c6a045868ddf3c5f"
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "zoom": 8,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "bcdf5a49f378f11935af731dcd47f8237ca905c9778a14839c84e89619283fab"
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "zoom": 16,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "e838e317b7296b7693be3adea27fb816a61f28300387bbfbf13e56d5b70f2622"
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "zoom": 32,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "3f7b096d01bfed91757e27f7d88e0a0c7ebba3dbee8fcb86f54569c1d989e3a0"
+    },
+    {
+      "type": 6,
+      "channels": 2,
+      "zoom": 64,
+      "queued_before_worker": true,
+      "record_peak": 71,
+      "private_factory_hits": 1,
+      "framebuffer_sha256": "90cbd4c683b8e705fed379ecabd72360982ad5a58f08ca26709751c07e08ae7b"
+    }
+  ],
+  "lifecycle": [
+    {
+      "test": "real stock initial worker prefix sends7 then8",
+      "PASS": true
+    },
+    {
+      "test": "native prepare output20bytes bounds",
+      "PASS": true
+    },
+    {
+      "mode": 2,
+      "diagnostic": [
+        0,
+        0,
+        0,
+        126,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "PASS": true
+    },
+    {
+      "mode": 3,
+      "diagnostic": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        4294967293
+      ],
+      "PASS": true
+    },
+    {
+      "test": "stale viewport discarded before publish",
+      "PASS": true
+    },
+    {
+      "test": "callback after view deactivation safe",
+      "PASS": true
+    },
+    {
+      "test": "pre-worker metadata mismatch rejected",
+      "PASS": true
+    },
+    {
+      "test": "metadata change during prepare prevents detail read",
+      "PASS": true
+    }
+  ],
+  "baseline_1x_2x_pixels_exact": true,
+  "evidence": "Native ColdFire UI/metadata/callback/RPC/parser/render execution; DSPI1 peer and queue delivery are fixture seams, not physical validation"
+}

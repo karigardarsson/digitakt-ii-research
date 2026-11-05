@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "exe_sha256": "e29e6a6f44e8cb4945d2e0c81ba7dc2589338025fbdf94e2ef2d995fca617e93",
+  "output_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "generated_output": "work/from-frozen-final.syx",
+  "frozen_no_python_or_developer_PATH": true,
+  "windows_version": 26200,
+  "spaces_and_accented_path": true,
+  "cases": [
+    {
+      "name": "clean-frozen-build",
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "path": "WORKSPACE/DT2_SAMPLE_EDITING_RELEASE_20261105/inspection/isolated Windows Kári 7dtj9vov/My Sample Editing Pack.syx",
+        "sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+        "bytes": 1882144,
+        "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+        "main_sha256": "a6d58c284ed7d8e7b74124b94dfe19b672671389371bb11c45b13864cffe6b5f",
+        "sections": 6,
+        "modules": [
+          "lab",
+          "smart",
+          "background",
+          "overflow",
+          "zoom",
+          "credits",
+          "cf-init"
+        ],
+        "validated_candidate_byte_exact": true,
+        "non_MAIN_non_DSP_exact_stock": true,
+        "hardware_tested": false
+      }
+    },
+    {
+      "name": "existing-output",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "The output already exists. Choose a new filename."
+      }
+    },
+    {
+      "name": "same-input-output",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "Choose an output filename different from your stock input."
+      }
+    },
+    {
+      "name": "already-modded",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "Input rejected: this is not the verified stock Digitakt II OS 1.17 file. Other versions, modified, corrupt and previously built firmware are unsupported."
+      }
+    },
+    {
+      "name": "corrupt-stock",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "Input rejected: this is not the verified stock Digitakt II OS 1.17 file. Other versions, modified, corrupt and previously built firmware are unsupported."
+      }
+    },
+    {
+      "name": "truncated-stock",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "Input rejected: this is not the verified stock Digitakt II OS 1.17 file. Other versions, modified, corrupt and previously built firmware are unsupported."
+      }
+    },
+    {
+      "name": "wrong-version-device-data",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "Input rejected: this is not the verified stock Digitakt II OS 1.17 file. Other versions, modified, corrupt and previously built firmware are unsupported."
+      }
+    },
+    {
+      "name": "missing-input",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "Choose your official Digitakt II OS 1.17 .syx file."
+      }
+    },
+    {
+      "name": "missing-output-folder",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "The output folder does not exist."
+      }
+    },
+    {
+      "name": "wrong-output-extension",
+      "exit_code": 1,
+      "result": {
+        "status": "REJECTED",
+        "error": "The output filename must end with .syx."
+      }
+    }
+  ],
+  "limitation": "This host is Windows 11 x64. Clean VM, Windows 10, ARM64, antivirus/SmartScreen acceptance and non-Latin paths are untested."
+}

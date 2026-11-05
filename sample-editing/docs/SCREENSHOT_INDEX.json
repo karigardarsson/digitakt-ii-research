@@ -1,0 +1,218 @@
+[
+  {
+    "file": "cfade-01-off.png",
+    "sha256": "08cdab609512379b32be2cc7af902f0deecbe052ec84140df42689bf686f26ab",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/cfade-01-off.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "cfade-02-value-30.png",
+    "sha256": "888deaea63a08f534ed7085ecc287e222a633faab91a5463cf267173bc80b928",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/cfade-02-value-30.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "smartslice-01-src-controls.png",
+    "sha256": "08cdab609512379b32be2cc7af902f0deecbe052ec84140df42689bf686f26ab",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/smartslice-01-src-controls.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "smartslice-02-grid-16.png",
+    "sha256": "8404816ef1e8fd319d70a7020b15ac4d50f8b4315221eeb05475275012ef3fe0",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/smartslice-02-grid-16.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "smartslice-03-smart.png",
+    "sha256": "d8fc2fd397d0c37d2354d969d9912626e9ec0934999954ace8ac794ddec3c7fc",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/smartslice-03-smart.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "smartslice-04-grid-64.png",
+    "sha256": "ca065c6271ed0405fbd71e0ce8954761a85693185e578f2ca39b288d795e1ff3",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/smartslice-04-grid-64.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "smartslice-05-result-markers.png",
+    "sha256": "0d616636d34cac4af76caca36ee81e1b15bd095e1390335bedeb16ef675d88b6",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/smartslice-05-result-markers.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "zoom-01-overview-1x.png",
+    "sha256": "32701a70eaee61d76db2c3227262af117ee244179244f9dde710c80501e8778e",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/zoom-01-overview-1x.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "zoom-02-detail-64x.png",
+    "sha256": "47a2b724358cd8b0fea9bb2ba408de8ffdb1c20d6a79afa0bb38dd94a8eb9973",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/zoom-02-detail-64x.png",
+    "evidence": "Reused verified unchanged module/native renderer capture; original source firmware identity retained in CAPTURE_NOTES."
+  },
+  {
+    "file": "samplelab-trim-entry.png",
+    "sha256": "d114d45d0961ba52913bdee52ee414cd1865b3a6aeface5930f062262ba99dfd",
+    "source": "DT2_SAMPLE_EDITING_HOWTO_20261105/docs/images/howto/native/samplelab-01-trim-entry.png",
+    "evidence": "Reused unchanged stopped-TRIM stock entry renderer; no active Lab layout."
+  },
+  {
+    "file": "drive-browser.png",
+    "sha256": "fafef513dd02fcd7f8db2d30eed098d18f6776a3b1e0cd87047eb2e97a68dc8b",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-browser.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "drive-file.png",
+    "sha256": "fafef513dd02fcd7f8db2d30eed098d18f6776a3b1e0cd87047eb2e97a68dc8b",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-file.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "drive-load-drive.png",
+    "sha256": "c7ed6754bba27c22aa1db2d2b133762562f8fe49e0636d53112946d1698c8410",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-load-drive.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "drive-loaded.png",
+    "sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-loaded.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "drive-loading.png",
+    "sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-loading.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "drive-source.png",
+    "sha256": "b506d245add8b6257e209e7ca60bd93cebf1aa78587c59bda4fa8506b137e9b4",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-source.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "drive-whole.png",
+    "sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/drive-whole.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-analyzed.png",
+    "sha256": "345023be2259924e942b5757cb9ab6a164d760a7747a5fb5455d412a13a8c7e5",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-analyzed.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-fit.png",
+    "sha256": "c80af757692da7891226c2a293be50b45b59eeefe659b9fd428c4de7c75f0117",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-fit.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-info-analyzed.png",
+    "sha256": "2ae9534dee4c0adcaf11973d0fbf3cea46e412028404338034c935fd7bf70d9a",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-info-analyzed.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-selected.png",
+    "sha256": "fe23bfe03b49b9049fd727c0316f2512c2badfc6bdab12aa86cf26c4ed9162fb",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-selected.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-settings.png",
+    "sha256": "d2e9bfbc1d6f3cda6b57e713611159a72bff44ad45fb0127a80ebc11bab82556",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-settings.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-trim-end.png",
+    "sha256": "d7b45b742c807f7917ff00a3d4e695de03ecb8331a1436e4abfde7d831dd647c",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-trim-end.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-trim-start.png",
+    "sha256": "2203b88f9ee20e7e9c2d7f7203614ba1de9ee9be22d0805d5a52738d39e3bf3f",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-trim-start.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-undo.png",
+    "sha256": "8493861b8230bd6f3331f2305aba7e0cf5cbf0c3d97ef535da3c4c08efed1306",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-undo.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "lab-whole.png",
+    "sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/work/media/lab-whole.png",
+    "evidence": "Current candidate actual native button/encoder sequence; supplied PCM/native filesystem fixture."
+  },
+  {
+    "file": "info-chop.png",
+    "sha256": "2ae9534dee4c0adcaf11973d0fbf3cea46e412028404338034c935fd7bf70d9a",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/info-chop-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "info-loop.png",
+    "sha256": "f57966ca8defcb1111ad8e46f214c7b847fe627aaa84f083cd5449f98334ef7a",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/info-loop-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "settings-loop.png",
+    "sha256": "0a8f2e3eed695e00e4034684cf2fc73dd790a3d2ce419a5d3207309306b5e746",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/settings-loop-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "save.png",
+    "sha256": "e9e3854efcb43c49f176bf172196ad0647cde84b45b085d9006cd03e4badadab",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/save-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "saved.png",
+    "sha256": "26963a9ca93753bee3461c8a611ff5748a2ba0745fcd520bbe8e7ce20455ead6",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/saved-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "pool.png",
+    "sha256": "089a0f9f315f1883f190ddbc0c654cceda913ef71a105f3725dcdac8882f6c3b",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/pool-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "save-all.png",
+    "sha256": "2d38afdf507e5947f6d8166b343dde9961722af91b36d9d038c7ae42ed28a9f0",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/save-all-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "all-pool.png",
+    "sha256": "2b16c7c186a26a06b375e4df1ebb621a6a16426137285b264e6e6ad567d4d2df",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/all-pool-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "settings-count.png",
+    "sha256": "bcbbd3a4cffa6fe1e9f35de49d05140e12f122c4806424120bd71d235b7842a8",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/settings-count-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  },
+  {
+    "file": "settings-even.png",
+    "sha256": "763d0c129db55a388c3407cfd9b545a8e5d7b88b2415c5cadbf6384f2e65a1e2",
+    "source": "DT2_SAMPLE_EDITING_RELEASE_PREP_20261105/screenshots/settings-even-128x64.png",
+    "evidence": "Current candidate native renderer with explicit UI-state fixture; not an independent completed operation."
+  }
+]

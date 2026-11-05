@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "date": "2026-11-05",
+  "firmware_sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+  "hardware_tested": false,
+  "tests": {
+    "integrity.json": "b454f9783e8462be2b9d1777d3fbddf7fd979da1ce1b7385fed1973ff1fad241",
+    "dsp-tests.json": "ffef04e35f613855ea8820ea32fe6cf0673be92fd12c5b33a878b4d57b08f989",
+    "cf-tests.json": "9f7973c9d25ead18fa70ebdd815260b3f00a6e823a5db9270a1408283fbef4d3",
+    "boot-tests.json": "29c50a2208c63889e81210a97190df17e1bfd98ca6af86d4d082c5c3553237dd",
+    "journey-tests.json": "6762acec32bf660db561934ea43ca857ccbd29555e5d8295f7f1d4cf75042435",
+    "record-tests.json": "c398ba4e07098138c02c2f53ef9d5f57425fe9a2cdfa881721b3842dd53ef6b7",
+    "qol-tests.json": "1a30234d2d9532e62f7dd133fb0b3d8930b5837b891f039adc043b0576d8fea5",
+    "loop-trim-tests.json": "25d43847b3dac2b8ab705b79e7769f69d01a2cb9ba8ddb9448816eb531f91368",
+    "failure-tests.json": "0e2c4961ea398e6962b5ca77c9f00ddfd344c80c89e5a9886f9fe920f09a9a1e",
+    "smart-tests.json": "6b58fb20262711ea2db60be0a08ac791d3922b3f6c2e08958797d2c5fc8cc01c",
+    "project-tests.json": "1baf7e731ce3b9bef2ac1b18115264f4f51dc8adc2b8a634c3d0c371282d7221",
+    "rollback-tests.json": "c3a31321785540eb4734398c4d7bfc4d7a194c376b63a2fe4d00463015191787",
+    "repeated-final.json": "a2d2d30640acfcd0c459fed3b8829af3d6d5e2f8bef8ab8703decdbcb86064e1",
+    "ux-extra-tests.json": "1b52c50bc595e1ecf8e418235f2e723ebf572fd2c15ded2dba433c9a0fc02bf5"
+  },
+  "Windows_EXE_sha256": "e62dcddf1656830254ffc6dbb5ca90087ce1d62bc842ca2c95eedde25e3c2cbd",
+  "firmware_outputs_byte_exact": [
+    "work/from-builder.syx",
+    "work/from-frozen-final.syx",
+    "work/from-GUI.syx"
+  ],
+  "header": "Digitakt II Sample Editing Pack",
+  "header_render_after_shortening": "SOURCE_ONLY; Computer Use stopped by user",
+  "protected": {
+    "DT2_SMARTSLICE_EXCEPTION_20261103\\HARDWARE_TEST\\DT2_OS117_SAMPLE_EDITING_SMART_FIX.syx": "e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2",
+    "DT2_SAMPLE_EDITING_WINDOWS_BUILDER_OS117\\Windows\\DT2-Sample-Editing-Builder.exe": "1e52cc07e9ec4c9f60ebf348690b37856811bea68f2eb06d15c8998a9e81a2c2",
+    "DT2_SAMPLE_EDITING_WINDOWS_BUILDER_OS117\\DT2-Sample-Editing-Builder-Windows-x64.zip": "e16ca54a1230d320012fddc109f7215a78926412e7bbb7c80d3499f4aa4cb206",
+    "DT2_SAMPLE_EDITING_OS117\\HARDWARE_TEST\\DT2_OS117_SAMPLE_EDITING.syx": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93"
+  },
+  "no_flash_or_publication": true
+}

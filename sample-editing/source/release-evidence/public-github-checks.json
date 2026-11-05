@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "output_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "exe_sha256": "593a3f6ca03c217601e660cc1693e6053d5cd42cbdd1663510572f1ec32f999c",
+  "frozen_system_only_PATH": true,
+  "windows_version": 26200,
+  "cases": [
+    {
+      "name": "clean-frozen-build",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "existing-output",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "same-input-output",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "already-modded",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "corrupt-stock",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "truncated-stock",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "wrong-version-device-data",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "missing-input",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "missing-output-folder",
+      "exit_code": 1,
+      "status": "REJECTED"
+    },
+    {
+      "name": "wrong-output-extension",
+      "exit_code": 1,
+      "status": "REJECTED"
+    }
+  ],
+  "hardware_acceptance": {
+    "date": "2026-11-05",
+    "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+    "status": "USER_HARDWARE_ACCEPTED",
+    "reported_by": "Kári",
+    "report": "H is now good and hardware testing passes. GO to remove the builder acceptance warning and finish the final release ZIP. Keep firmware unchanged. Do not flash or publish.",
+    "independently_observed_by_agent": false
+  },
+  "firmware_unchanged": true,
+  "scope": "Public docs/media, privacy redaction and accepted hardware JSON metadata only; no firmware changes."
+}

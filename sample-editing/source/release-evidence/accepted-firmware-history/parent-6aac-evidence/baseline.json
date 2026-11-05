@@ -1,0 +1,7 @@
+{
+  "status": "EXACT_SOURCE_REPRODUCTION",
+  "sha256": "fbfc6458ca6f27077d696a443d572e35fa200ff2dd1553797df6ee6cc5067c1e",
+  "bytes": 28800,
+  "bss": 144,
+  "protected_firmware_sha256": "3b6386010cd228ba603dbef3e681c42ed6490f2020e61ae80012fd458c4cec76"
+}

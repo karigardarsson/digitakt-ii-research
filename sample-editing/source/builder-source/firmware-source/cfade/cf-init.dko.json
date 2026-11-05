@@ -1,0 +1,33 @@
+{
+  "arch": "cf-mcf54418",
+  "format": "dko-prototype-1",
+  "source_sha256": "bb856933bef3394c490e59336ee4039a15dd0821fe40cf49d72b248bd21b46e5",
+  "sources": [
+    "entry.s"
+  ],
+  "toolchain": {
+    "gcc": "m68k-elf-gcc (GCC) 16.2.0",
+    "as": "GNU assembler (GNU Binutils) 2.47.20260726",
+    "ld": "GNU ld (GNU Binutils) 2.47.20260726",
+    "cflags": "-mcpu=54418 -Os -ffreestanding -fno-builtin -nostdlib -fno-pic -fno-pie -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-stack-protector -Wall -Wextra -Werror"
+  },
+  "sections": [
+    {
+      "name": ".text",
+      "kind": "text",
+      "align": 4,
+      "size": 18,
+      "hex": "2f00203c000000fa23c04293ba78201f4e75"
+    }
+  ],
+  "symbols": [
+    {
+      "name": "slice_cfade_init",
+      "section": ".text",
+      "value": 0,
+      "global": true,
+      "func": false
+    }
+  ],
+  "relocs": []
+}

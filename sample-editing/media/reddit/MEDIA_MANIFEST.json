@@ -1,0 +1,264 @@
+{
+  "status": "PASS",
+  "clips": [
+    {
+      "filename": "01-smartslice.gif",
+      "bytes": 44787,
+      "sha256": "1018618bb1fcb6ba0f37dc1aa19009979ffbea1812cbc4000c8f01811f70010f",
+      "duration_ms": 8200,
+      "frames": 3,
+      "canvas": [
+        768,
+        496
+      ],
+      "native_display": [
+        128,
+        64
+      ],
+      "scale": 6,
+      "display_box": [
+        0,
+        64,
+        768,
+        448
+      ],
+      "title": "SmartSlice",
+      "evidence": "Edited sequence of independently verified native dialog/result views",
+      "source_firmware_sha256": "247f4d8d9b99c41cdbfc07e69087375a08b7b3e70a984aba060118215d202a44",
+      "limitations": "Not an end-to-end SRC menu recording. Marker view lacks CF-only DSP waveform. SmartSlice and stock editor code are unchanged in current f239 candidate.",
+      "sources": [
+        {
+          "path": "DT2_SAMPLE_EDITING_HOWTO_20261105/work/smartslice-length-16.png",
+          "png_sha256": "8404816ef1e8fd319d70a7020b15ac4d50f8b4315221eeb05475275012ef3fe0",
+          "native_pixel_sha256": "a99bbab91b57daabf7de3a11ceaae65ebb342376fe101e1097591be34d8f604f",
+          "duration_ms": 2200,
+          "caption": "Native CREATE SLICE GRID dialog"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_HOWTO_20261105/work/smartslice-smart.png",
+          "png_sha256": "d8fc2fd397d0c37d2354d969d9912626e9ec0934999954ace8ac794ddec3c7fc",
+          "native_pixel_sha256": "a07999ab582fac0612efd6bef915cfd75bfc31aa8c91ac8574fa4749efab0534",
+          "duration_ms": 2600,
+          "caption": "Turn E to SMART"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_HOWTO_20261105/work/smartslice-result-markers.png",
+          "png_sha256": "0d616636d34cac4af76caca36ee81e1b15bd095e1390335bedeb16ef675d88b6",
+          "native_pixel_sha256": "fc45213feb1d8c1f6f197042638e552182f06038ee53f1eda44acb923b73e832",
+          "duration_ms": 3400,
+          "caption": "Example result: 16 detected slice boundaries"
+        }
+      ],
+      "all_decoded_native_pixels_exact": true,
+      "reused_unchanged": true,
+      "current_compatibility": "All displayed controls/renderer and H-push transitions unchanged. This update affects only H rotation, which is not depicted. Original capture identity and GIF bytes preserved."
+    },
+    {
+      "filename": "02-samplelab-smartchop-edit.gif",
+      "bytes": 132929,
+      "sha256": "057df45a63c5b6419188a641eca76f4a519c4f741317c30e00cf89b1a5dbbbf6",
+      "duration_ms": 15900,
+      "frames": 8,
+      "native_display": [
+        128,
+        64
+      ],
+      "canvas": [
+        768,
+        496
+      ],
+      "scale": 6,
+      "source_firmware_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+      "actual_native_events": true,
+      "all_decoded_native_pixels_exact": true,
+      "sources": [
+        {
+          "png": "lab-whole.png",
+          "png_sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175",
+          "duration_ms": 1400,
+          "caption": "Begin with the whole sample"
+        },
+        {
+          "png": "lab-settings.png",
+          "png_sha256": "d2e9bfbc1d6f3cda6b57e713611159a72bff44ad45fb0127a80ebc11bab82556",
+          "duration_ms": 2500,
+          "caption": "Push H for Settings / AUTO analysis"
+        },
+        {
+          "png": "lab-info-analyzed.png",
+          "png_sha256": "2ae9534dee4c0adcaf11973d0fbf3cea46e412028404338034c935fd7bf70d9a",
+          "duration_ms": 2800,
+          "caption": "Push H: apply analysis and open Info"
+        },
+        {
+          "png": "lab-analyzed.png",
+          "png_sha256": "345023be2259924e942b5757cb9ab6a164d760a7747a5fb5455d412a13a8c7e5",
+          "duration_ms": 2000,
+          "caption": "Push H again: eight detected regions"
+        },
+        {
+          "png": "lab-selected.png",
+          "png_sha256": "fe23bfe03b49b9049fd727c0316f2512c2badfc6bdab12aa86cf26c4ed9162fb",
+          "duration_ms": 1400,
+          "caption": "Turn A deliberately to select the next region"
+        },
+        {
+          "png": "lab-fit.png",
+          "png_sha256": "c80af757692da7891226c2a293be50b45b59eeefe659b9fd428c4de7c75f0117",
+          "duration_ms": 1400,
+          "caption": "Push A to fit the selected region"
+        },
+        {
+          "png": "lab-trim-start.png",
+          "png_sha256": "2203b88f9ee20e7e9c2d7f7203614ba1de9ee9be22d0805d5a52738d39e3bf3f",
+          "duration_ms": 1600,
+          "caption": "Turn E to trim START"
+        },
+        {
+          "png": "lab-trim-end.png",
+          "png_sha256": "d7b45b742c807f7917ff00a3d4e695de03ecb8331a1436e4abfde7d831dd647c",
+          "duration_ms": 2800,
+          "caption": "Turn F to trim END"
+        }
+      ],
+      "limitations": "Native UI/filesystem with supplied PCM and existing SamplerView fixture. No physical audio/recording claim; looping restarts the edited demo.",
+      "current_compatibility": "All displayed controls/renderer and H-push transitions unchanged. This update affects only H rotation, which is not depicted. Original capture identity and GIF bytes preserved."
+    },
+    {
+      "filename": "03-universal-zoom.gif",
+      "bytes": 117192,
+      "sha256": "d32a262efaa4d8316ab08cfec88a5a5c46f3825ee18f22df5f617d0073429f5b",
+      "duration_ms": 12400,
+      "frames": 8,
+      "canvas": [
+        768,
+        496
+      ],
+      "native_display": [
+        128,
+        64
+      ],
+      "scale": 6,
+      "display_box": [
+        0,
+        64,
+        768,
+        448
+      ],
+      "title": "Universal Zoom / 1x to 64x",
+      "evidence": "Native C key events with deterministic waveform/response fixture",
+      "source_firmware_sha256": "f239a2f68ba22e137f8ab440292209166b7c47fa68244e415e9c9d3f01f41172",
+      "limitations": "Peak caches/PCM and completed opcode8 replies are supplied data. Worker/queue/physical DSPI waveform acquisition is not exercised. Not an acquisition-speed benchmark.",
+      "sources": [
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-1x.png",
+          "png_sha256": "32701a70eaee61d76db2c3227262af117ee244179244f9dde710c80501e8778e",
+          "native_pixel_sha256": "79c82714b3684ed99d4f3db3ecf744c4581c288e15eae61c8eb5b4da67c7983a",
+          "duration_ms": 1800,
+          "caption": "Tap C / 1x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-2x.png",
+          "png_sha256": "d9503d06241a1bbff76883a1732efca3fb78e4f113fff8d61d60b8fe85ade05d",
+          "native_pixel_sha256": "b0c601741a0d48bebd1cd97b580e7a2ed0d550517fdab8dd55604e4fbefbde48",
+          "duration_ms": 1000,
+          "caption": "Tap C / 2x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-4x.png",
+          "png_sha256": "87418d2a64b652d9d61117cb3bf2c349741484b44980b4ee1e8b17a66bbaf2df",
+          "native_pixel_sha256": "e3a5fc6250d4cd3839dfed5ab915067414c457b3ca390b01584c2974e4da8b35",
+          "duration_ms": 1100,
+          "caption": "Tap C / 4x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-8x.png",
+          "png_sha256": "b762b24feca6ce67943c843bae53deacaaa55925e0ed3317989465ff1ad4c554",
+          "native_pixel_sha256": "9b065f20c48aeeaaa5eafab9944401dbf54b07bfd6701644a6dc7155a156aa01",
+          "duration_ms": 1200,
+          "caption": "Tap C / 8x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-16x.png",
+          "png_sha256": "afcf53e12af0e3ffef6b7f0d68128470055dbe5ad5e135b742974306bb1bf710",
+          "native_pixel_sha256": "d29347de1d523bc822eb43373503ea478334ef87ed14e0ef9206c19641edc8a1",
+          "duration_ms": 1300,
+          "caption": "Tap C / 16x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-32x.png",
+          "png_sha256": "2393237ff8d3a2ff956a1bc6e07189eae50a53c379155e7b39ab29d8edbf8f2f",
+          "native_pixel_sha256": "d1151891d66111b6ed3ed53a250211df2846cbab29b7eb0697beae0b2aa0fb77",
+          "duration_ms": 1500,
+          "caption": "Tap C / 32x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-64x.png",
+          "png_sha256": "47a2b724358cd8b0fea9bb2ba408de8ffdb1c20d6a79afa0bb38dd94a8eb9973",
+          "native_pixel_sha256": "605b1aef728a6b148930e522606d11f17523b6f07cfbb5bbfe0b07bcfc83ddda",
+          "duration_ms": 3000,
+          "caption": "Tap C / 64x magnification"
+        },
+        {
+          "path": "DT2_SAMPLE_EDITING_RELEASE_MEDIA_20261105/work/zoom-1x-reset.png",
+          "png_sha256": "32701a70eaee61d76db2c3227262af117ee244179244f9dde710c80501e8778e",
+          "native_pixel_sha256": "79c82714b3684ed99d4f3db3ecf744c4581c288e15eae61c8eb5b4da67c7983a",
+          "duration_ms": 1500,
+          "caption": "One more tap returns to 1x"
+        }
+      ],
+      "all_decoded_native_pixels_exact": true,
+      "reused_unchanged": true,
+      "current_compatibility": "All displayed controls/renderer and H-push transitions unchanged. This update affects only H rotation, which is not depicted. Original capture identity and GIF bytes preserved."
+    },
+    {
+      "filename": "04-samplelab-drive-load.gif",
+      "bytes": 60981,
+      "sha256": "df53f60ef325008af8544838ddb43e33449d74465a51bb909a34079c948064b3",
+      "duration_ms": 10200,
+      "frames": 4,
+      "native_display": [
+        128,
+        64
+      ],
+      "canvas": [
+        768,
+        496
+      ],
+      "scale": 6,
+      "source_firmware_sha256": "6aac3f72381afddab50d4eac2864c32f625aaa1abee7123df1aa20efab2fe074",
+      "actual_native_events": true,
+      "all_decoded_native_pixels_exact": true,
+      "sources": [
+        {
+          "png": "drive-source.png",
+          "png_sha256": "b506d245add8b6257e209e7ca60bd93cebf1aa78587c59bda4fa8506b137e9b4",
+          "duration_ms": 2000,
+          "caption": "Push D to open SOURCE"
+        },
+        {
+          "png": "drive-load-drive.png",
+          "png_sha256": "c7ed6754bba27c22aa1db2d2b133762562f8fe49e0636d53112946d1698c8410",
+          "duration_ms": 2600,
+          "caption": "Choose LOAD FROM +DRIVE / press YES"
+        },
+        {
+          "png": "drive-file.png",
+          "png_sha256": "fafef513dd02fcd7f8db2d30eed098d18f6776a3b1e0cd87047eb2e97a68dc8b",
+          "duration_ms": 2400,
+          "caption": "Select the sample in the native browser"
+        },
+        {
+          "png": "drive-loaded.png",
+          "png_sha256": "b66610b0f08c7196a2b971991bfcf235483ee7e8470f306527e9d8d95417f175",
+          "duration_ms": 3200,
+          "caption": "Press YES: sample loaded into the editor"
+        }
+      ],
+      "limitations": "Native UI/filesystem with supplied PCM and existing SamplerView fixture. No physical audio/recording claim; looping restarts the edited demo.",
+      "current_compatibility": "All displayed controls/renderer and H-push transitions unchanged. This update affects only H rotation, which is not depicted. Original capture identity and GIF bytes preserved."
+    }
+  ],
+  "current_candidate_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "current_H_fix_does_not_change_depicted_paths": true
+}

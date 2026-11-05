@@ -1,0 +1,24 @@
+{
+  "product": "Digitakt II Sample Editing Pack",
+  "date": "2026-11-05",
+  "included": [
+    "Universal Zoom",
+    "SmartSlice",
+    "SampleLAB",
+    "CFADE"
+  ],
+  "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "firmware_bytes": 1882144,
+  "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5",
+  "Windows_builder_sha256": "593a3f6ca03c217601e660cc1693e6053d5cd42cbdd1663510572f1ec32f999c",
+  "hardware_status": "USER_HARDWARE_ACCEPTED",
+  "acceptance_date": "2026-11-05",
+  "proprietary_firmware_distributed": false,
+  "restricted_compiler_distributed": false,
+  "README": "README.md",
+  "HOW_TO": "docs/HOW_TO.md",
+  "source": "source/builder-source",
+  "build_instructions": "BUILDING.md",
+  "screenshots_native": 36,
+  "GIFs": 4
+}

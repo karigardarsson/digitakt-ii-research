@@ -1,0 +1,471 @@
+{
+  "status": "PASS",
+  "image_sha256": "e0867dc7367c8778da49995c8e8407c044f3ed72a2383d3bf9fcd197515b89a2",
+  "cases": [
+    {
+      "name": "silence",
+      "frames": 48000,
+      "channels": 1,
+      "generated_hits": 0,
+      "metadata_before": [
+        48000,
+        0
+      ],
+      "metadata_seam": false,
+      "requests": [
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 1,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        },
+        {
+          "request": 1,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": true
+        },
+        {
+          "request": 64,
+          "status": 4294967290,
+          "count": 64,
+          "valid_order_spacing_and_capacity": true,
+          "old_grid_preserved_on_failure": null
+        }
+      ],
+      "native_error_success_popups_and_real_encoder_and_NO": true,
+      "production_code_pokes": 0
+    }
+  ],
+  "stress_cycles": 32,
+  "evidence": "Native file export/reference/SMART/fixed-grid writer and actual non-null popup parent, UART encoder/NO. CF-only metadata completion seam explicitly recorded; no ADC/listening/hardware proof."
+}

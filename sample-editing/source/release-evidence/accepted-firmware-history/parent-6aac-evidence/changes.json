@@ -1,0 +1,53 @@
+{
+  "status": "PASS_TEXT_ONLY_RELEASE_POLISH",
+  "baseline_sha256": "3b6386010cd228ba603dbef3e681c42ed6490f2020e61ae80012fd458c4cec76",
+  "changed_object_sections": [
+    ".rodata.sl_lab_draw.str1.1"
+  ],
+  "changed_code_sections": [],
+  "controls_navigation_zoom_processing_storage_workers_exact": true,
+  "all_other_six_modules_exact": true,
+  "Lab_BSS_bytes": 144,
+  "lab_payload_bytes": 28816,
+  "old_lab_payload_bytes": 28800,
+  "relocated_existing_hooks": [
+    {
+      "address": 1073875296,
+      "before": "4ef947ee44a84e71",
+      "after": "4ef947ee44a84e71",
+      "symbol": "sl_lab_encoder"
+    },
+    {
+      "address": 1073884270,
+      "before": "4ef947ee4bfc4e71",
+      "after": "4ef947ee4bfc4e71",
+      "symbol": "sl_lab_key"
+    },
+    {
+      "address": 1073880544,
+      "before": "4ef947ee51ec4e71",
+      "after": "4ef947ee51ec4e71",
+      "symbol": "sl_lab_draw"
+    },
+    {
+      "address": 1073877434,
+      "before": "4ef947ee43f44e71",
+      "after": "4ef947ee43f44e71",
+      "symbol": "sl_lab_tick"
+    },
+    {
+      "address": 1075429206,
+      "before": "4ef947ee43d84e71",
+      "after": "4ef947ee43d84e71",
+      "symbol": "sl_lab_destroy"
+    },
+    {
+      "address": 1074059744,
+      "before": "4ef947ee43564e71",
+      "after": "4ef947ee43564e71",
+      "symbol": "sl_lab_record_state"
+    }
+  ],
+  "stock_prefix_rollback_exact": true,
+  "no_DSP_or_persistent_format_change": true
+}

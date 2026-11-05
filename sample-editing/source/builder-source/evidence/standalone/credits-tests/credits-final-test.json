@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "candidate_sha256": "d7cbee11101c81fa54b754880083d5130e01ffdadcac254ce07e5e4709a33f93",
+  "final_image": true,
+  "native_system_items_preserved": 4,
+  "opened_via_native_yes": true,
+  "pages_executed": 3,
+  "native_no_back_cleanup_cycles": 9,
+  "controller_restored": true,
+  "stock_items_byte_identical": true,
+  "callee_saved_and_stack": "PASS",
+  "bitmap_and_object_guards": "PASS",
+  "hardware_tested": false,
+  "page3_repeat_draws_byte_identical": 3,
+  "header_prefix_footer_stable": true,
+  "fixture": "cached OS1.17 native state; actual image MAIN/segments; nested System/child controller stack"
+}
