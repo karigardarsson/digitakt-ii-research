@@ -42,6 +42,10 @@ def sha256_file(path: Path) -> str:
 def resource_root() -> Path:
     return Path(getattr(sys,'_MEIPASS',Path(__file__).resolve().parent))
 
+def firmware_tool(root: Path) -> Path:
+    name = 'elektron-firmware-tool.exe' if os.name == 'nt' else 'elektron-firmware-tool'
+    return root/'native'/name
+
 def checked_resources() -> tuple[Path,dict]:
     root = resource_root()
     for relative,expected in RESOURCE_HASHES.items():
@@ -196,7 +200,7 @@ def build_firmware(stock_path: str|Path, output_path: str|Path, progress=None) -
         if sha256_file(stock) != STOCK_SHA256:
             raise BuildError('Input rejected: this is not the verified stock Digitakt II OS 1.17 file. Other versions, modified, corrupt and previously built firmware are unsupported.')
         root,m = checked_resources()
-        tool = root/'native/elektron-firmware-tool.exe'
+        tool = firmware_tool(root)
         with tempfile.TemporaryDirectory(prefix='.dt2-sample-editing-',dir=output.parent) as folder:
             work = Path(folder)
             # Freeze the checked input against external changes during a build.

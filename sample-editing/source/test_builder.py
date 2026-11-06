@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import patch
 
 HERE=Path(__file__).resolve().parent
-sys.path.insert(0,str(HERE/'builder-source'))
+sys.path.insert(0,os.environ.get('DT2_BUILDER_SOURCE',str(HERE/'builder-source')))
 import builder_core as b
 
 class BuilderTests(unittest.TestCase):
@@ -23,7 +23,7 @@ class BuilderTests(unittest.TestCase):
             if not stock.is_file() or b.sha256_file(stock)!=b.STOCK_SHA256:
                 raise RuntimeError('Set DT2_TEST_STOCK to your official OS 1.17 .syx file.')
             with tempfile.TemporaryDirectory(dir=HERE) as tmp:
-                files=b.extract(cls.root/'native/elektron-firmware-tool.exe',stock,Path(tmp)/'sections')
+                files=b.extract(b.firmware_tool(cls.root),stock,Path(tmp)/'sections')
                 cls.stock=files[b.MAIN].read_bytes()
 
     def reject_recipe(self,mutate):
@@ -109,7 +109,7 @@ class DSPTests(unittest.TestCase):
         self.root,self.manifest=b.checked_resources()
         stock=Path(os.environ['DT2_TEST_STOCK'])
         with tempfile.TemporaryDirectory(dir=HERE) as tmp:
-            files=b.extract(self.root/'native/elektron-firmware-tool.exe',stock,Path(tmp)/'sections')
+            files=b.extract(b.firmware_tool(self.root),stock,Path(tmp)/'sections')
             self.stock=files['section_7_blob.bin'].read_bytes()
     def test_exact_DSP(self):
         self.assertEqual(b.sha(b.apply_dsp(self.stock,self.root)),self.manifest['sections']['section_7_blob.bin']['output_sha256'])
