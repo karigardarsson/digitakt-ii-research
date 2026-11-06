@@ -4,6 +4,10 @@ Universal Zoom, SmartSlice, SampleLAB and CFADE for **Digitakt II, OS 1.17**.
 
 **[Download the Windows package](https://github.com/karigardarsson/digitakt-ii-research/raw/refs/heads/main/sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip)** · **[HOW-TO and demonstrations](docs/HOW_TO.md)**
 
+For macOS, see the separate **[Apple Silicon and Intel candidate packages](macos/README.md)**.
+Their native app/GUI checks pass; full stock-input generation on Mac is not yet
+verified. The existing Windows package is unchanged.
+
 ## Create the firmware file
 
 1. Extract the ZIP to a writable folder on Windows x64.

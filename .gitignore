@@ -37,6 +37,8 @@ windows-builder/test-work/
 
 # Reviewed standalone Sample Editing Pack distribution; custom patches only.
 !sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip
+!sample-editing/downloads/DT2-Sample-Editing-Pack-macOS-arm64.zip
+!sample-editing/downloads/DT2-Sample-Editing-Pack-macOS-x86_64.zip
 !sample-editing/docs/images/
 !sample-editing/docs/images/**
 !sample-editing/source/builder-source/assets/background.bin

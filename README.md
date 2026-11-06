@@ -7,12 +7,16 @@ Four tools for working with samples on Digitakt II:
 - **SampleLAB** — load or record a sample, chop, trim, audition and save edited copies.
 - **CFADE** — blend the loop wrap in SLICE playback for smoother loops.
 
-**[Download the Windows builder](sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip?raw=1)** · **[Read the HOW-TO](sample-editing/docs/HOW_TO.md)**
+**[Download the Windows builder](sample-editing/downloads/DT2-Sample-Editing-Pack-Windows-x64.zip?raw=1)** · **[Mac candidates: Apple Silicon / Intel](sample-editing/macos/README.md)** · **[Read the HOW-TO](sample-editing/docs/HOW_TO.md)**
 
 For **Digitakt II with official stock OS 1.17**. The builder runs on Windows x64
 (tested on Windows 11). You supply your own stock firmware file; no Elektron
 firmware is included. The application is unsigned, so Windows may display a
 publisher warning.
+
+Native Mac candidates are available for **macOS 15+**. Their apps and GUI were
+tested on both architectures; a full stock-input build on macOS is still
+unverified. See the [Mac download and installation guide](sample-editing/macos/README.md).
 
 ## Download and install
 

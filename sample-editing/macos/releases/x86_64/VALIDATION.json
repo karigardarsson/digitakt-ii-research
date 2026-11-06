@@ -1,0 +1,457 @@
+{
+  "status": "PASS",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit",
+  "architecture": "x86_64",
+  "python": "3.12.10",
+  "packaged_GUI": {
+    "status": "PASS",
+    "native_architecture": "x86_64",
+    "macOS": "15.7.9",
+    "frozen": true,
+    "python": "3.12.10",
+    "Tk": "8.6.16",
+    "native_resources_verified": true,
+    "GUI_created": true,
+    "layout_and_ready_log": true,
+    "attribution_preserved": true,
+    "save_dialog_default": "DT2_OS117_SAMPLE_EDITING_RELEASE_CANDIDATE.syx",
+    "output_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+    "stock_sha256": "26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5"
+  },
+  "native_tool_sha256": "23ca722104b87baacd4fb5263d3b47cb4ed347790476ef7bfe177a1624ef2997",
+  "system_only_PATH": true,
+  "codesign_deep_verify": true,
+  "external_non_system_dependencies": false,
+  "dependencies": [
+    {
+      "path": "Contents/MacOS/DT2 Sample Editing Builder",
+      "architectures": "x86_64",
+      "libraries": [
+        "/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon",
+        "/usr/lib/libSystem.B.dylib",
+        "/usr/lib/libz.1.dylib",
+        "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices",
+        "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+        "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/libtcl8.6.dylib",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libtcl8.6.dylib",
+        "/usr/lib/libz.1.dylib",
+        "/usr/lib/libSystem.B.dylib",
+        "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/libssl.3.dylib",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libssl.3.dylib",
+        "@rpath/libcrypto.3.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/libcrypto.3.dylib",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libcrypto.3.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/libtk8.6.dylib",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libtk8.6.dylib",
+        "/usr/lib/libSystem.B.dylib",
+        "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+        "/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa",
+        "/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon",
+        "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit",
+        "/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore",
+        "/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers",
+        "/usr/lib/libz.1.dylib",
+        "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit",
+        "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices",
+        "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics",
+        "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices",
+        "/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText",
+        "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+        "/usr/lib/libobjc.A.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/native/elektron-firmware-tool",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_struct.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/array.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_queue.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_blake2.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_sha1.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_hashlib.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libcrypto.3.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/grp.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_tkinter.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libtcl8.6.dylib",
+        "@rpath/libtk8.6.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_socket.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_decimal.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_csv.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_statistics.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_sha3.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/fcntl.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_ssl.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/libssl.3.dylib",
+        "@rpath/libcrypto.3.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/termios.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/zlib.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libz.1.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/unicodedata.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_bisect.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_codecs_cn.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_multibytecodec.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_posixsubprocess.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/select.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_lzma.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/pyexpat.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_pickle.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_codecs_jp.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_bz2.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libbz2.1.0.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_datetime.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/math.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_sha2.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_codecs_iso2022.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_codecs_tw.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_opcode.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_codecs_kr.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_heapq.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_scproxy.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration",
+        "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_md5.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_random.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_contextvars.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/resource.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_codecs_hk.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/binascii.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libz.1.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/python3__dot__12/lib-dynload/_json.cpython-312-darwin.so",
+      "architectures": "x86_64",
+      "libraries": [
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    },
+    {
+      "path": "Contents/Frameworks/Python.framework/Versions/3.12/Python",
+      "architectures": "x86_64",
+      "libraries": [
+        "@rpath/Python",
+        "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    }
+  ],
+  "rejection_cases": [
+    {
+      "name": "incorrect-stock",
+      "status": "PASS"
+    },
+    {
+      "name": "existing-output",
+      "status": "PASS"
+    },
+    {
+      "name": "same-input-output",
+      "status": "PASS"
+    },
+    {
+      "name": "missing-input",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-output-extension",
+      "status": "PASS"
+    },
+    {
+      "name": "missing-output-parent",
+      "status": "PASS"
+    }
+  ],
+  "synthetic_atomic_output_and_symlink_protection": true,
+  "native_parser_rejects_invalid_data": true,
+  "resource_tamper_rejected": true,
+  "exact_stock_build": {
+    "status": "NOT_TESTED",
+    "reason": "No official stock OS1.17 URL supplied; proprietary firmware is never uploaded as an artifact."
+  },
+  "signature": "ad-hoc; no Developer ID or Apple notarization",
+  "firmware_expected_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06"
+}

@@ -25,6 +25,31 @@ Windows 11 x64 is tested. Windows 10, ARM64, clean-VM behavior, other DPI settin
 and signing/SmartScreen/antivirus acceptance are not newly qualified. The EXE is
 unsigned. These Windows limits are separate from the instrument's hardware acceptance.
 
+### macOS candidates
+
+Native Apple Silicon and Intel apps are available separately; see the
+[Mac guide](../macos/README.md), [CI run](https://github.com/karigardarsson/digitakt-ii-research/actions/runs/42189170278)
+and [platform validation reports](../macos/releases/). Automated app/GUI, native
+tool, dependencies, signatures, resource checks and file protection passed on
+macOS 15.8.2 arm64 and 15.7.9 x86_64. The apps include their Python/Tk runtime.
+
+No official stock download URL was supplied to the workflow, so **full stock-input
+generation is NOT_TESTED on macOS**. The shared core still rejects any generated
+firmware whose hash differs from 880d810f…; no firmware code was changed.
+These Mac builders remain candidates. They are ad-hoc signed, not Developer ID
+signed/notarized; downloaded-app Gatekeeper handling and older macOS releases
+are unqualified. Windows downloads and their hashes remain unchanged.
+
+Mac builds compile the existing MIT container-tool source, generate a native
+resource seal in an isolated staging directory, and reuse the existing GUI/core
+and custom assets. Windows continues selecting the same sealed `.exe`.
+The only shared-core change is the platform-aware native-tool filename.
+
+| Mac ZIP | SHA-256 |
+|---|---|
+| Apple Silicon | `d45663fdf1d528a87cc28b15564779bcfd1311b494abe88ea0bae52ebfeb3501` |
+| Intel | `6124cf2cd226ee67b195eb64f46e769929d492d2e24018e3f454e3ca9438be8d` |
+
 ## Download and repository documentation
 
 The [download checksum file](../downloads/SHA256SUMS.txt) identifies the unchanged
@@ -34,8 +59,12 @@ inventory](../SHA256SUMS.txt) retains the same release snapshot.
 
 Repository README/HOW-TO pages can receive editorial updates without rebuilding
 the ZIP. Their current text may therefore differ from the documentation hashes
-in the frozen package inventory. This documentation cleanup changes no download,
+in the frozen package inventory. The earlier documentation-only cleanup changed no download,
 builder, firmware, screenshot, GIF or source asset.
+
+That inventory describes the frozen Windows package. Subsequent native Mac
+packaging has separate archives, generated seals and validation records; the
+Windows archive is not rebuilt to add Mac support.
 
 ## Encoder behavior and earlier regression context
 

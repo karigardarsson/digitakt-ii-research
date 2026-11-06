@@ -1,0 +1,18 @@
+{
+  "status": "PACKAGED_AND_GUI_TESTED",
+  "architecture": "arm64",
+  "tested_macOS": "15.8.2",
+  "source_commit": "5b5085ae47ed05d303998d1a6e9069542abcac83",
+  "python": "3.12.10",
+  "archive": "DT2-Sample-Editing-Pack-macOS-arm64.zip",
+  "bytes": 11780220,
+  "sha256": "d45663fdf1d528a87cc28b15564779bcfd1311b494abe88ea0bae52ebfeb3501",
+  "exact_stock_build": {
+    "status": "NOT_TESTED",
+    "reason": "No official stock OS1.17 URL supplied; proprietary firmware is never uploaded as an artifact."
+  },
+  "firmware_sha256": "880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06",
+  "notarized": false,
+  "minimum_macOS": "15.0",
+  "native_tool_sha256": "017888a31d7a108ba6b7597de812db9233c7ab2ca9e6fdc31c9351367bae5ee4"
+}

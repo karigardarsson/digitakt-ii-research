@@ -1,5 +1,8 @@
 # Build and verify the standalone Windows builder
 
+For native Apple Silicon/Intel packaging, see the separate [macOS build guide](macos/README.md).
+Windows release files and their existing build procedure are unchanged.
+
 The portable Windows EXE is ready to use. End users supply their own official
 Digitakt II **OS 1.17** `.syx`; no Python, compiler, WSL or device connection is
 needed. The exact accepted stock hash and generated firmware hash are in README.md.
