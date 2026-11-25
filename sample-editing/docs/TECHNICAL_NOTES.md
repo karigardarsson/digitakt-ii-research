@@ -25,7 +25,7 @@ Windows 11 x64 is tested. Windows 10, ARM64, clean-VM behavior, other DPI settin
 and signing/SmartScreen/antivirus acceptance are not newly qualified. The EXE is
 unsigned. These Windows limits are separate from the instrument's hardware acceptance.
 
-### macOS candidates
+### macOS builders
 
 Native Apple Silicon and Intel apps are available separately; see the
 [Mac guide](../macos/README.md), [CI run](https://github.com/karigardarsson/digitakt-ii-research/actions/runs/42189170278)
@@ -33,12 +33,14 @@ and [platform validation reports](../macos/releases/). Automated app/GUI, native
 tool, dependencies, signatures, resource checks and file protection passed on
 macOS 15.8.2 arm64 and 15.7.9 x86_64. The apps include their Python/Tk runtime.
 
-No official stock download URL was supplied to the workflow, so **full stock-input
-generation is NOT_TESTED on macOS**. The shared core still rejects any generated
-firmware whose hash differs from 880d810f…; no firmware code was changed.
-These Mac builders remain candidates. They are ad-hoc signed, not Developer ID
-signed/notarized; downloaded-app Gatekeeper handling and older macOS releases
-are unqualified. Windows downloads and their hashes remain unchanged.
+A community tester ran the published Apple Silicon builder with stock OS 1.17
+and reported the expected output SHA-256 `880d810f036bdc56a5aac0fb85d249366aa8678fbdd7435b1fd95a7ed4a1df06`.
+The tester also reported the same hash from a local build. The macOS version
+for the manual runs is unrecorded. End-to-end stock-input evidence is for
+Apple Silicon.
+
+The apps are ad-hoc signed. Developer ID signing, notarization, general
+Gatekeeper behavior and older macOS versions are outside this test coverage.
 
 Mac builds compile the existing MIT container-tool source, generate a native
 resource seal in an isolated staging directory, and reuse the existing GUI/core

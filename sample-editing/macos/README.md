@@ -4,12 +4,10 @@ This builds a native, standalone app for Apple Silicon or Intel using the existi
 Python/Tk GUI, custom patch assets and bundled MIT firmware-container tool source.
 Windows downloads are unchanged.
 
-## Download — macOS candidates
+## Download
 
-**These apps passed native packaging and GUI checks, but a complete build with
-the correct stock OS 1.17 input has not yet been tested on macOS.** The firmware
-itself is the same hardware-accepted Sample Editing Pack; these Mac builders
-remain candidates until that end-to-end check is completed.
+A community tester ran the Apple Silicon builder with stock OS 1.17 and got
+the same SHA-256 as the Sample Editing Pack I tested on Digitakt II.
 
 - **[Apple Silicon / M-series Mac](../downloads/DT2-Sample-Editing-Pack-macOS-arm64.zip?raw=1)** — native arm64, tested on macOS 15.8.2.
 - **[Intel Mac](../downloads/DT2-Sample-Editing-Pack-macOS-x86_64.zip?raw=1)** — native x86_64, tested on macOS 15.7.9.
@@ -19,9 +17,9 @@ Both require **macOS 15 or later** and include Python/Tk; no Python installation
 is needed. Each app was tested after relocation into a path with spaces and
 accented characters, using a system-only PATH. Native executable/resource checks,
 Tk GUI creation/layout, signatures, dependencies, malformed-input rejection,
-atomic file creation and existing-file/symlink protection pass. This is automated
-CI testing, not manual desktop/Gatekeeper acceptance or a completed stock-input
-firmware build. Full details are in each package's VALIDATION.json.
+atomic file creation and existing-file/symlink protection passed in CI.
+See the [technical notes](../docs/TECHNICAL_NOTES.md#macos-builders) for CI and
+the full Apple Silicon build.
 
 The required input is your own official Digitakt II OS 1.17 `.syx`:
 `26c22f6652625ac2cfd47f7ee970d388ed8b6427dae3563c0a6a2f2d334350d5`.
@@ -61,8 +59,8 @@ resource tampering, native parser, dependencies, signatures and file protections
 
 An optional `--stock-url` may point to an official HTTPS `.syx`/ZIP download for
 exact-output testing. Its SHA must match above. Test firmware stays temporary and
-is never included in the package or Actions artifacts. No stock URL means that
-full firmware build is explicitly marked NOT_TESTED. Do not upload firmware to
+is never included in the package or Actions artifacts. A CI run without a stock
+URL marks firmware generation as NOT_TESTED for that run. Do not upload firmware to
 this repository or distribute generated `.syx` files.
 
 Keep LICENSE, NOTICE and third-party notices. This is modified DigiKit-derived
