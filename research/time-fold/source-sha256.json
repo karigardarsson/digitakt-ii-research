@@ -1,0 +1,8 @@
+{
+  "source/fold.c": "f4b6fd14aff0542a5e8339bced3d729d5272ac27e8dc6f0e97834c0b3955aee6",
+  "source/fold.h": "c06ef91e9365ac763c12da42b09008c905810eda7484dc2855a2aa2cc62c0f19",
+  "source/native.c": "d1477daf55f3e5a782745298db1746dfeba66caa3f786a99de75daf829dd5f52",
+  "source/entry.s": "25c3323630d89a105ace7d6292e9da1ba4d6c5ed3f4491bb36f0f4af0132c44a",
+  "source/emit.s": "ec707ec41abc11209f51e310d44342b8cf6354d011e903d278a46a39a82998fe",
+  "source/module.toml": "022738f0df845df23b0cfb6e9cd5c1e207beac5c2728c61e2cf47529420c7a86"
+}

@@ -1,0 +1,101 @@
+[module]
+id = "machines/time-fold"
+version = "0.1.0"
+name = "Time Fold"
+category = "machines"
+status = "experimental"
+summary = "A tuned oscillator with feedback in its phase maps."
+ports = ["dt2-1.17"]
+requires = ["core/machines", "core/params", "core/dsp-inline"]
+conflicts = []
+
+[[object]]
+path = "build/time-fold-dsp.dko.json"
+sources = ["dsp/entry.s", "dsp/emit.s", "dsp/native.c"]
+place = "dsp.l2"
+devices = ["dt2"]
+
+[[entry]]
+registry = "inline_voices"
+id = "time_fold"
+type = "machines.time_fold.index"
+pc = "_fold_entry"
+devices = ["dt2"]
+
+[[entry]]
+registry = "machines"
+id = "time_fold"
+name = "Time Fold"
+short = "TFOLD"
+clone_of = 6
+one_page = 1
+f0 = 248
+f1 = "params.fold.index"
+f2 = "params.nest.index"
+f3 = 0
+f4 = "params.memory.index"
+f5 = "params.clock.index"
+f6 = "params.drift.index"
+f7 = 254
+f8 = 10
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "fold"
+name = "Fold Direction and Depth"
+short = "FOLD"
+template = 254
+slot = 1
+min = 0
+max = 32512
+default = 28160
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "nest"
+name = "Nested Interval Depth"
+short = "NEST"
+template = 254
+slot = 2
+min = 0
+max = 32512
+default = 25088
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "memory"
+name = "Map Feedback"
+short = "MEM"
+template = 254
+slot = 4
+min = 0
+max = 32512
+default = 22528
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "clock"
+name = "Clock Rate"
+short = "CLOCK"
+template = 254
+slot = 5
+min = 0
+max = 32512
+default = 9216
+devices = ["dt2"]
+
+[[entry]]
+registry = "params"
+id = "drift"
+name = "Clock Drift"
+short = "DRIFT"
+template = 254
+slot = 6
+min = 0
+max = 32512
+default = 3072
+devices = ["dt2"]
